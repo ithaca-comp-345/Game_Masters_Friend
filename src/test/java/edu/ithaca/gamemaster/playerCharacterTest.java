@@ -11,6 +11,12 @@ public class playerCharacterTest {
     void createPlayerTest(){
         Player testPlayer = new Player("Frodo");
         testPlayer.setHP(1000);
+        testPlayer.setRace("Hobbit");
+        testPlayer.setLevel(2);
+        testPlayer.setcharClass("Paladin");
+        testPlayer.randomizeAbilityScores();
+        //Unfinished
+
         assertEquals(1000,testPlayer.getHP());
     }
 }

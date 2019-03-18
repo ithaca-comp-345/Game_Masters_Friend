@@ -4,15 +4,23 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Character {
+    //HP stuff
     private int hitPts;
+    private int hitDiceAmt;
+    private int hitDiceSided;
+    private int hitDiceModifier;
     private int armor;
+    private int speed;
+
+    //Ability Scores
     private int strength;
     private int dexterity;
     private int constitution;
     private int intelligence;
     private int wisdom;
     private int charisma;
-    private int speed;
+
+    //Other stuff
     private String name;
     private String alignment;
     private ArrayList<String> languages;
@@ -45,11 +53,35 @@ public class Character {
             return false; }
     }
 
+    //Randomize Methods
+
+    //TODO more randomization of other stat fields
+
+    public void randomizeAbilityScores(){
+        int statRolls = 6;
+        ArrayList<Integer> rolls = new ArrayList<Integer>();
+        DiceRoll randomizer = new DiceRoll(4,6);
+
+        //Randomized ability rolls
+        setStrength(randomizer.abilityRoll());
+        setDexterity(randomizer.abilityRoll());
+        setConstitution(randomizer.abilityRoll());
+        setIntelligence(randomizer.abilityRoll());
+        setWisdom(randomizer.abilityRoll());
+        setCharisma(randomizer.abilityRoll());
+
+    }
+
     //Set Methods
 
     public void setHP(int startingHP){
         checkValid0(startingHP);
         this.hitPts=startingHP;
+    }
+    public void setHitDice(int numDice, int diceSides, int hitModifier){
+        this.hitDiceAmt=numDice;
+        this.hitDiceSided=diceSides;
+        this.hitDiceModifier=hitModifier;
     }
     public void setName(String newName){this.name=newName;}
 
@@ -107,9 +139,28 @@ public class Character {
     public int getArmor(){ return armor;}
     public String getAlignment(){ return alignment;}
 
+    public String getHitDice(){
+        StringBuilder hitD = new StringBuilder();
+        hitD.append(hitDiceAmt + "d" + hitDiceSided + "+" + hitDiceModifier);
+        String hitDice = hitD.toString();
+        return hitDice;
+    }
+    public int getHitDiceSided(){
+        return hitDiceSided;
+    }
+    public int getHitDiceAmt(){
+        return hitDiceAmt;
+    }
+    public int getHitDiceModifier(){
+        return hitDiceModifier;
+    }
+
     //List stuff
 
     public String getLanguages(){
+        if(languages.isEmpty()){
+            return "Character knows no languages";
+        }
         return languages.toString();
     }
     public String getActions(){
