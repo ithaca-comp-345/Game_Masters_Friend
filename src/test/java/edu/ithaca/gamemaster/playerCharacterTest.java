@@ -14,8 +14,10 @@ public class playerCharacterTest {
         testPlayer.setRace("Hobbit");
         testPlayer.setLevel(2);
         testPlayer.setcharClass("Paladin");
+        testPlayer.setAge("26");
         testPlayer.randomizeAbilityScores();
-        //Unfinished
+        assertEquals("Frodo",testPlayer.getName());
+
 
         assertEquals(1000,testPlayer.getHP());
     }

@@ -32,10 +32,47 @@ public class Character {
         this.name = name;
     }
 
+    public Character(String name,int hitPts, int hitDice, int hitSide, int hitMod,
+                     int armor, int speed, int strength, int dexterity,
+                     int constitution, int intelligence, int wisdom, int charisma,
+                     String alignment, ArrayList<String> languages, ArrayList<Action> actions){
+        this.name=name;
+        this.hitPts=hitPts;
+        this.hitDiceAmt=hitDice;
+        this.hitDiceSided=hitSide;
+        this.hitDiceModifier=hitMod;
+        this.armor=armor;
+        this.speed=speed;
+        this.strength=strength;
+        this.dexterity=dexterity;
+        this.constitution=constitution;
+        this.intelligence=intelligence;
+        this.wisdom=wisdom;
+        this.charisma=charisma;
+        this.alignment=alignment;
+        this.languages=languages;
+        this.actions=actions;
+    }
+
+    public Character(String name, int hitPts, int hitDice, int hitSide, int hitMod,
+                     int armor, int speed, String alignment, ArrayList<String> languages, ArrayList<Action> actions){
+        randomizeAbilityScores();
+        this.name=name;
+        this.hitPts=hitPts;
+        this.hitDiceAmt=hitDice;
+        this.hitDiceSided=hitSide;
+        this.hitDiceModifier=hitMod;
+        this.armor=armor;
+        this.speed=speed;
+        this.alignment=alignment;
+        this.languages=languages;
+        this.actions=actions;
+    }
+
     //Validation Methods
 
     private static void checkValid20(int input){
-        if(input > 20){
+        if(input > 22){
             throw new IllegalArgumentException("Modifiers can only be less than 20");
         }
     }
@@ -56,6 +93,15 @@ public class Character {
     //Randomize Methods
 
     //TODO more randomization of other stat fields
+
+    public void randomizeAll(){
+        randomizeAbilityScores();
+
+    }
+
+    private void randomizeValue(){
+
+    }
 
     public void randomizeAbilityScores(){
         int statRolls = 6;
