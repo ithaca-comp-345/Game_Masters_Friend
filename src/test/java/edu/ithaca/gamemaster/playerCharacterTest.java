@@ -17,8 +17,15 @@ public class playerCharacterTest {
         testPlayer.setAge("26");
         testPlayer.randomizeAbilityScores();
         assertEquals("Frodo",testPlayer.getName());
-
-
         assertEquals(1000,testPlayer.getHP());
+
+        ArrayList<String> languages = new ArrayList<>();
+        ArrayList<Action> actions = new ArrayList<>();
+        languages.add("Orcish");
+        languages.add("Elvish");
+        languages.add("Binary");
+        languages.add("Assembly");
+
+        Player example = new Player("Will Robinson",15,2,6,5,14,30,"Chaotic Neutral",languages,actions);
     }
 }
