@@ -6,11 +6,15 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class notesTest {
 
+    Notes testNote = new Notes("Foo", "Bar");
+
     void createNoteTest(){
 
-        Notes testNote = new Notes("Foo", "Bar");
         assertEquals("Foo",testNote.getNoteName());
         assertEquals("Bar",testNote.getNotes());
     }
+    void addToNotesTest(){
+        testNote.addToNotes("raB");
 
+    }
 }

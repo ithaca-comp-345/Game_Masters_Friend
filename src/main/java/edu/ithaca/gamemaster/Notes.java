@@ -7,7 +7,7 @@ public class Notes {
 
     public Notes(String noteName, String notes) {
         this.noteName = noteName;
-        this.notes = notes;
+        this.notes = notes+"\n";
     }
 
     public String getNoteName() {
@@ -25,4 +25,9 @@ public class Notes {
     public void setNotes(String notes) {
         this.notes = notes;
     }
+
+    public void addToNotes(String stringToAdd){
+        this.notes += stringToAdd+"\n";
+    }
+
 }
