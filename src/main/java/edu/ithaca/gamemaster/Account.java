@@ -4,7 +4,7 @@ import java.lang.Character;
 
 public class Account {
     public String username;
-    public PlayerUser player;
+    public PlayerUser userPlayer;
     public GMUser gm;
     public String psswd;
 
@@ -21,7 +21,7 @@ public class Account {
         else{
             this.username=nameIn;
             this.psswd=psswdIn;
-            player=new PlayerUser();
+            userPlayer=new PlayerUser();
             gm=new GMUser();
         }
 
