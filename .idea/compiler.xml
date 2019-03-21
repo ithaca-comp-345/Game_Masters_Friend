@@ -8,10 +8,10 @@
         <outputRelativeToContentRoot value="true" />
         <module name="FinalGroupProject" />
         <module name="GameMastersBestFriend" />
+        <module name="GM_Companion" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="FinalGroupProject" target="1.10" />
     </bytecodeTargetLevel>
   </component>
 </project>

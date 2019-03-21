@@ -1,43 +1,177 @@
 package edu.ithaca.gamemaster;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Character {
+    //HP stuff
     private int hitPts;
+    private int hitDiceAmt;
+    private int hitDiceSided;
+    private int hitDiceModifier;
     private int armor;
+    private int speed;
+
+    //Ability Scores
     private int strength;
     private int dexterity;
     private int constitution;
     private int intelligence;
     private int wisdom;
     private int charisma;
-    private int speed;
+
+    //Other stuff
     private String name;
     private String alignment;
-    private String languages[];
-    private Action actions[];
+    private ArrayList<String> languages;
+    private ArrayList<Action> actions;
 
-    public Character(String name,int startingHP,int initialStrength,int initialDexterity,int initialConstitution,int initialIntelligence,
-                     int initialWisdom,int initialCharisma,int initialSpeed,int initialArmor,String alignment,
-                     String languages[], Action actions[]){
+    //Constructor
+
+    public Character(String name){
         this.name = name;
-        this.hitPts=startingHP;
-        this.strength=initialStrength;
-        this.dexterity=initialDexterity;
-        this.constitution=initialConstitution;
-        this.intelligence=initialIntelligence;
-        this.wisdom=initialWisdom;
-        this.charisma=initialCharisma;
-        this.speed=initialSpeed;
-        this.armor=initialArmor;
+    }
+
+    public Character(String name,int hitPts, int hitDice, int hitSide, int hitMod,
+                     int armor, int speed, int strength, int dexterity,
+                     int constitution, int intelligence, int wisdom, int charisma,
+                     String alignment, ArrayList<String> languages, ArrayList<Action> actions){
+        this.name=name;
+        this.hitPts=hitPts;
+        this.hitDiceAmt=hitDice;
+        this.hitDiceSided=hitSide;
+        this.hitDiceModifier=hitMod;
+        this.armor=armor;
+        this.speed=speed;
+        this.strength=strength;
+        this.dexterity=dexterity;
+        this.constitution=constitution;
+        this.intelligence=intelligence;
+        this.wisdom=wisdom;
+        this.charisma=charisma;
         this.alignment=alignment;
         this.languages=languages;
         this.actions=actions;
     }
 
+    public Character(String name, int hitPts, int hitDice, int hitSide, int hitMod,
+                     int armor, int speed, String alignment, ArrayList<String> languages, ArrayList<Action> actions){
+        randomizeAbilityScores();
+        this.name=name;
+        this.hitPts=hitPts;
+        this.hitDiceAmt=hitDice;
+        this.hitDiceSided=hitSide;
+        this.hitDiceModifier=hitMod;
+        this.armor=armor;
+        this.speed=speed;
+        this.alignment=alignment;
+        this.languages=languages;
+        this.actions=actions;
+    }
+
+    //Validation Methods
+
+    private static void checkValid20(int input){
+        if(input > 22){
+            throw new IllegalArgumentException("Modifiers can only be less than 20");
+        }
+    }
+
+    private static void checkValid0(int input){
+        if(input < 0){
+            throw new IllegalArgumentException("Modifiers cannot be less than 0");
+        }
+    }
+
+    private static boolean checkListAdd(ArrayList list,Object item ){
+        if(list.contains(item)){
+            return true; }
+        else{
+            return false; }
+    }
+
+    //Randomize Methods
+
+    //TODO more randomization of other stat fields
+
+    public void randomizeAll(){
+        randomizeAbilityScores();
+
+    }
+
+    private void randomizeValue(){
+
+    }
+
+    public void randomizeAbilityScores(){
+        int statRolls = 6;
+        ArrayList<Integer> rolls = new ArrayList<Integer>();
+        DiceRoll randomizer = new DiceRoll(4,6);
+
+        //Randomized ability rolls
+        setStrength(randomizer.abilityRoll());
+        setDexterity(randomizer.abilityRoll());
+        setConstitution(randomizer.abilityRoll());
+        setIntelligence(randomizer.abilityRoll());
+        setWisdom(randomizer.abilityRoll());
+        setCharisma(randomizer.abilityRoll());
+
+    }
+
+    //Set Methods
+
     public void setHP(int startingHP){
+        checkValid0(startingHP);
         this.hitPts=startingHP;
     }
+    public void setHitDice(int numDice, int diceSides, int hitModifier){
+        this.hitDiceAmt=numDice;
+        this.hitDiceSided=diceSides;
+        this.hitDiceModifier=hitModifier;
+    }
+    public void setName(String newName){this.name=newName;}
+
+    public void setStrength(int newStrength){
+        checkValid20(newStrength);
+        checkValid0(newStrength);
+        this.strength=newStrength;}
+    public void setDexterity(int newDexterity){this.dexterity=newDexterity;}
+    public void setConstitution(int newConstitution){this.constitution=newConstitution;}
+    public void setIntelligence(int newIntelligence){this.intelligence=newIntelligence;}
+    public void setWisdom(int newWisdom){this.wisdom=newWisdom;}
+    public void setCharisma(int newCharisma){this.charisma=newCharisma;}
+    public void setSpeed(int newSpeed){this.speed=newSpeed;}
+    public void setArmor(int newArmor){this.armor=newArmor;}
+    public void setAlignment(String newAlignment){this.alignment=newAlignment;}
+    public void setLanguages(ArrayList<String> languages){ this.languages=languages;}
+    public void setActions(ArrayList<Action> actions){ this.actions=actions;}
+
+    //List add stuff
+
+    public void addLanguage(String newLanguage){
+        languages.add(newLanguage);
+        boolean checked = checkListAdd(languages,newLanguage);
+        if(checked){
+            //do nothing
+        }
+        else{
+            throw new IndexOutOfBoundsException("Language wasn't added to list");
+        }
+    }
+
+    public void addAction(Action newAction){
+        actions.add(newAction);
+        boolean checked = checkListAdd(actions,newAction);
+        if(checked){
+            //do nothing
+        }
+        else{
+            throw new IndexOutOfBoundsException("Action wasn't added to list");
+        }
+
+    }
+
+    //Get Methods
 
     public String getName(){ return name;}
     public int getHP(){ return hitPts;}
@@ -50,22 +184,43 @@ public class Character {
     public int getSpeed(){ return speed;}
     public int getArmor(){ return armor;}
     public String getAlignment(){ return alignment;}
+
+    public String getHitDice(){
+        StringBuilder hitD = new StringBuilder();
+        hitD.append(hitDiceAmt + "d" + hitDiceSided + "+" + hitDiceModifier);
+        String hitDice = hitD.toString();
+        return hitDice;
+    }
+    public int getHitDiceSided(){
+        return hitDiceSided;
+    }
+    public int getHitDiceAmt(){
+        return hitDiceAmt;
+    }
+    public int getHitDiceModifier(){
+        return hitDiceModifier;
+    }
+
+    //List stuff
+
     public String getLanguages(){
-        StringBuilder languagesAll = new StringBuilder();
-        for(int i=0;i<languages.length;i++){
-            languagesAll.append(languages[i]);
-            languagesAll.append(", ");
+        if(languages.isEmpty()){
+            return "Character knows no languages";
         }
-        String lang = languagesAll.toString();
-        return lang;
+        return languages.toString();
     }
     public String getActions(){
-        StringBuilder actionsAll = new StringBuilder();
-        for(int i=0;i<actions.length;i++){
-            actionsAll.append(actions[i].getName());
-            actionsAll.append(", ");
+        StringBuilder actOut = new StringBuilder();
+        for(int i = 0; i<actions.size(); i++){
+            actOut.append(actions.get(i).getName() + ", ");
         }
-        String act = actionsAll.toString();
-        return act;
+        String actionString = actOut.toString();
+        return actionString;
+    }
+    public ArrayList<String> getLanguageList(){
+        return languages;
+    }
+    public ArrayList<Action> getActionsList(){
+        return actions;
     }
 }
