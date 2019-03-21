@@ -16,10 +16,13 @@ public class Account {
         else if(nameIn.length()<6){
             throw new IllegalArgumentException("username must contain 6 characters");
         }
-        this.username=nameIn;
-        this.psswd=psswdIn;
-        player=new PlayerUser();
-        gm=new GMUser();
+        else{
+            this.username=nameIn;
+            this.psswd=psswdIn;
+            player=new PlayerUser();
+            gm=new GMUser();
+        }
+
     }
 
     public String getUsername() {
