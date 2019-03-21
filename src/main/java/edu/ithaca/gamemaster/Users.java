@@ -10,6 +10,12 @@ public class Users {
         this.users=new HashMap<>();
     }
 
+    /**
+     * creates account for user
+     * @param username
+     * @param psswd
+     */
+
     public void createAccount(String username, String psswd){
         if(users.containsKey(username)){
             throw new IllegalArgumentException("username already exists");
@@ -20,6 +26,12 @@ public class Users {
         }
     }
 
+    /**
+     * user login
+     * @param username
+     * @param psswd
+     * @return
+     */
     public boolean logIn(String username, String psswd){
         if(users.containsKey(username)){
             Account user=users.get(username);
