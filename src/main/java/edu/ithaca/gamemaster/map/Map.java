@@ -9,15 +9,16 @@ public class Map extends JFrame {
         JFrame frame = new JFrame("D&D MAP");
         ImageIcon icon = new ImageIcon("/home/dev/Desktop/comp345/FinalGroupProject/src/main/java/edu/ithaca/gamemaster/map/image.jpg");
         JLabel label1 = new JLabel(icon);
+        Player player = new Player(250,250,100);
         JPanel panel = new JPanel();
         panel.add(label1);
+        panel.add(player);
         frame.add(panel);
+        //frame.add(player);
 
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
         frame.setResizable(false);
-
-
 
         //Display the window.
         frame.pack();
@@ -30,8 +31,8 @@ public class Map extends JFrame {
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                Player player = new Player(250,250,100);
-                //displayMap();
+
+                displayMap();
             }
         });
 
