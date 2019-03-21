@@ -6,7 +6,7 @@ public class Account {
     public String username;
     public PlayerUser player;
     public GMUser gm;
-    private String psswd;
+    public String psswd;
 
     public Account(String nameIn,String psswdIn){
         if(!isPsswdValid(psswdIn) ){

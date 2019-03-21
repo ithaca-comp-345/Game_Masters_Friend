@@ -1,0 +1,46 @@
+package edu.ithaca.gamemaster;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+
+public class Users {
+    public Map<String, Account> users;
+
+    public Users(){
+        this.users=new HashMap<>();
+    }
+
+    public void createAccount(String username, String psswd){
+        if(users.containsKey(username)){
+            throw new IllegalArgumentException("username already exists");
+        }
+        else{
+            Account user= new Account(username,psswd);
+            users.put(username, user);
+        }
+    }
+
+    public boolean logIn(String username, String psswd){
+        if(users.containsKey(username)){
+            Account user=users.get(username);
+            if((user.psswd).equals(psswd)){
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+        else{
+            return false;
+        }
+    }
+
+    public boolean findUser(String username){
+        if(users.containsKey(username)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+}
