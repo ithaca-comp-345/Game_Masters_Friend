@@ -11,7 +11,6 @@ public class MapTest {
     void CreateMap(){
 
         //Can't create a map without string name
-        assertThrows(IllegalArgumentException.class, () ->new Map(10,10,"") );
 
     }
 
