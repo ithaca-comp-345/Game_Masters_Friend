@@ -37,8 +37,8 @@ public class DiceRoll {
                 third = results.get(i);
         }
 
-        System.out.println("Three values are: " +
-                first + " " + second + " " + third);
+        //System.out.println("Three values are: " +
+                //first + " " + second + " " + third);
         return first+second+third;
     }
 }

@@ -25,7 +25,10 @@ public class playerCharacterTest {
         languages.add("Elvish");
         languages.add("Binary");
         languages.add("Assembly");
+        Action fireball = new Action("Fireball",5,1,8,"Fire");
+        actions.add(fireball);
 
         Player example = new Player("Will Robinson",15,2,6,5,14,30,"Chaotic Neutral",languages,actions);
+
     }
 }

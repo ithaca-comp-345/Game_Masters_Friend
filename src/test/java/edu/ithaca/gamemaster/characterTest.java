@@ -61,7 +61,7 @@ public class characterTest {
 
         Character testCharacter = new Character("Bilbo");
         testCharacter.setHP(100);
-        assertThrows(IllegalArgumentException.class, ()->testCharacter.setStrength(21));
+        assertThrows(IllegalArgumentException.class, ()->testCharacter.setStrength(23));
         testCharacter.setDexterity(10);
         testCharacter.setConstitution(14);
         testCharacter.setIntelligence(15);
@@ -110,5 +110,14 @@ public class characterTest {
         System.out.println("Intelligence: " + testCharacter.getIntelligence());
         System.out.println("Wisdom: " + testCharacter.getWisdom());
         System.out.println("Charisma: " + testCharacter.getCharisma());
+    }
+    @Test
+    void randomizationCharacterTest(){
+        Character testCharacter = new Character("Lee Jackson");
+        testCharacter.randomizeAll();
+        System.out.println(testCharacter.getHitDiceAmt());
+        System.out.println(testCharacter.getHitDiceModifier());
+        System.out.println(testCharacter.getHitDiceSided());
+        System.out.println(testCharacter.getHitDice());
     }
 }
