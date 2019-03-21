@@ -6,8 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="FinalGroupProject" />
         <module name="GameMastersBestFriend" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="FinalGroupProject" target="1.10" />
+    </bytecodeTargetLevel>
   </component>
 </project>
