@@ -43,9 +43,20 @@ public class usersTest {
 
         assertFalse(users.logIn("noneee","Password1"));//user is not registered
         assertFalse(users.logIn("teatea1","wrongPass2"));//wrong password
+    }
 
+    @Test
+    void findUser(){
+        Users users = new Users();
 
+        users.createAccount("teatea1","Password1");
+        users.createAccount("teatea2","Password1");
+        users.createAccount("teatea3","Password1");
+        users.createAccount("teatea4","Password1");
 
+        assertTrue(users.findUser("teatea1"));
+
+        assertFalse(users.findUser("teatea5"));
 
     }
 
