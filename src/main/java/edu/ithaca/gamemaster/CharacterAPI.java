@@ -13,6 +13,11 @@ public class CharacterAPI {
         this.player=player;
     }
 
+    public CharacterAPI(Player player, Character character){
+        this.player=player;
+        this.character=character;
+    }
+
     public Character createCharacter(String charName){
         Character character = new Character(charName);
         return character;
@@ -53,8 +58,19 @@ public class CharacterAPI {
 
     }
 
-    public void printPlayerCharacter(Player player){
-        //TODO
+    public void printPlayerCharacter(){
+        System.out.println("== Player Info ==");
+        System.out.println("Name: " + player.getName());
+        System.out.println("Class & Level: " + "Lvl " + player.getLevel() + " " + player.getCharClass());
+        System.out.println("Background: " + player.getBackground());
+        System.out.println("EXP: " + player.getExperience());
+        System.out.println("Race: " + player.getRace());
+        System.out.println("Alignment: " + player.getAlignment());
+        System.out.println("STR: " + player.getStrength() + "\t" + "DEX: " + player.getDexterity() + "\t" + "CON: " + player.getConstitution() +
+                "\t" + "INT: " + player.getIntelligence() +"\t" + "WIS: " + player.getWisdom() + "\t" + "CHA: " + player.getCharisma());
+        System.out.println("Proficiency Bonus: " + player.getProficiencyBonus());
+        System.out.println("Ability Mods: " + "STR: " + player.getStrenMod() + "\t" + "DEX: " + player.getDexteMod() + "\t" + "CON: " + player.getConstMod()
+        + "\t" + "INT: " + player.getIntelMod() + "\t" + "WIS: " + player.getWisdoMod() + "\t" + "CHA: " +player.getChariMod());
     }
 
 }
