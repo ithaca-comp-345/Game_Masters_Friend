@@ -13,7 +13,7 @@ public class CharacterUI {
     String alignments[] = new String[]{"Lawful good", "Lawful neutral ", "Lawful evil", "Neutral good", "True neutral", "Neutral evil", "Chaotic good", "Chaotic neutral", "Chaotic evil"};
 
     //create character
-    public void createNewCharacter() {
+    public Character createNewCharacter() {
         System.out.print("Creating new character. Enter name: ");
         String newName = "";
         newName = input.nextLine();
@@ -25,6 +25,7 @@ public class CharacterUI {
         }
         Character newC = new Character(newName);
         newCharacterStats(newC);
+        return newC;
     }
 
     public void newCharacterStats(Character newC) {
@@ -86,15 +87,15 @@ public class CharacterUI {
             languages.add(sampleLanguages[(int) r.nextInt(6)]); // minus one because arrays
         }
 
-        //Actions - NOT actually random yet. Everyone gets Fireball. Review?
-        Action fireball = new Action("Fireball",5,1,8,"Fire");
-        actions.add(fireball);
-
-        //Setting lists to character
+        //Actions - NOT actually random yet. Ev
         newC.setLanguages(languages);
         newC.setActions(actions); //Review; maybe Actions can have its own toString definition?
 
-        //commented because of tests.
+        //commented because of tests.eryone gets Fireball. Review?
+        //        Action fireball = new Action("Fireball",5,1,8,"Fire");
+        //        actions.add(fireball);
+        //
+        //        //Setting lists to character
         //printStats(newC);
     }
 
@@ -133,8 +134,10 @@ public class CharacterUI {
 
     public static void main(String[] args) {
         CharacterUI CUI = new CharacterUI();
-        CUI.createNewCharacter();
+        Character character = CUI.createNewCharacter();
         System.out.println("main done.");
+        CharacterAPI API = new CharacterAPI(character);
+        API.printCharacter();
     }
 
 
