@@ -25,6 +25,10 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 
 *Retrospective Time Report Doc:* https://docs.google.com/document/d/1FsYmmMOtjkpJ6cUbRmK4Ci40HHmOdub53hHzemgHslo/edit?usp=sharing
 
+*Sprint Goal:* The goal is be able to create and log in to an account and create characters to be stored within an account. Any account should be able to create a blank campaign and invite players to it and show notes about the campaign with them.
+
+**Sprint 2:**
+
 *Sprint Goal:* Be able to run a full encounter with all involved actors in a location. Some sort of UI that demostrates everything properly. Simplifying file structure and dependencies so that everything works together smoothly. Have a working simplified UI for at least one aspect of the software. A demo for all things built this sprint should be presented at the end of it.
 
 
