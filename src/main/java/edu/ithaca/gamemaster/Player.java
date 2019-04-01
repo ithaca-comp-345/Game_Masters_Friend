@@ -151,6 +151,42 @@ public class Player extends Character {
 
     }
 
+    public Player(String name, int hp, int hitDiceAmt,int hitDiceSides, int hitMod, int armor,
+                  int speed, int strength, int dexterity, int constitution, int intelligence,
+                  int wisdom, int charisma, String alignment, ArrayList<String> languages,
+                  ArrayList<Action> actions, int experience, int proficiencyBonus, String background, String race,
+                  int passiveWisdom, int initiative, String size, ArrayList<String> traits, String charClass,
+                  int level, ArrayList<String> expertise, String carriedGear, int maxCarry, int maxPushPull,
+                  int maxLift, int gold, int silver, int copper, int gems, String armorType, ArrayList<String> weapons,
+                  ArrayList<String> tools, ArrayList<String> savingThrows, ArrayList<String> skills){
+        super(name,hp,hitDiceAmt,hitDiceSides,hitMod,armor,speed,strength,dexterity,constitution,intelligence,
+                wisdom, charisma, alignment, languages,actions);
+        this.experience=experience;
+        this.proficiencyBonus=proficiencyBonus;
+        this.background=background;
+        this.race=race;
+        this.passiveWisdom=passiveWisdom;
+        this.initiative=initiative;
+        this.size=size;
+        this.traits=traits;
+        this.charClass=charClass;
+        this.level=level;
+        this.expertise=expertise;
+        this.carriedGear=carriedGear;
+        this.maxCarry=maxCarry;
+        this.maxPushPull=maxPushPull;
+        this.maxLift=maxLift;
+        this.gp=gold;
+        this.sp=silver;
+        this.cp=copper;
+        this.gems=gems;
+        this.armorType=armorType;
+        this.weapons=weapons;
+        this.tools= tools;
+        this.savingThrows=savingThrows;
+        this.skills=skills;
+    }
+
     public Player(Character character) {
         super(character.getName(), character.getHP(), character.getHitDiceAmt(),
                 character.getHitDiceSided(), character.getHitDiceModifier(), character.getArmor(),
