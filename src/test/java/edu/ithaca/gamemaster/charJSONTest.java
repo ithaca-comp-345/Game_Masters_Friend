@@ -1,7 +1,9 @@
 package edu.ithaca.gamemaster;
 
+import edu.ithaca.gamemaster.utility.JSONUtility;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -77,6 +79,20 @@ public class charJSONTest {
 
         CharacterJSON.playerToJSON(testPlayer);
 
+    }
+
+    @Test
+    void PlayerfromJSONTest() throws IOException{
+        Player player = CharacterJSON.JSONtoPlayer("player.json");
+        assertEquals("Frodo",player.getName());
+        assertEquals(100,player.getHP());
+        assertEquals("Townfolk",player.getBackground());
+    }
+
+    @Test
+    void NPCfromJSONTest() throws IOException{
+        NPC npc = CharacterJSON.JSONtoNpc("npc.json");
+        assertEquals("Will Robinson", npc.getName());
     }
 
 }

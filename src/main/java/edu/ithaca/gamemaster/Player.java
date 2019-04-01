@@ -86,6 +86,9 @@ public class Player extends Character {
     //Control
     private boolean hasAbility = false;
 
+    public Player(){
+        super();
+    }
 
     public Player(String name) {
         super(name);
@@ -478,10 +481,6 @@ public class Player extends Character {
 
     public void setTraits(ArrayList<String> traits) {
         this.traits = traits;
-    }
-
-    public void setcharClass(String aClass) {
-        charClass = aClass;
     }
 
     public void setLevel(int level) {

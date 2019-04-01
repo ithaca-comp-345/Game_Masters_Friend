@@ -23,6 +23,10 @@ public class NPC extends Character {
     private String type; //beast, aberration, celestial, construct, dragon, elemental,
     // fey, fiend, giant, humanoid, monstrosity, ooze, plant, undead
 
+    public NPC(){
+        super();
+    }
+
     public NPC(Character character){
         super(character.getName(),character.getHP(),character.getHitDiceAmt(),
                 character.getHitDiceSided(),character.getHitDiceModifier(),character.getArmor(),

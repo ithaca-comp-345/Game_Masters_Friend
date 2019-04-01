@@ -39,31 +39,21 @@ public class CharacterJSON {
 
     }
 
-    public static void JSONtoNpc(String fileName){
-
+    public static NPC JSONtoNpc(String fileName) throws IOException{
+        NPC npc = JSONUtility.fromJsonFile(fileName,NPC.class);
+        return npc;
     }
 
-//        JSONObject obj = new JSONObject();
-//
-//        JSONArray abilitys = new JSONArray();
-//        abilitys.add(npc.getStrength());
-//        abilitys.add(npc.getDexterity());
-//        abilitys.add(npc.getConstitution());
-//        abilitys.add(npc.getIntelligence());
-//        abilitys.add(npc.getWisdom());
-//        abilitys.add(npc.getCharisma());
-//
-//        obj.put("name", npc.getName());
-//        obj.put("hp", npc.getHP());
-//        obj.put("ability scores", abilitys);
-//        try (FileWriter file = new FileWriter("test.json")){
-//            file.write(obj.toJSONString());
-//            file.flush();
-//        } catch(IOException e){
-//            e.printStackTrace();
-//        }
-//
-//        System.out.println(obj);
+    public static Character JSONtoCharacter(String filename) throws IOException{
+        Character character = JSONUtility.fromJsonFile(filename, Character.class);
+        return character;
+    }
+
+    public static Player JSONtoPlayer(String filename) throws IOException{
+        Player player = JSONUtility.fromJsonFile(filename,Player.class);
+        return player;
+    }
+
 
 
 }
