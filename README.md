@@ -19,72 +19,16 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/ithaca-comp-345/Game_Masters_Friend.svg?columns=all)](https://waffle.io/ithaca-comp-345/Game_Masters_Friend)
 
+**Sprint 1:**
+
 *Sprint 1 Agenda Doc:* https://docs.google.com/document/d/1kORq7LQz0DvtEWBTn7oTVOXK_XTFPRrDQEoC1LTM87o/edit?usp=sharing
 
 *Retrospective Time Report Doc:* https://docs.google.com/document/d/1FsYmmMOtjkpJ6cUbRmK4Ci40HHmOdub53hHzemgHslo/edit?usp=sharing
 
+*Sprint Goal:* The goal is be able to create and log in to an account and create characters to be stored within an account. Any account should be able to create a blank campaign and invite players to it and show notes about the campaign with them.
+
+**Sprint 2:**
+
 *Sprint Goal:* Be able to run a full encounter with all involved actors in a location. Some sort of UI that demostrates everything properly. Simplifying file structure and dependencies so that everything works together smoothly. Have a working simplified UI for at least one aspect of the software. A demo for all things built this sprint should be presented at the end of it.
 
-## Break-Down of Work:
-### Character & Items Work
-* [ ] Character Creation Epic
-  * [ ] Stat breakdown & rolls
-  * [ ] Create Character object
-    * [ ] Create Player object
-      * [ ] Player Classes
-      * [ ] Player Races
-    * [ ] Create NPC object
-      * [ ] Static actor
-      * [ ] Friendly actor
-      * [ ] Enemy actor
-      * [ ] Boss actor
-    * [ ] Character API
-    * [ ] Character UI
-    
-* [ ] Item Creation Epic
-  * [ ] Create Item object
-  * [ ] Item Creation UI
-  * [ ] Image upload
-  * [ ] Image download
-
-### Accounts & Campaign Work
-* [ ] Accounts creation epic
-  * [ ]  Create account for Game Master
-  * [ ]  Create account for Player
-  * [ ]  PlayerUI
-  * [ ]  PlayerAPI
-  * [ ]  GameMasterUI
-  * [ ]  GameMasterAPI
-  
-  
-* [ ] campaign work
-    * [ ] add/edit and store notes 
-    * [ ] add player to campaign
-    * [ ] share notes with players
-    * [ ] share map/locations
-    * [ ] store map/locations
-
-### Notes & Sharing Work
-
-### Maps/Locations Work
-
-### Encounters Work
-
-### Player View Work
-
-### Game Master View Work
-
-
-## Old Progress Task List
-### Use Cases
-* [ ] Character Creation & Stats Input
-* [ ] Campaign Creation & Editing
-* [ ] Location Creation & Editing
-* [ ] NPC Creation & Stats Input
-* [ ] Map Creation & Editing
-* [ ] Information Sharing & Hiding Between DM & Players
-* [ ] Encounters Creation & Editing
-* [ ] Encounter Running Module
-* [ ] Notes Creation/Editing
-* [ ] Login & UI Stuff
 
