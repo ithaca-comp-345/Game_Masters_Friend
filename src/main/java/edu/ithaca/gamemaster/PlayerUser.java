@@ -10,8 +10,8 @@ public class PlayerUser{
         this.name=name;
     }
 
-    public void addCharacter(String characterTag, Player player){ //make sure you hand it a playerCharacter not just a default character
-        characters.put(characterTag,player);
+    public void addCharacter(String characterTag, Player character){ //make sure you hand it a playerCharacter not just a default character
+        characters.put(characterTag,character);
     }
 
     public Character getPlayerCharacter(String characterTag){
