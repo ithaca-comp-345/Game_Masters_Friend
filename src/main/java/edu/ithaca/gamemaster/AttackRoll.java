@@ -1,19 +1,25 @@
 package edu.ithaca.gamemaster;
 import java.util.Random;
+
+
 public class AttackRoll {
 
     Dice d20 = new Dice(20);
 
-    public int resultAttackPvP(Character player1, Character player2){
+    //takes two players and calculates the damage towards player2
 
-        int totalAttack = 0;
-        totalAttack = d20.roll();
-        //TODO return
-        return totalAttack;
-    }
-    public int resultAttackPvNPV(Character player, NPC npc){
+    public void attackPvP(Character player1, Character player2){
 
-        return 0;
+
     }
+
+    //takes one player and NPC, calculates the damage towards NPC
+    // and reduces HP
+    public void attackPvNPV(Character player, NPC npc){
+
+
+
+    }
+
 
 }
