@@ -31,7 +31,7 @@ public class playerCharacterTest {
 
         ArrayList<String> skills = new ArrayList<String>();
 
-        Player testPlayer = new Player("Frodo",100,2,6,20,30,30,15,15,15,15,15,15,"Lawful Good",
+        Player testPlayer = new Player("Frodo",1000,2,6,20,30,30,15,15,15,15,15,15,"Lawful Good",
                 languages,actions,32000,4,"Townfolk","Hobbit",15,5,"Small", traits,"Messenger", 3,expertise,"Backback",
                 100,300,150,2,20,43,1,"Light Armor",weapons,
                 tools,savingThrows,skills);
