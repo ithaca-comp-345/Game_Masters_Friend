@@ -57,6 +57,7 @@ public class campaignTest {
         Campaign campaign = new Campaign();
 
         campaign.addNotes("1", "abcd");
+        assertThrows(IllegalArgumentException.class, ()->campaign.addNotes("1","no"));
         assertEquals("abcd\n", campaign.getNotes("1"));
         campaign.addNotes("2"," efgh");
         assertEquals(" efgh\n",campaign.getNotes("2"));
@@ -64,6 +65,22 @@ public class campaignTest {
         assertEquals("1234\n", campaign.getNotes("4"));
 
         assertThrows(IllegalArgumentException.class, ()->campaign.getNotes("5"));
+    }
+
+    @Test
+    void addToCurrNotesTest(){
+        Campaign campaign = new Campaign();
+
+        campaign.addNotes("1", "abcd");
+        campaign.addToCurrNotes("1", "abcd");
+        assertEquals("abcd\n abcd\n",campaign.getNotes("1"));
+        assertThrows(IllegalArgumentException.class, ()->campaign.addToCurrNotes("2","no"));
+        campaign.addNotes("2", "abcd");
+        campaign.addToCurrNotes("2", "abcd");
+        assertEquals("abcd\n abcd\n",campaign.getNotes("2"));
+
+
+
 
     }
 
