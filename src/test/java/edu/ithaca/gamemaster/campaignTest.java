@@ -57,11 +57,11 @@ public class campaignTest {
         Campaign campaign = new Campaign();
 
         campaign.addNotes("1", "abcd");
-        assertEquals("abcd", campaign.getNotes("1"));
+        assertEquals("abcd\n", campaign.getNotes("1"));
         campaign.addNotes("2"," efgh");
-        assertEquals("2"," efgh", campaign.getNotes("2"));
-        campaign.addNotes("4"," 1234");
-        assertEquals("1234", campaign.getNotes("4"));
+        assertEquals(" efgh\n",campaign.getNotes("2"));
+        campaign.addNotes("4","1234");
+        assertEquals("1234\n", campaign.getNotes("4"));
 
         assertThrows(IllegalArgumentException.class, ()->campaign.getNotes("5"));
 
