@@ -40,8 +40,13 @@ public class Campaign{
 
 
     public void addNotes(String noteName, String text){
-        Notes note=new Notes(noteName,text);
-        notes.put(noteName,note);
+        if(!notes.containsKey(noteName)){
+            Notes note=new Notes(noteName,text);
+            notes.put(noteName,note);
+        }
+        else {
+            throw new IllegalArgumentException("notes with the same name already exist");
+        }
     }
 
     public String getNotes(String noteName){
@@ -49,6 +54,15 @@ public class Campaign{
             return notes.get(noteName).getNotes();
         }
         throw new IllegalArgumentException("notes were not found");
+    }
+
+    public void addToCurrNotes(String noteName, String text){
+        if(notes.containsKey(noteName)){
+            notes.get(noteName).addToNotes(text);
+        }
+        else{
+            throw new IllegalArgumentException("notes were not found");
+        }
     }
 
 
