@@ -41,4 +41,15 @@ public class DiceRoll {
                 //first + " " + second + " " + third);
         return first+second+third;
     }
+
+    public int roll(){
+        int total=0;
+        Dice die = new Dice(sides);
+        for(int i =0; i<numDice; i++){
+            total += die.roll();
+        }
+        return total;
+    }
+
+
 }
