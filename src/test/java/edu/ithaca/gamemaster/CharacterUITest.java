@@ -1,9 +1,9 @@
 package edu.ithaca.gamemaster;
 
-import org.junit.Assert;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
@@ -30,8 +30,8 @@ public class CharacterUITest {
 
         ArrayList<String> languages = new ArrayList<>();
         ArrayList<Action> actions = new ArrayList<>();
-        Action throwBone = new Action("Dog Treat",2,3,4,"Bludgeoning");
-        Action AHP = new Action("Annual Halloween Party",2,25,8,"Psychic");
+        Action throwBone = new Action("Dog Treat",2,3,4,"Bludgeoning", "It's a dog treat. Thrown REALLY hard.");
+        Action AHP = new Action("Annual Halloween Party",2,25,8,"Psychic", "Please stop this party.");
 
         //have to manually add these since they normally rely on user input
         IHaveStatsNow.setAlignment("Chaotic good");
@@ -43,11 +43,30 @@ public class CharacterUITest {
         IHaveStatsNow.setActions(actions);
 
         //testing UI print
-        CharacterUI.printStats(IHaveStatsNow);
+        //CharacterUI.printStats(IHaveStatsNow); deprecated
 
         //testing compatibility with API
         CharacterAPI api = new CharacterAPI(IHaveStatsNow);
         api.printCharacter();
 
+    }
+
+    @Test
+    void noRepeatsTest(){
+        ArrayList<Integer> repeatedInts = new ArrayList<>(Arrays.asList(18, 2, 2, 15, 15, 6));
+        ArrayList<Integer> correctInts = new ArrayList<>(Arrays.asList(18, 2, 15, 6));
+
+        ArrayList<String> repeatedStrings = new ArrayList<>(Arrays.asList("bunny", "hog", "barkeep", "hog", "cavern", "barkeep"));
+        ArrayList<String> correctStrings = new ArrayList<>(Arrays.asList("bunny", "hog", "barkeep", "cavern"));
+
+        //TODO: test repeats for Actions object when that's finished
+
+        assertEquals(CharacterUI.noRepeats(repeatedInts), correctInts);
+        assertEquals(CharacterUI.noRepeats(repeatedStrings), correctStrings);
+    }
+
+    @Test
+    void actionStringOverrideTest(){
+        Action throwBone = new Action("Dog Treat",2,3,4,"Bludgeoning", "It's a dog treat. Thrown REALLY hard.");
     }
 }
