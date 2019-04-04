@@ -30,7 +30,7 @@ public class campaignTest {
         assertThrows(IllegalArgumentException.class, ()->campaign.addUserPlayers("playerUser1", account1.userPlayer));
     }
     @Test
-    void findUserPlayer(){
+    void findUserPlayerTest(){
         Campaign campaign=new Campaign();
 
         Account account1=new Account("playerUser1","Password1");
@@ -50,6 +50,21 @@ public class campaignTest {
 
         assertFalse(campaign.findUserPlayer("playerUser6"));
         assertFalse(campaign.findUserPlayer("playerUser7"));
+    }
+
+    @Test
+    void addNotesTest(){
+        Campaign campaign = new Campaign();
+
+        campaign.addNotes("1", "abcd");
+        assertEquals("abcd", campaign.getNotes("1"));
+        campaign.addNotes("2"," efgh");
+        assertEquals("2"," efgh", campaign.getNotes("2"));
+        campaign.addNotes("4"," 1234");
+        assertEquals("1234", campaign.getNotes("4"));
+
+        assertThrows(IllegalArgumentException.class, ()->campaign.getNotes("5"));
+
     }
 
 }
