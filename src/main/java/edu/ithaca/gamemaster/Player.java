@@ -2,7 +2,7 @@ package edu.ithaca.gamemaster;
 
 import java.util.ArrayList;
 
-public class Player extends Character{
+public class Player extends Character {
     //Saving Throws
     private int strenSave;
     private int dexteSave;
@@ -11,6 +11,14 @@ public class Player extends Character{
     private int wisdoSave;
     private int chariSave;
     private int proficiencyBonus; //factors into certain saves
+
+    //Ability Mods
+    private int strenMod;
+    private int dexteMod;
+    private int constMod;
+    private int intelMod;
+    private int wisdoMod;
+    private int chariMod;
 
     //Skills
     private int acrobatics; //Dex
@@ -35,11 +43,13 @@ public class Player extends Character{
     //Misc
     private int passiveWisdom;
     private int initiative;
+    private int experience;
 
 
     //Traits
     private String age;
     private String size;
+    private String background;
     private ArrayList<String> traits;
 
     //Class
@@ -77,178 +87,162 @@ public class Player extends Character{
     private boolean hasAbility = false;
 
 
-
-    public Player(String name){
+    public Player(String name) {
         super(name);
 
 
+
     }
-    public Player(String name,int hitPts, int hitDice, int hitSide, int hitMod,
-                  int armor, int speed, String alignment, ArrayList<String> languages, ArrayList<Action> actions){
 
-        super(name,hitPts,hitDice,hitSide,hitMod,
-                armor,speed,alignment,languages,actions);
+    public Player(String name, int hitPts, int hitDice, int hitSide, int hitMod,
+                  int armor, int speed, String alignment, ArrayList<String> languages, ArrayList<Action> actions) {
+
+        super(name, hitPts, hitDice, hitSide, hitMod,
+                armor, speed, alignment, languages, actions);
 
 
-        randomizeAbilityScores();
-        this.hasAbility=true;
+        this.hasAbility = true;
     }
 
     //Custom character skill modifiers *normally are generated based on ability scores and saving throws
-    public Player(Character character,int acro, int animalHandling, int arcana
-    ,int athletics,int deception, int history, int insight, int intimidation, int investigation,
+    public Player(Character character, int acro, int animalHandling, int arcana
+            , int athletics, int deception, int history, int insight, int intimidation, int investigation,
                   int medicine, int nature, int perception, int performance,
                   int persuasion, int religion, int slightOfHand, int stealth, int survival, int passiveWisdom, int initiative,
-                  String age, String size, String charClass, int level, String race){ //no concern about the more detailed parts of character, that is done through setters
-        super(character.getName(),character.getHP(),character.getHitDiceAmt(),
-                character.getHitDiceSided(),character.getHitDiceModifier(),character.getArmor(),
-                character.getSpeed(),character.getStrength(),character.getDexterity(),
-                character.getConstitution(),character.getIntelligence(),
-                character.getWisdom(),character.getCharisma(),character.getAlignment(),character.getLanguageList(),
+                  String age, String size, String charClass, int level, int experience, String race, String background) { //no concern about the more detailed parts of character, that is done through setters
+        super(character.getName(), character.getHP(), character.getHitDiceAmt(),
+                character.getHitDiceSided(), character.getHitDiceModifier(), character.getArmor(),
+                character.getSpeed(), character.getStrength(), character.getDexterity(),
+                character.getConstitution(), character.getIntelligence(),
+                character.getWisdom(), character.getCharisma(), character.getAlignment(), character.getLanguageList(),
                 character.getActionsList());
 
         //can be set by this constructor or be set elsewhere based on class and race
-        this.acrobatics=acro;
-        this.animalHandling=animalHandling;
-        this.arcana=arcana;
-        this.athletics=athletics;
-        this.deception=deception;
-        this.history=history;
-        this.insight=insight;
-        this.intimidation=intimidation;
-        this.investigation=investigation;
-        this.medicine=medicine;
-        this.nature=nature;
-        this.perception=perception;
-        this.performance=performance;
-        this.persuasion=persuasion;
-        this.religion=religion;
-        this.slightOfHand=slightOfHand;
-        this.stealth=stealth;
-        this.survival=survival;
+        this.experience = experience;
+        this.background = background;
+        this.acrobatics = acro;
+        this.animalHandling = animalHandling;
+        this.arcana = arcana;
+        this.athletics = athletics;
+        this.deception = deception;
+        this.history = history;
+        this.insight = insight;
+        this.intimidation = intimidation;
+        this.investigation = investigation;
+        this.medicine = medicine;
+        this.nature = nature;
+        this.perception = perception;
+        this.performance = performance;
+        this.persuasion = persuasion;
+        this.religion = religion;
+        this.slightOfHand = slightOfHand;
+        this.stealth = stealth;
+        this.survival = survival;
 
-        this.passiveWisdom=passiveWisdom;
-        this.initiative=initiative;
-        this.age=age;
-        this.size=size;
-        this.charClass=charClass;
-        this.level=level;
-        this.race=race;
+        this.passiveWisdom = passiveWisdom;
+        this.initiative = initiative;
+        this.age = age;
+        this.size = size;
+        this.charClass = charClass;
+        this.level = level;
+        this.race = race;
 
-        this.hasAbility=true;
+        this.hasAbility = true;
 
     }
 
-    public Player(Character character){
-        super(character.getName(),character.getHP(),character.getHitDiceAmt(),
-                character.getHitDiceSided(),character.getHitDiceModifier(),character.getArmor(),
-                character.getSpeed(),character.getStrength(),character.getDexterity(),
-                character.getConstitution(),character.getIntelligence(),
-                character.getWisdom(),character.getCharisma(),character.getAlignment(),character.getLanguageList(),
+    public Player(Character character) {
+        super(character.getName(), character.getHP(), character.getHitDiceAmt(),
+                character.getHitDiceSided(), character.getHitDiceModifier(), character.getArmor(),
+                character.getSpeed(), character.getStrength(), character.getDexterity(),
+                character.getConstitution(), character.getIntelligence(),
+                character.getWisdom(), character.getCharisma(), character.getAlignment(), character.getLanguageList(),
                 character.getActionsList());
     }
 
-    public Player(String name,int hitPts, int hitDice, int hitSide, int hitMod,
+    public Player(String name, int hitPts, int hitDice, int hitSide, int hitMod,
                   int armor, int speed, int strength, int dexterity,
                   int constitution, int intelligence, int wisdom, int charisma,
-                  String alignment, ArrayList<String> languages, ArrayList<Action> actions){
-        super(name,hitPts,hitDice,hitSide,hitMod,armor,speed,strength,dexterity,constitution
-        ,intelligence,wisdom,charisma,alignment,languages,actions);
+                  String alignment, ArrayList<String> languages, ArrayList<Action> actions) {
+        super(name, hitPts, hitDice, hitSide, hitMod, armor, speed, strength, dexterity, constitution
+                , intelligence, wisdom, charisma, alignment, languages, actions);
     }
 
     //Generators
 
-    public void generateSkills(){
-        this.acrobatics=dexteSave;
-        this.animalHandling=wisdoSave;
-        this.arcana=intelSave;
-        this.athletics=strenSave;
-        this.deception=chariSave;
-        this.history=intelSave;
-        this.insight=wisdoSave;
-        this.intimidation=chariSave;
-        this.investigation=intelSave;
-        this.medicine=wisdoSave;
-        this.nature=intelSave;
-        this.perception=wisdoSave;
-        this.performance=chariSave;
-        this.persuasion=chariSave;
-        this.religion=intelSave;
-        this.slightOfHand=dexteSave;
-        this.stealth=dexteSave;
-        this.survival=wisdoSave;
+    public void generateSkills() {
+        this.acrobatics = dexteSave;
+        this.animalHandling = wisdoSave;
+        this.arcana = intelSave;
+        this.athletics = strenSave;
+        this.deception = chariSave;
+        this.history = intelSave;
+        this.insight = wisdoSave;
+        this.intimidation = chariSave;
+        this.investigation = intelSave;
+        this.medicine = wisdoSave;
+        this.nature = intelSave;
+        this.perception = wisdoSave;
+        this.performance = chariSave;
+        this.persuasion = chariSave;
+        this.religion = intelSave;
+        this.slightOfHand = dexteSave;
+        this.stealth = dexteSave;
+        this.survival = wisdoSave;
 
-        for(int i=0;i<skills.size();i++){
-            if(skills.get(i).equals("acrobatics") || skills.get(i).equals("Acrobatics")){
-                this.acrobatics=dexteSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("animal handling") || skills.get(i).equals("Animal Handling")){
-                this.animalHandling=wisdoSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("arcana") || skills.get(i).equals("Arcana")){
-                this.arcana=intelSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("athletics") || skills.get(i).equals("Athletics")){
-                this.athletics=strenSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("deception") || skills.get(i).equals("Deception")){
-                this.deception=chariSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("history") || skills.get(i).equals("History")){
-                this.history=intelSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("insight") || skills.get(i).equals("Insight")){
-                this.insight=wisdoSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("intimidation") || skills.get(i).equals("Intimidation")){
-                this.intimidation=chariSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("investigation") || skills.get(i).equals("Investigation")){
-                this.investigation=intelSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("medicine") || skills.get(i).equals("Medicine")){
-                this.medicine=wisdoSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("nature") || skills.get(i).equals("Nature")){
-                this.nature=intelSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("perception") || skills.get(i).equals("Perception")){
-                this.perception=wisdoSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("performance") || skills.get(i).equals("Performance")){
-                this.performance=chariSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("persuasion") || skills.get(i).equals("Persuasion")){
-                this.persuasion=chariSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("religion") || skills.get(i).equals("Religion")){
-                this.religion=intelSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("sleight of hand") || skills.get(i).equals("Sleight of Hand") || skills.get(i).equals("SoH")){
-                this.slightOfHand=dexteSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("stealth") || skills.get(i).equals("Stealth")){
-                this.stealth=dexteSave+proficiencyBonus;
-            }
-            else if(skills.get(i).equals("survival") || skills.get(i).equals("Survival")){
-                this.survival=wisdoSave+proficiencyBonus;
-            }
-            else{
+        for (int i = 0; i < skills.size() - 1; i++) {
+            if (skills.get(i).equals("acrobatics") || skills.get(i).equals("Acrobatics")) {
+                this.acrobatics = dexteSave + proficiencyBonus;
+            } else if (skills.get(i).equals("animal handling") || skills.get(i).equals("Animal Handling")) {
+                this.animalHandling = wisdoSave + proficiencyBonus;
+            } else if (skills.get(i).equals("arcana") || skills.get(i).equals("Arcana")) {
+                this.arcana = intelSave + proficiencyBonus;
+            } else if (skills.get(i).equals("athletics") || skills.get(i).equals("Athletics")) {
+                this.athletics = strenSave + proficiencyBonus;
+            } else if (skills.get(i).equals("deception") || skills.get(i).equals("Deception")) {
+                this.deception = chariSave + proficiencyBonus;
+            } else if (skills.get(i).equals("history") || skills.get(i).equals("History")) {
+                this.history = intelSave + proficiencyBonus;
+            } else if (skills.get(i).equals("insight") || skills.get(i).equals("Insight")) {
+                this.insight = wisdoSave + proficiencyBonus;
+            } else if (skills.get(i).equals("intimidation") || skills.get(i).equals("Intimidation")) {
+                this.intimidation = chariSave + proficiencyBonus;
+            } else if (skills.get(i).equals("investigation") || skills.get(i).equals("Investigation")) {
+                this.investigation = intelSave + proficiencyBonus;
+            } else if (skills.get(i).equals("medicine") || skills.get(i).equals("Medicine")) {
+                this.medicine = wisdoSave + proficiencyBonus;
+            } else if (skills.get(i).equals("nature") || skills.get(i).equals("Nature")) {
+                this.nature = intelSave + proficiencyBonus;
+            } else if (skills.get(i).equals("perception") || skills.get(i).equals("Perception")) {
+                this.perception = wisdoSave + proficiencyBonus;
+            } else if (skills.get(i).equals("performance") || skills.get(i).equals("Performance")) {
+                this.performance = chariSave + proficiencyBonus;
+            } else if (skills.get(i).equals("persuasion") || skills.get(i).equals("Persuasion")) {
+                this.persuasion = chariSave + proficiencyBonus;
+            } else if (skills.get(i).equals("religion") || skills.get(i).equals("Religion")) {
+                this.religion = intelSave + proficiencyBonus;
+            } else if (skills.get(i).equals("sleight of hand") || skills.get(i).equals("Sleight of Hand") || skills.get(i).equals("SoH")) {
+                this.slightOfHand = dexteSave + proficiencyBonus;
+            } else if (skills.get(i).equals("stealth") || skills.get(i).equals("Stealth")) {
+                this.stealth = dexteSave + proficiencyBonus;
+            } else if (skills.get(i).equals("survival") || skills.get(i).equals("Survival")) {
+                this.survival = wisdoSave + proficiencyBonus;
+            } else {
                 throw new IllegalArgumentException("Skill isn't a skill or is miss-spelled");
             }
         }
 
     }
 
-    private int genSave(int ability){
-        int save = ability-10;
-        save = save/2;
+    private int genSave(int ability) {
+        int save = ability - 10;
+        save = save / 2;
         return save;
     }
 
-    public void generateThrows(){
+    public void generateThrows() {
         //randomizes ability scores
-        if(!hasAbility){
+        if (!hasAbility) {
             randomizeAbilityScores();
         }
 
@@ -261,48 +255,74 @@ public class Player extends Character{
         int cha = getCharisma();
 
         //generates saves
-        this.strenSave=genSave(str);
-        this.dexteSave=genSave(dex);
-        this.constSave=genSave(con);
-        this.intelSave=genSave(intel);
-        this.wisdoSave=genSave(wis);
-        this.chariSave=genSave(cha);
+        this.strenSave = genSave(str);
+        this.dexteSave = genSave(dex);
+        this.constSave = genSave(con);
+        this.intelSave = genSave(intel);
+        this.wisdoSave = genSave(wis);
+        this.chariSave = genSave(cha);
 
-        for(int i=0; i<savingThrows.size(); i++){
-            if(savingThrows.get(i).equals("Intelligence") || savingThrows.get(i).equals("intelligence")){
-                this.intelSave=genSave(intel)+proficiencyBonus;
-            }
-            else if(savingThrows.get(i).equals("Strength") || savingThrows.get(i).equals("strength")){
-                this.strenSave=genSave(str)+proficiencyBonus;
-            }
-            else if(savingThrows.get(i).equals("Dexterity") || savingThrows.get(i).equals("dexterity")){
-                this.dexteSave=genSave(dex)+proficiencyBonus;
-            }
-            else if(savingThrows.get(i).equals("Constitution") || savingThrows.get(i).equals("constitution")){
-                this.constSave=genSave(con)+proficiencyBonus;
-            }
-            else if(savingThrows.get(i).equals("Wisdom") || savingThrows.get(i).equals("wisdom")){
-                this.wisdoSave=genSave(wis)+proficiencyBonus;
-            }
-            else if(savingThrows.get(i).equals("Charisma") || savingThrows.get(i).equals("charisma")){
-                this.chariSave=genSave(cha)+proficiencyBonus;
-            }
-            else{
-                throw new IllegalArgumentException("Saving throw value is invalid, they must be one of the 6 abilities");
-            }
+        //creates the ability mods
+        this.strenMod = strenSave;
+        this.dexteMod = dexteSave;
+        this.constMod = constSave;
+        this.intelMod = intelSave;
+        this.wisdoMod = wisdoSave;
+        this.chariMod = chariSave;
+
+        //edits throws if they need to be boosted by a saving throw proficiency
+        if (savingThrows.contains("Intelligence") || savingThrows.contains("intelligence")) {
+            this.intelSave = genSave(intel) + proficiencyBonus;
         }
-
-
-
-
-
-
-
-
-
+        if (savingThrows.contains("Strength") || savingThrows.contains("strength")) {
+            this.strenSave = genSave(str) + proficiencyBonus;
+        }
+        if (savingThrows.contains("Dexterity") || savingThrows.contains("dexterity")) {
+            this.dexteSave = genSave(dex) + proficiencyBonus;
+        }
+        if (savingThrows.contains("Constitution") || savingThrows.contains("constitution")) {
+            this.constSave = genSave(con) + proficiencyBonus;
+        }
+        if (savingThrows.contains("Wisdom") || savingThrows.contains("wisdom")) {
+            this.wisdoSave = genSave(wis) + proficiencyBonus;
+        }
+        if (savingThrows.contains("Charisma") || savingThrows.contains("charisma")) {
+            this.chariSave = genSave(cha) + proficiencyBonus;
+        }
     }
 
     //Set Methods
+
+
+    public void setStrenMod(int strenMod) {
+        this.strenMod = strenMod;
+    }
+
+    public void setDexteMod(int dexteMod) {
+        this.dexteMod = dexteMod;
+    }
+
+    public void setConstMod(int constMod) {
+        this.constMod = constMod;
+    }
+
+    public void setIntelMod(int intelMod) {
+        this.intelMod = intelMod;
+    }
+
+    public void setWisdoMod(int wisdoMod) {
+        this.wisdoMod = wisdoMod;
+    }
+
+    public void setChariMod(int chariMod) {
+        this.chariMod = chariMod;
+    }
+
+    public void setCharClass(String charClass) {
+        this.charClass = charClass;
+    }
+
+    private void setExperience(int newEXP){ this.experience=newEXP;}
 
     private void setStrenSave(int save){
         this.strenSave=save;
@@ -502,7 +522,11 @@ public class Player extends Character{
 
     public void setRace(String aRace){ this.race=aRace;}
 
+    public void setBackground(String background){ this.background=background;}
+
     //Get Methods
+
+    public int getExperience(){ return experience;}
 
     public int getStrenSave() {
         return strenSave;
@@ -698,5 +722,33 @@ public class Player extends Character{
 
     public ArrayList<String> getSkills() {
         return skills;
+    }
+
+    public String getBackground(){ return background;}
+
+    public String getRace(){ return race;}
+
+    public int getStrenMod() {
+        return strenMod;
+    }
+
+    public int getDexteMod() {
+        return dexteMod;
+    }
+
+    public int getConstMod() {
+        return constMod;
+    }
+
+    public int getIntelMod() {
+        return intelMod;
+    }
+
+    public int getWisdoMod() {
+        return wisdoMod;
+    }
+
+    public int getChariMod() {
+        return chariMod;
     }
 }

@@ -24,11 +24,12 @@ public class NPC extends Character {
     // fey, fiend, giant, humanoid, monstrosity, ooze, plant, undead
 
     public NPC(Character character){
-        super(character.getName());
-    }
-
-    public NPC(String name){
-        super(name);
+        super(character.getName(),character.getHP(),character.getHitDiceAmt(),
+                character.getHitDiceSided(),character.getHitDiceModifier(),character.getArmor(),
+                character.getSpeed(),character.getStrength(),character.getDexterity(),
+                character.getConstitution(),character.getIntelligence(),
+                character.getWisdom(),character.getCharisma(),character.getAlignment(),character.getLanguageList(),
+                character.getActionsList());
     }
 
 
