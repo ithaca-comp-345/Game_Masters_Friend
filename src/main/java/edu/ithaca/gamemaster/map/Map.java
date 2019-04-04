@@ -7,7 +7,7 @@ public class Map extends JFrame {
     private static void displayMap() {
         //Create and set up the window.
         JFrame frame = new JFrame("D&D MAP");
-        ImageIcon icon = new ImageIcon("/home/dev/Desktop/comp345/FinalGroupProject/src/main/java/edu/ithaca/gamemaster/map/image.jpg");
+        ImageIcon icon = new ImageIcon("image.jpg");
         JLabel label1 = new JLabel(icon);
         Player player = new Player(250,250,100);
 

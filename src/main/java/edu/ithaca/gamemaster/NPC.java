@@ -11,7 +11,7 @@ public class NPC extends Character {
     private ArrayList<String> senses;
     private ArrayList<String> dmgResist;
     private ArrayList<String> dmgImmune;
-    private ArrayList<String> condImmune;
+    private ArrayList<String> condImmune; //condition immunity
     private int challenge;
     private int strenSave;
     private int dexteSave;
@@ -23,6 +23,10 @@ public class NPC extends Character {
     private String type; //beast, aberration, celestial, construct, dragon, elemental,
     // fey, fiend, giant, humanoid, monstrosity, ooze, plant, undead
 
+    public NPC(){
+        super();
+    }
+
     public NPC(Character character){
         super(character.getName(),character.getHP(),character.getHitDiceAmt(),
                 character.getHitDiceSided(),character.getHitDiceModifier(),character.getArmor(),
@@ -32,6 +36,51 @@ public class NPC extends Character {
                 character.getActionsList());
     }
 
+    public NPC(String name, int hitPts, int hitDice, int hitSide, int hitMod,
+               int armor, int speed, int strength, int dexterity, int constitution,
+               int intelligence, int wisdom, int charisma, String alignment,
+               ArrayList<String> languages, ArrayList<Action> actions){
+        super(name,hitPts,hitDice,hitSide,hitMod,armor,speed,strength,dexterity,
+                constitution,intelligence,wisdom,charisma,alignment,languages,
+                actions);
+    }
+
+    public NPC(String name, int hitPts, int hitDice, int hitSide, int hitMod,
+               int armor, int speed, int strength, int dexterity, int constitution,
+               int intelligence, int wisdom, int charisma, String alignment,
+               ArrayList<String> languages, ArrayList<Action> actions, int challenge,
+               int strenSave, int dexteSave, int constSave, int intelSave, int wisdoSave, int chariSave,
+               String size, String type, ArrayList<String> skills,
+               ArrayList<String> specialTraits, ArrayList<String> senses, ArrayList<String> dmgResist,
+               ArrayList<String> dmgImmune, ArrayList<String> condImmune){
+        super(name,hitPts,hitDice,hitSide,hitMod,armor,speed,strength,dexterity,
+                constitution,intelligence,wisdom,charisma,alignment,languages,
+                actions);
+        this.challenge=challenge;
+        this.strenSave=strenSave;
+        this.dexteSave=dexteSave;
+        this.constSave=constSave;
+        this.intelSave=intelSave;
+        this.wisdoSave=wisdoSave;
+        this.chariSave=chariSave;
+        this.size=size;
+        this.type=type;
+        this.skills=skills;
+        this.specialTraits=specialTraits;
+        this.senses=senses;
+        this.dmgResist=dmgResist;
+        this.dmgImmune=dmgImmune;
+        this.condImmune=condImmune;
+    }
+
+    //Generators
+    public void generateNPC(){
+        //TODO
+    }
+
+    public void generateNPCType(String type){
+        //TODO
+    }
 
     //Set Methods
 
