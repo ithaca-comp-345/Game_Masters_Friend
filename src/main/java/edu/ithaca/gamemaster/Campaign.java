@@ -6,7 +6,7 @@ import java.util.Map;
 
 public class Campaign{
     public String campaignName;
-    public Location location;
+    //public Location location;
     public Map<String,PlayerUser> userPlayers;
     public Map<String,Notes> notes;
 
@@ -68,11 +68,8 @@ public class Campaign{
 
 
    // public void editNotes(){};
-
-
    // public void shareInformation(){};
    // public void createEncounter(){}
-    // public void addNotes(String campaignName){};
     // public void editCharacter(){};
     // public void editLocation(){};
     // public void editNPC();
