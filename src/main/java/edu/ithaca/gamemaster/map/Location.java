@@ -1,4 +1,4 @@
-package edu.ithaca.gamemaster;
+package edu.ithaca.gamemaster.map;
 
 public class Location {
     public String name;

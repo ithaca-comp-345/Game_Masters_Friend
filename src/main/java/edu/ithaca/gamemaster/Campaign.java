@@ -39,9 +39,9 @@ public class Campaign{
 
 
 
-    public void addNotes(String noteName, String text){
+    public void addNotes(String noteName){
         if(!notes.containsKey(noteName)){
-            Notes note=new Notes(noteName,text);
+            Notes note=new Notes(noteName);
             notes.put(noteName,note);
         }
         else {
@@ -56,12 +56,32 @@ public class Campaign{
         throw new IllegalArgumentException("notes were not found");
     }
 
-    public void addToCurrNotes(String noteName, String text){
+    public void addToCurrNotes(String noteName){
         if(notes.containsKey(noteName)){
-            notes.get(noteName).addToNotes(text);
+            new NoteEditor(notes.get(noteName)).setVisible(true);
         }
         else{
             throw new IllegalArgumentException("notes were not found");
+        }
+    }
+
+    public void deleteCurrNotes(String noteName){
+        if(notes.containsKey(noteName)){
+            notes.remove(noteName);
+        }
+        else{
+            throw new IllegalArgumentException("notes were not found");
+        }
+
+    }
+
+
+    public boolean isNotes(String noteName){
+        if (notes.containsKey(noteName)) {
+            return true;
+        }
+        else{
+            return false;
         }
     }
 
