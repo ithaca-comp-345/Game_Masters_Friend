@@ -5,9 +5,8 @@ public class Notes {
     private String noteName;
     private String notes;
 
-    public Notes(String noteName, String notes) {
+    public Notes(String noteName) {
         this.noteName = noteName;
-        this.notes = notes+"\n";
     }
 
     public String getNoteName() {
@@ -26,8 +25,12 @@ public class Notes {
         this.notes = notes;
     }
 
-    public void addToNotes(String stringToAdd){
-        this.notes += stringToAdd+"\n";
-    }
+//   public void addToNotes(String stringToAdd){
+//        this.notes += stringToAdd+"\n";
+//    }
+//
+//    public void editNotes(){
+//        new NoteEditor(notes).setVisible(true);
+//    }
 
 }
