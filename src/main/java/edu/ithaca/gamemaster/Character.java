@@ -71,6 +71,20 @@ public class Character {
         this.actions=actions;
     }
 
+    //default for json usage
+    public Character() {
+        this.name=null;
+        this.hitPts=1;
+        this.hitDiceAmt=1;
+        this.hitDiceSided=1;
+        this.hitDiceModifier=1;
+        this.armor=1;
+        this.speed=1;
+        this.alignment=null;
+        this.languages=null;
+        this.actions=null;
+    }
+
     //Validation Methods
 
     private static void checkValid20(int input){

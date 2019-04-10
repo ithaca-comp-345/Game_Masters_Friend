@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Campaign{
+
     public String campaignName;
     //public Location location;
     public Map<String,PlayerUser> userPlayers;
