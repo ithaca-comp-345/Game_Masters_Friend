@@ -21,7 +21,7 @@ public class Account {
         else{
             this.username=nameIn;
             this.psswd=psswdIn;
-            userPlayer=new PlayerUser();
+//            userPlayer=new PlayerUser();
 //            gm=new GMUser();
         }
 
