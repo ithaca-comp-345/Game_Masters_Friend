@@ -17,8 +17,9 @@ public class attackRollTest {
         testCharacter.randomizeAbilityScores();
         testCharacter2.setHP(25);
         //setting strength
-        testCharacter.setStrength(10);
-        testCharacter2.setArmor(10);
+
+        testCharacter.setStrength(15);
+        testCharacter2.setArmor(15);
 
         //Creates an AttackRoll
         AttackRoll attackRoll = new AttackRoll();
