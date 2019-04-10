@@ -5,12 +5,13 @@ import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.Map;
 
 public class Session {
     private String sessionName;
     private GameMaster gameMaster;
-    private Map<String, PlayerUser> players;
+    private Map<String, PlayerUser> players = new HashMap<>();
     private String timeStart;
     private String timeEnd;
     private String goal;
@@ -64,6 +65,28 @@ public class Session {
         return true;
     }
 
+    public boolean removePlayerfromSession(String playerName){
+        if(players.containsKey(playerName)){
+            players.remove(playerName);
+            return true;
+        }
+        //no player was removed so false
+        return false;
+
+    }
+
+    public boolean removeMultiPlayers(ArrayList<String> playersNames){
+        for(int i = 0 ; i<playersNames.size(); i++){
+            if(players.containsKey(playersNames.get(i))){
+                players.remove(playersNames.get(i));
+            }
+            else{
+                return false;
+            }
+        }
+        return true;
+    }
+
     public boolean createCharacterObj(String player, Player character){
         players.get(player).addCharacter(character.getName(),character);
         if(players.get(player).getPlayerCharacter(character.getName())
@@ -94,9 +117,15 @@ public class Session {
         return true;
     }
 
-    public boolean runEncounter(boolean wholeGroup){
-        //TODO
-        return false;
+    public boolean runEncounter(boolean wholeGroup, int amtOfPlayers){
+        if(wholeGroup){
+            //creates encounter for entire group
+        }
+        else{
+            //creates encounter for amtOfPlayers
+        }
+
+        return true;
     }
 
     //Other methods underway
@@ -106,6 +135,13 @@ public class Session {
         Date date = new Date();
         String dateStr = format.format(date);
         return dateStr;
+    }
+
+    public PlayerUser getSpecificPlayer(String name){
+        if(players.containsKey(name)){
+            return players.get(name);
+        }
+        return null;
     }
 
     public String getSessionName() {
