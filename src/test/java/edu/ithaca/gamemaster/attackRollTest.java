@@ -4,7 +4,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class attackRollTest {
 
-
     @Test
     void attackRollPvP(){
 
@@ -13,7 +12,7 @@ public class attackRollTest {
         Character testCharacter2  = new Character("Flare");
         Character npc = new Character("NPC");
         npc.setHP(25);
-        NPC tescNpc = new NPC(npc);
+        NPC testNpc = new NPC(npc);
         testCharacter2.randomizeAbilityScores();
         testCharacter.randomizeAbilityScores();
         testCharacter2.setHP(25);
@@ -29,11 +28,9 @@ public class attackRollTest {
         assertNotEquals(testCharacter2.getHP(),25);
 
         //after attack PvNPC
-        attackRoll.attackPvNPV(testCharacter,tescNpc);
+        attackRoll.attackPvNPC(testCharacter,testNpc);
         assertNotEquals(testCharacter2.getHP(), 25);
 
     }
-
-
 
 }

@@ -22,7 +22,7 @@ public class AttackRoll {
 
     //takes one player and NPC, calculates the damage towards NPC
     // and reduces HP
-    public void attackPvNPV(Character player, NPC npc){
+    public void attackPvNPC(Character player, NPC npc){
         int totalAttack = 0;
         totalAttack = d20.roll();
         if(totalAttack == 1){
@@ -31,8 +31,6 @@ public class AttackRoll {
             totalAttack = totalAttack + player.getStrength();
             npc.setHP(npc.getHP() - totalAttack);
         }
-
-
     }
 
 
