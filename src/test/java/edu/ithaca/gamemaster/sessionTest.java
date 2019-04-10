@@ -2,6 +2,8 @@ package edu.ithaca.gamemaster;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class sessionTest {
@@ -29,13 +31,58 @@ public class sessionTest {
         assertTrue(newSession.completeGoal());
         assertTrue(newSession.isGoalAchieved());
     }
-//    @Test
-//    void addSinglePlayerTest(){
-//        Account account = new Account("Milo Rue", "Comp345");
-//        GameMaster gameMaster = new GameMaster(account.getUsername(), account);
-//        Session newSession = new Session("Session 1", gameMaster,true);
-//        assertTrue(newSession.addPlayertoSession("Billy Jones"));
-//    }
+    @Test
+    void addSinglePlayerTest(){
+        Account account = new Account("Milo Rue", "Comp345");
+        GameMaster gameMaster = new GameMaster(account.getUsername(), account);
+        Session newSession = new Session("Session 1", gameMaster,true);
+        assertTrue(newSession.addPlayertoSession("Billy Jones"));
+        assertEquals("Billy Jones", newSession.getPlayers().get("Billy Jones").getName());
+    }
+    @Test
+    void addPlayerListTest(){
+        Account account = new Account("Milo Rue", "Comp345");
+        GameMaster gameMaster = new GameMaster(account.getUsername(), account);
+        Session newSession = new Session("Session 1", gameMaster,true);
+        ArrayList<String> players = new ArrayList<>();
+        players.add("Bob");
+        players.add("Sam");
+        players.add("James");
+        assertTrue(newSession.addPlayerListtoSession(players));
+        assertEquals("{Bob=edu.ithaca.gamemaster.PlayerUser@1f3f4916, James=edu.ithaca.gamemaster.PlayerUser@794cb805, Sam=edu.ithaca.gamemaster.PlayerUser@4b5a5ed1}",
+                newSession.getPlayers().toString());
+        assertEquals("Bob", newSession.getSpecificPlayer("Bob").getName());
+    }
+    @Test
+    void getSpecificPlayerTest(){
+        Account account = new Account("Milo Rue", "Comp345");
+        GameMaster gameMaster = new GameMaster(account.getUsername(), account);
+        Session newSession = new Session("Session 1", gameMaster,true);
+        ArrayList<String> players = new ArrayList<>();
+        players.add("Bob");
+        players.add("Sam");
+        players.add("James");
+        assertTrue(newSession.addPlayerListtoSession(players));
+        assertEquals("Bob", newSession.getSpecificPlayer("Bob").getName());
+    }
+    @Test
+    void removePlayersTest(){
+        Account account = new Account("Milo Rue", "Comp345");
+        GameMaster gameMaster = new GameMaster(account.getUsername(), account);
+        Session newSession = new Session("Session 1", gameMaster,true);
+        ArrayList<String> players = new ArrayList<>();
+        players.add("Bob");
+        players.add("Sam");
+        players.add("James");
+        assertTrue(newSession.addPlayerListtoSession(players));
+        assertTrue(newSession.removePlayerfromSession("Bob"));
+        //checks for false flag up for an already deleted player
+        assertFalse(newSession.removePlayerfromSession("Bob"));
+        players.remove("Bob");
+        assertTrue(newSession.removeMultiPlayers(players));
+        //checks for false flag
+        assertFalse(newSession.removeMultiPlayers(players));
+    }
 
 
 }
