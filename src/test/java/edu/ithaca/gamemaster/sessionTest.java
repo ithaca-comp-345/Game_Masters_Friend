@@ -49,8 +49,7 @@ public class sessionTest {
         players.add("Sam");
         players.add("James");
         assertTrue(newSession.addPlayerListtoSession(players));
-        assertEquals("{Bob=edu.ithaca.gamemaster.PlayerUser@1f3f4916, James=edu.ithaca.gamemaster.PlayerUser@794cb805, Sam=edu.ithaca.gamemaster.PlayerUser@4b5a5ed1}",
-                newSession.getPlayers().toString());
+        assertEquals("Sam", newSession.getPlayers().get("Sam").getName());
         assertEquals("Bob", newSession.getSpecificPlayer("Bob").getName());
     }
     @Test
