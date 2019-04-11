@@ -12,10 +12,20 @@ public class AttackRoll {
         int totalAttack = 0;
         totalAttack = d20.roll();
         if(totalAttack == 1){
-            System.out.println("Miss");
+            System.out.println("Attack wasn't so lethal");
+            if((player2.getHP() - totalAttack) < 0){
+                player2.setHP(0);
+            }else{
+                player2.setHP(player2.getHP() - totalAttack);
+            }
         }else {
             totalAttack = totalAttack + player1.getStrength();
-            player2.setHP(player1.getHP() - totalAttack);
+            if (player2.getHP() - totalAttack < 0){
+                    player2.setHP(0);
+            }else {
+                player2.setHP(0);
+                player2.setHP(player1.getHP() - totalAttack);
+            }
         }
 
     }
@@ -26,10 +36,20 @@ public class AttackRoll {
         int totalAttack = 0;
         totalAttack = d20.roll();
         if(totalAttack == 1){
-            System.out.println("Miss");
+            System.out.println("Attack wasn't so lethal");
+            if((npc.getHP() - totalAttack) < 0){
+                npc.setHP(0);
+            }else{
+                npc.setHP(npc.getHP() - totalAttack);
+            }
         }else {
             totalAttack = totalAttack + player.getStrength();
-            npc.setHP(npc.getHP() - totalAttack);
+            if(npc.getHP() - totalAttack < 0) {
+                npc.setHP(0);
+            }else{
+                npc.setHP(npc.getHP() - totalAttack);
+            }
+
         }
     }
 
