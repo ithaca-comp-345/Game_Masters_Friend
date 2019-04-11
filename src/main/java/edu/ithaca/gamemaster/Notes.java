@@ -3,7 +3,7 @@ package edu.ithaca.gamemaster;
 public class Notes {
 
     private String noteName;
-    private String notes;
+    private String text;
 
     public Notes(String noteName) {
         this.noteName = noteName;
@@ -18,11 +18,11 @@ public class Notes {
     }
 
     public String getNotes() {
-        return notes;
+        return text;
     }
 
     public void setNotes(String notes) {
-        this.notes = notes;
+        this.text = notes;
     }
 
 //   public void addToNotes(String stringToAdd){
