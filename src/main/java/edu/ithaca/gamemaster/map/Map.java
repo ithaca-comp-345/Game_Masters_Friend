@@ -13,14 +13,14 @@ public class Map extends JFrame {
         this.frame = new JFrame("D&D MAP");
         ImageIcon icon = new ImageIcon(path);
         JLabel label1 = new JLabel(icon);
-        Player player = new Player(250,250,100);
+        Player player = new Player(250, 250, 100);
 
         JPanel panel = new JPanel();
         panel.add(label1);
         panel.add(player);
         frame.add(panel);
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setPreferredSize(new Dimension(icon.getIconWidth(), icon.getIconHeight()));
         frame.setResizable(false);
 
