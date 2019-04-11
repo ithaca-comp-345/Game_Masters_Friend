@@ -9,21 +9,14 @@ public class Notes {
         this.noteName = noteName;
     }
 
-    public String getNoteName() {
-        return noteName;
-    }
+        public String getNotes() {
+            return text;
+        }
 
-    public void setNoteName(String noteName) {
-        this.noteName = noteName;
-    }
+        public void setNotes(String notes) {
+            this.text = notes;
+        }
 
-    public String getNotes() {
-        return text;
-    }
-
-    public void setNotes(String notes) {
-        this.text = notes;
-    }
 
 //   public void addToNotes(String stringToAdd){
 //        this.notes += stringToAdd+"\n";
