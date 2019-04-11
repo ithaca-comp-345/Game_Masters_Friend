@@ -88,15 +88,14 @@ public class Campaign{
 
     public String shareInformation(String noteName){
         return notes.get(noteName).getNotes();
-
-    };
-
+    }
 
 
 
 
-   // public void editNotes(){};
-   //
+
+
+
    // public void createEncounter(){}
     // public void editCharacter(){};
     // public void editLocation(){};

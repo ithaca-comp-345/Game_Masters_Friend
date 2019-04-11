@@ -18,7 +18,7 @@ public class NoteEditor extends JFrame {
         createView(n);
 
         setTitle("Notes");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(EXIT_ON_CLOSE);
         pack();
         setLocationRelativeTo(null);
 
