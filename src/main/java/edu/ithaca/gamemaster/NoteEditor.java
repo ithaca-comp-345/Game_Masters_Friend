@@ -26,6 +26,7 @@ public class NoteEditor extends JFrame {
     }
 
     public void display(){
+
         panel.setVisible(true);
     }
 

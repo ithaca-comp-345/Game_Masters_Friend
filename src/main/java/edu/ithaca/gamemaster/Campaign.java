@@ -113,7 +113,7 @@ public class Campaign{
 
     public void addToCurrNotes(String sessionName){
         if(notes.containsKey(sessionName)){
-            new NoteEditor(notes.get(sessionName)).display();
+            new NoteEditor(notes.get(sessionName)).setVisible(true);
         }
         else{
             throw new IllegalArgumentException("notes were not found");

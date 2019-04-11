@@ -12,7 +12,7 @@ public class locationTest {
     void isPathValidTest(){
         assertFalse(Location.isPathValid("none"));
         assertFalse(Location.isPathValid(""));
-        assertTrue(Location.isPathValid("/Users/teamdevadze/IdeaProjects/Game_Masters_Friend/src/main/java/edu/ithaca/gamemaster/map/image.jpg"));
+        //assertTrue(Location.isPathValid("/Users/teamdevadze/IdeaProjects/Game_Masters_Friend/src/main/java/edu/ithaca/gamemaster/map/image.jpg"));
     }
     @Test
     void constructorTest(){
