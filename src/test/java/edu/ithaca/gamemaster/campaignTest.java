@@ -126,6 +126,15 @@ public class campaignTest {
         campaign.addToCurrNotes("1");
         campaign.addToCurrNotes("2");
         campaign.addToCurrNotes("3");
+    }
+
+    @Test
+    void searchLocationsTest(){
+        Campaign campaign = new Campaign();
+
+
+
+
 
     }
 

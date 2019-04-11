@@ -3,9 +3,9 @@ package edu.ithaca.gamemaster.map;
 import java.io.File;
 
 public class Location {
-    public String locationName;
-    public Map map;
-    public String imagePath;
+    private String locationName;
+    private Map map;
+    private String imagePath;
 
     public Location(String imagePathIn, String locationNameIn){
         if(isPathValid(imagePathIn)){
@@ -28,13 +28,24 @@ public class Location {
        }
    }
 
+   public String getLocationName(){
+        return locationName;
+   }
+
+   public String getImagePath(){
+        return imagePath;
+   }
+
     public void editMap(String imagePathIn){
         this.map =  new Map(imagePath);
     }
 
-    public void getMap(){
+    public void displayMap(){
         map.display();
+    }
 
+    public Map getMap(){
+        return map;
     }
 
 }
