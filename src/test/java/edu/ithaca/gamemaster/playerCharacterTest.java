@@ -16,8 +16,8 @@ public class playerCharacterTest {
         languages.add("Common Tongue");
 
         ArrayList<Action> actions = new ArrayList<Action>();
-        Action action1 = new Action("One Ring",5,1,6,"Magical");
-        Action action2 = new Action("Sword Thrust",3,1,8,"Piercing");
+        Action action1 = new Action("One Ring",5,1,6,"Magical", "");
+        Action action2 = new Action("Sword Thrust",3,1,8,"Piercing", "");
 
         ArrayList<String> traits = new ArrayList<String>();
 
@@ -42,7 +42,7 @@ public class playerCharacterTest {
         languages.add("Elvish");
         languages.add("Binary");
         languages.add("Assembly");
-        Action fireball = new Action("Fireball",5,1,8,"Fire");
+        Action fireball = new Action("Fireball",5,1,8,"Fire", "testdesc");
         actions.add(fireball);
 
         Player example = new Player("Will Robinson",15,2,6,5,14,30,"Chaotic Neutral",languages,actions);
