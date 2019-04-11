@@ -2,7 +2,7 @@ package edu.ithaca.gamemaster;
 
 import java.util.ArrayList;
 
-public class statCheck {
+public class StatCheck {
 
     /**
      * Performs a skill check for an action performed
@@ -120,11 +120,12 @@ public class statCheck {
      * @param difficulty skill check difficulty decided by GM
      * @return returns true if the check passed or false is check failed
      */
-    private boolean groupSkillCheck(Character[] group, String stat, int numRolls, double threshold, int difficulty){
+    public boolean groupSkillCheck(Character[] group, String stat, int numRolls, double threshold, int difficulty){
         int passCount = 0;
         boolean result = false;
+
         for (int i = 0; i < group.length  ; i++) {
-            if(skillCheck(group[i],stat,numRolls,threshold,difficulty) == true){
+            if(skillCheck(group[i],stat,numRolls,threshold,difficulty)){
                 passCount++;
             }
         }
