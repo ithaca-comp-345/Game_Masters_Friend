@@ -37,8 +37,19 @@ public class DiceRoll {
                 third = results.get(i);
         }
 
-        System.out.println("Three values are: " +
-                first + " " + second + " " + third);
+        //System.out.println("Three values are: " +
+                //first + " " + second + " " + third);
         return first+second+third;
     }
+
+    public int roll(){
+        int total=0;
+        Dice die = new Dice(sides);
+        for(int i =0; i<numDice; i++){
+            total += die.roll();
+        }
+        return total;
+    }
+
+
 }

@@ -30,6 +30,7 @@ public class Character {
 
     public Character(String name){
         this.name = name;
+        randomizeAll();
     }
 
     public Character(String name,int hitPts, int hitDice, int hitSide, int hitMod,
@@ -54,6 +55,7 @@ public class Character {
         this.actions=actions;
     }
 
+    //randomized character abilities
     public Character(String name, int hitPts, int hitDice, int hitSide, int hitMod,
                      int armor, int speed, String alignment, ArrayList<String> languages, ArrayList<Action> actions){
         randomizeAbilityScores();
@@ -67,6 +69,20 @@ public class Character {
         this.alignment=alignment;
         this.languages=languages;
         this.actions=actions;
+    }
+
+    //default for json usage
+    public Character() {
+        this.name=null;
+        this.hitPts=1;
+        this.hitDiceAmt=1;
+        this.hitDiceSided=1;
+        this.hitDiceModifier=1;
+        this.armor=1;
+        this.speed=1;
+        this.alignment=null;
+        this.languages=null;
+        this.actions=null;
     }
 
     //Validation Methods
@@ -96,11 +112,29 @@ public class Character {
 
     public void randomizeAll(){
         randomizeAbilityScores();
+        this.armor = randomizeValue();
+        this.speed = randomizeValue();
+        this.hitPts = randomizeValue();
+        this.hitDiceAmt = randomizeDice();
+        this.hitDiceModifier = randomizeValue();
+        this.hitDiceSided = randomizeDiceSides();
 
     }
 
-    private void randomizeValue(){
+    private int randomizeValue(){
+        //mutator method
+        int value = ((int) (Math.random() * 50)) + 1;
+        return value;
+    }
 
+    private int randomizeDiceSides(){
+        int value = ((int) (Math.random() * 4)) + 1;
+        return value;
+    }
+
+    private int randomizeDice(){
+        int value = ((int) (Math.random() * ((20 - 4)+1)) + 4);
+        return value;
     }
 
     public void randomizeAbilityScores(){
