@@ -7,13 +7,14 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="FinalGroupProject" />
+        <module name="Game_Masters_Friend" />
         <module name="GameMastersBestFriend" />
         <module name="GM_Companion" />
         <module name="helloWorld" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="Game_Masters_Friend" target="1.10" />
+      <module name="Game_Masters_Friend" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

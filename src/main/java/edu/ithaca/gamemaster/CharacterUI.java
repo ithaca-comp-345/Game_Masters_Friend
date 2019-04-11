@@ -3,10 +3,12 @@ package edu.ithaca.gamemaster;
 import java.util.*;
 
 public class CharacterUI {
+    //TODO: Add flag so autogen doesn't run after creating a character manually
     Scanner input = new Scanner(System.in);
     Random r = new Random();
     String sampleLanguages[] = new String[]{"Common", "Dwarvish ", "Elvish", "Gnomish", "Goblin", "Halfing", "Orc"};
     String alignments[] = new String[]{"Lawful good", "Lawful neutral ", "Lawful evil", "Neutral good", "True neutral", "Neutral evil", "Chaotic good", "Chaotic neutral", "Chaotic evil"};
+    String intStatNames[] = new String[]{"hit points","hit dice", "dice modifier", "armor", "speed", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"};
 
     //create character
     public void createNewCharacter() {
@@ -25,18 +27,55 @@ public class CharacterUI {
     public void newCharacterStats(Character newC) {
         System.out.print("Setting stats for " + newC.getName() + ". Generate manually? y/n ");
         String YN = input.nextLine();
-        //manually
+        //manual
         if (isValidYesNo(YN)) {
             System.out.print("Manual entry selected. Is this correct? ");
             YN = input.nextLine();
 
             if (isValidYesNo(YN)) { //double checking
                 System.out.print("Manual confirmed. Begin: \n");
-                //TODO: collect data and call API setter method
-                //get stat input value (or dice roll "DiceRoll")
-                //check for valid input
-                //call setter
-                System.out.println("Actually, you can't do this yet. Try auto-gen instead!");
+                System.out.println("Assigning stats for " + newC.getName() + ".");
+
+                //int stats//
+                int[] stats_holder = new int[intStatNames.length];
+                int intHolder = 0;
+                for (int i = 0; i < stats_holder.length; i++) {
+                    System.out.print("Give " + newC.getName() + " some " + intStatNames[i] + " stat. > ");
+                    intHolder = intsOnly();
+                    while (intHolder <= 0 || intHolder >= 22) { // Wanted to use Character.checkvalid20, but couldn't.
+                        System.out.print("Values must be more than 0, and less than 22. \n >");
+                        intHolder = intsOnly();
+                    }
+                }//;int stats//
+
+                //languages//
+                System.out.println("Great - now add a few languages to your character. You can also skip: press \"0\".");
+                ArrayList<String> langs = new ArrayList<>();
+                String lang = input.nextLine();
+
+                if (lang.equals("0")){ //skip adding languages
+                    System.out.println(newC.getName() + " won't know any languages. Is this correct?");
+                    lang = input.nextLine();
+                    if (isValidYesNo(lang)) {
+                        System.out.println("Wonderful; Moving on to Actions...");
+                    }
+                } //;skip//
+
+                while (!lang.equals("0")){
+                    System.out.println("Enter language: ");
+                    lang = input.nextLine();
+                    while (!isNotEmptyString(lang)) {
+                        System.out.print("Please give input. \n Enter name: ");
+                        lang = input.nextLine();
+                    }
+                    langs.add(lang);
+                    System.out.println(newC.getName() + " knows " + lang + ".");
+                }
+                System.out.println("Seems like you're done. This character knows " + langs.toString() + "\n It's time for Action.");
+                //;languages//
+                //TODO: alignment and Actions, and CONSTRUCTOR CALL.
+                System.out.println("Done! Printing...");
+                printWithAPI(newC);
             }
         }
         //auto-gen
@@ -82,7 +121,11 @@ public class CharacterUI {
         newC.setActions(actions);
 
         //commented because of tests. uncomment when complete
-        CharacterAPI api = new CharacterAPI(newC);
+        printWithAPI(newC);
+    }
+
+    public void printWithAPI(Character c){
+        CharacterAPI api = new CharacterAPI(c);
         api.printCharacter();
     }
 
@@ -93,7 +136,6 @@ public class CharacterUI {
             uniqueObjs.add(repeatedObjs.get(i));
         }
         ArrayList<E> prunedList = new ArrayList<E>(uniqueObjs);
-
         return prunedList;
     }
 

@@ -2,6 +2,8 @@ package edu.ithaca.gamemaster;
 
 import org.junit.jupiter.api.Test;
 
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -69,4 +71,9 @@ public class CharacterUITest {
     void actionStringOverrideTest(){
         Action throwBone = new Action("Dog Treat",2,3,4,"Bludgeoning", "It's a dog treat. Thrown REALLY hard.");
     }
+
+//    @Test
+//    void intsOnlyTest(){
+//    }
+
 }

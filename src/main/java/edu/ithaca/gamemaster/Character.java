@@ -73,13 +73,13 @@ public class Character {
 
     //Validation Methods
 
-    private static void checkValid20(int input){
+    public static void checkValid20(int input){
         if(input > 22){
             throw new IllegalArgumentException("Modifiers can only be less than 20");
         }
     }
 
-    private static void checkValid0(int input){
+    public static void checkValid0(int input){
         if(input < 0){
             throw new IllegalArgumentException("Modifiers cannot be less than 0");
         }
