@@ -95,7 +95,7 @@ public class Campaign{
 
 
     public void addNotes(String sessionName){
-        if(sessions.containsKey(sessionName)){
+        if(!notes.containsKey(sessionName)){
             Notes note=new Notes(sessionName);
             notes.put(sessionName,note);
         }

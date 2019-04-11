@@ -57,7 +57,7 @@ public class campaignTest {
         Campaign campaign = new Campaign();
 
         campaign.addNotes("1");
-        assertThrows(IllegalArgumentException.class, ()->campaign.addNotes("1"));
+       assertThrows(IllegalArgumentException.class, ()->campaign.addNotes("1"));
         assertTrue(campaign.isNotes("1"));
         assertEquals(null, campaign.getNotes("1"));
         campaign.addNotes("2");
