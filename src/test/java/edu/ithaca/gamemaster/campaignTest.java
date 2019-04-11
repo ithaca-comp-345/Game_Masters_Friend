@@ -75,19 +75,19 @@ public class campaignTest {
 
         assertFalse(campaign.isNotes("5"));
     }
-
-   @Test
-    void addToCurrNotesTest(){
-        Campaign campaign = new Campaign();
-
-        campaign.addNotes("1");
-        campaign.addToCurrNotes("1");
-        System.out.println(campaign.getNotes("1"));
-
-       campaign.addNotes("2");
-       campaign.addToCurrNotes("2");
-       System.out.println(campaign.getNotes("2"));
-    }
+//
+//   @Test
+//    void addToCurrNotesTest(){
+//        Campaign campaign = new Campaign();
+//
+//        campaign.addNotes("1");
+//        campaign.addToCurrNotes("1");
+//        System.out.println(campaign.getNotes("1"));
+//
+//       campaign.addNotes("2");
+//       campaign.addToCurrNotes("2");
+//       System.out.println(campaign.getNotes("2"));
+//    }
 
     @Test
     void deleteCurrNoteTest(){
@@ -114,19 +114,19 @@ public class campaignTest {
         assertThrows(IllegalArgumentException.class, ()->campaign.deleteCurrNotes("1"));
     }
 
-    @Test
-    void shareInformationTest(){
-        Campaign campaign =  new Campaign();
-
-        campaign.addNotes("1");
-        campaign.addNotes("2");
-        campaign.addNotes("3");
-        campaign.addNotes("4");
-
-        campaign.addToCurrNotes("1");
-        campaign.addToCurrNotes("2");
-        campaign.addToCurrNotes("3");
-    }
+//    @Test
+//    void shareInformationTest(){
+//        Campaign campaign =  new Campaign();
+//
+//        campaign.addNotes("1");
+//        campaign.addNotes("2");
+//        campaign.addNotes("3");
+//        campaign.addNotes("4");
+//
+//        campaign.addToCurrNotes("1");
+//        campaign.addToCurrNotes("2");
+//        campaign.addToCurrNotes("3");
+//    }
 
     @Test
     void searchLocationsTest(){
