@@ -29,6 +29,7 @@ public class AttackRoll {
             }
         }
 
+
     }
 
     //takes one player and NPC, calculates the damage towards NPC

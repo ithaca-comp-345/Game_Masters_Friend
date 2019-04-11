@@ -19,6 +19,7 @@ public class attackRollTest {
         testCharacter2.setHP(25);
         //setting strength
 
+
         testCharacter.setStrength(15);
         testCharacter2.setArmor(15);
 

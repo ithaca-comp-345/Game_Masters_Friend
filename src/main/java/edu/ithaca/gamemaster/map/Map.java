@@ -32,17 +32,4 @@ public class Map extends JFrame {
 
     }
 
-
-    public static void main(String[] args) {
-        //Schedule a job for the event-dispatching thread:
-        //creating and showing this application's GUI.
-
-        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-            public void run() {
-                Map  map = new Map("/home/dev/Desktop/comp345/Game_Masters_Friend/src/main/java/edu/ithaca/gamemaster/map/image.jpg");
-                map.display();
-            }
-        });
-
-    }
 }
