@@ -9,8 +9,9 @@ import java.awt.event.ActionListener;
 import java.util.*;
 
 public class NoteEditor extends JFrame {
-    private JButton button;
-    private JTextArea text;
+    public JButton button;
+    public JTextArea text;
+    public JPanel panel;
 
     public String s;
 
@@ -24,8 +25,12 @@ public class NoteEditor extends JFrame {
 
     }
 
+    public void display(){
+        panel.setVisible(true);
+    }
+
     public void createView(Notes n){
-        JPanel panel = new JPanel();
+        panel = new JPanel();
         getContentPane().add(panel);
 
         text = new JTextArea(n.getNotes());

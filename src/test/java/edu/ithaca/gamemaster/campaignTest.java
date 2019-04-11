@@ -112,8 +112,20 @@ public class campaignTest {
         assertFalse(campaign.isNotes("1"));
 
         assertThrows(IllegalArgumentException.class, ()->campaign.deleteCurrNotes("1"));
+    }
 
+    @Test
+    void shareInformationTest(){
+        Campaign campaign =  new Campaign();
 
+        campaign.addNotes("1");
+        campaign.addNotes("2");
+        campaign.addNotes("3");
+        campaign.addNotes("4");
+
+        campaign.addToCurrNotes("1");
+        campaign.addToCurrNotes("2");
+        campaign.addToCurrNotes("3");
 
     }
 

@@ -59,7 +59,7 @@ public class Campaign{
 
     public void addToCurrNotes(String noteName){
         if(notes.containsKey(noteName)){
-            new NoteEditor(notes.get(noteName)).setVisible(true);
+            new NoteEditor(notes.get(noteName)).display();
         }
         else{
             throw new IllegalArgumentException("notes were not found");
