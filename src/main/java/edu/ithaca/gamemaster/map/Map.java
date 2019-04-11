@@ -4,10 +4,14 @@ import java.awt.*;
 import javax.swing.*;
 
 public class Map extends JFrame {
-    private static void displayMap() {
+
+    JFrame frame;
+
+
+    public Map(String path) {
         //Create and set up the window.
-        JFrame frame = new JFrame("D&D MAP");
-        ImageIcon icon = new ImageIcon("/home/dev/Desktop/comp345/FinalGroupProject/src/main/java/edu/ithaca/gamemaster/map/image.jpg");
+        this.frame = new JFrame("D&D MAP");
+        ImageIcon icon = new ImageIcon(path);
         JLabel label1 = new JLabel(icon);
         Player player = new Player(250,250,100);
 
@@ -21,9 +25,16 @@ public class Map extends JFrame {
         frame.setResizable(false);
 
         //Display the window.
-        frame.pack();
-        frame.setVisible(true);
+//        frame.pack();
+//        frame.setVisible(true);
     }
+
+    public  void display(){
+        this.frame.pack();
+        this.frame.setVisible(true);
+
+    }
+
 
     public static void main(String[] args) {
         //Schedule a job for the event-dispatching thread:
@@ -31,8 +42,8 @@ public class Map extends JFrame {
 
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-
-                displayMap();
+                Map  map = new Map("/home/dev/Desktop/comp345/Game_Masters_Friend/src/main/java/edu/ithaca/gamemaster/map/image.jpg");
+                map.display();
             }
         });
 

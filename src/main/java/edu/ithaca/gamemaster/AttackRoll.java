@@ -23,6 +23,7 @@ public class AttackRoll {
             if (player2.getHP() - totalAttack < 0){
                     player2.setHP(0);
             }else {
+
                 player2.setHP(0);
                 player2.setHP(player1.getHP() - totalAttack);
             }
