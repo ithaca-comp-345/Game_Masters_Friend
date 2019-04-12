@@ -97,6 +97,7 @@ public class Player extends Character {
 
     }
 
+
     public Player(String name, int hitPts, int hitDice, int hitSide, int hitMod,
                   int armor, int speed, String alignment, ArrayList<String> languages, ArrayList<Action> actions) {
 

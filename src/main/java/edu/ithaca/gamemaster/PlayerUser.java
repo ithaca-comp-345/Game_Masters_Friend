@@ -26,4 +26,12 @@ public class PlayerUser{
     public String getName(){
         return name;
     }
+
+    @Override
+    public String toString() {
+        return "PlayerUser{" +
+                "name:'" + name + '\'' +
+                //", characters:" + characters + //uncomment after demo
+                '}';
+    }
 }

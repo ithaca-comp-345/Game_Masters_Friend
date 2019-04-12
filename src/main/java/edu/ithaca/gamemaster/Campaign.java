@@ -25,13 +25,37 @@ public class Campaign{
        this.locations = new HashMap<>();
 
     }
-    public Campaign(GameMaster gameMaster){
+    public Campaign(GameMaster gameMaster, String name){
+        this.campaignName = name;
         this.notes = new HashMap<>();
         this.userPlayers=new HashMap<>();
         this.sessions = new HashMap<>();
         this.locations = new HashMap<>();
+        this.characters = new HashMap<>(); //added for demo
         this.gm = gameMaster;
 
+    }
+
+    public Map<String, PlayerUser> getUserPlayers() {
+        return userPlayers;
+    }
+
+    @Override
+    public String toString() {
+        return "Campaign{" +
+                "campaignName: '" + campaignName + '\'' +
+                ", userPlayers: " + userPlayers +
+                ", notes: " + notes +
+                ", sessions: " + sessions +
+                ", characters: " + characters +
+                ", gm: " + gm +
+                '}';
+    }
+
+    public void printAllPlayers(Map<String,PlayerUser> up){
+        for (Map.Entry<String, PlayerUser> entry : up.entrySet()) {
+            System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+        }
     }
 
     public void setGm(GameMaster gameMaster){
@@ -63,6 +87,11 @@ public class Campaign{
 
     }
 
+    //new for demo
+    public void addCharacter(String name, Character newC){
+        characters.put(name, newC);
+    }
+
     public boolean findUserPlayer(String username){
         if(!userPlayers.containsKey(username)){
             return false;
@@ -91,8 +120,6 @@ public class Campaign{
             throw new IllegalArgumentException("Location doesn't exist");
         }
     }
-
-
 
     public void addNotes(String sessionName){
         if(!notes.containsKey(sessionName)){

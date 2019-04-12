@@ -3,6 +3,8 @@ package edu.ithaca.gamemaster;
 import java.lang.reflect.Array;
 import java.util.*;
 
+//TODO: regression tests on changing the method types to Character instead of keeping them void (bc demo)
+
 public class CharacterUI {
     boolean isManual = false;
     Scanner input = new Scanner(System.in);
@@ -13,7 +15,7 @@ public class CharacterUI {
     String actionStatNames[] = new String[]{"damage", "die amount", "die sides"};
 
     //create character
-    public void createNewCharacter() {
+    public Character createNewCharacter() {
         System.out.print("Creating new character. Enter name: ");
         String newName = input.nextLine();
 
@@ -23,10 +25,10 @@ public class CharacterUI {
             newName = input.nextLine();
         }
         Character newC = new Character(newName);
-        newCharacterStats(newC);
+        return newCharacterStats(newC);
     }
 
-    public void newCharacterStats(Character newC) {
+    public Character newCharacterStats(Character newC) {
         System.out.print("Setting stats for " + newC.getName() + ". Generate manually? y/n ");
         String YN = input.nextLine();
         //manual
@@ -152,6 +154,7 @@ public class CharacterUI {
 
                 System.out.println("Done! Printing...");
                 printWithAPI(newC);
+                return newC;
             }
         }
         //auto-gen
@@ -165,9 +168,10 @@ public class CharacterUI {
                 autogenCharAttributes(newC);
             }
         }
+       return autogenCharAttributes(newC);
     }
 
-    public void autogenCharAttributes(Character newC){
+    public Character autogenCharAttributes(Character newC){
         ArrayList<String> languages = new ArrayList<>();
         ArrayList<Action> actions = new ArrayList<>();
 
@@ -198,6 +202,7 @@ public class CharacterUI {
 
         //commented because of tests. uncomment when complete
         printWithAPI(newC);
+        return newC;
     }
 
     public void printWithAPI(Character c){

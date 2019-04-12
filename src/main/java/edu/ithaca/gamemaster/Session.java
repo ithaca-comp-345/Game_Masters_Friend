@@ -144,6 +144,21 @@ public class Session {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "Session{" +
+                "\nsessionName: '" + sessionName + '\'' +
+                ", gameMaster: " + gameMaster +
+                ",\n players: " + players +
+                ",\n timeStart: '" + timeStart + '\'' +
+                ", timeEnd: '" + timeEnd + '\'' +
+                ",\n goal: '" + goal + '\'' +
+                ",\n isFirst: " + isFirst +
+                ", isActive: " + isActive +
+                ", goalAchieved: " + goalAchieved +
+                '}';
+    }
+
     public String getSessionName() {
         return sessionName;
     }

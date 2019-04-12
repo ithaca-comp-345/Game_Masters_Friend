@@ -8,8 +8,6 @@ public class Account {
 //    public GMUser gm;
     public String psswd;
 
-
-
     public Account(String nameIn,String psswdIn){
         if(!isPsswdValid(psswdIn) ){
             throw new IllegalArgumentException("password must contain 6 characters, at least one uppercase letter, at least one lowercase letter, at least one digit");
@@ -21,7 +19,7 @@ public class Account {
         else{
             this.username=nameIn;
             this.psswd=psswdIn;
-//            userPlayer=new PlayerUser();
+            userPlayer=new PlayerUser(nameIn); //please recomment after demo
 //            gm=new GMUser();
         }
 
@@ -64,6 +62,11 @@ public class Account {
         }
 
         return (upper && lower && number  ); // only true if all 3 are true
+    }
+
+    @Override
+    public String toString() {
+        return  username;
     }
 }
 

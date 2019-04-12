@@ -11,6 +11,11 @@ public class GameMaster {
         this.account=account;
     }
 
+    @Override
+    public String toString() {
+        return "GameMaster: \"" + name + "\", aka " + account;
+    }
+
     public String getName() {
         return name;
     }
@@ -26,5 +31,7 @@ public class GameMaster {
     public void setAccount(Account account) {
         this.account = account;
     }
+
+
 }
 

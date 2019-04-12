@@ -10,7 +10,8 @@ public class Notes {
     }
 
         public String getNotes() {
-            return text;
+            //return text; //uncomment and delete next line after demo
+            return noteName;
         }
 
         public void setNotes(String notes) {
