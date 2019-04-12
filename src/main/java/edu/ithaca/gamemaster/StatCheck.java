@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class StatCheck {
 
     /**
-     * Performs a skill check for an action performed
+     * Performs a skill check for an action performed automatically without taking an entered dice roll
      * @param character an array of characters
      * @param stat what skill is being checked
      * @param numRolls how many rolls are being performed
@@ -13,7 +13,7 @@ public class StatCheck {
      * @param difficulty skill check difficulty decided by GM
      * @return returns true if the check passed or false is check failed
      */
-    public boolean skillCheck(Character character, String stat, int numRolls, double threshold, int difficulty){
+    public boolean autoSkillCheck(Character character, String stat, int numRolls, double threshold, int difficulty){
         int passCount = 0;
         int skillMod = getSkillModifier(character,stat);
         Dice die = new Dice(20);
@@ -21,6 +21,33 @@ public class StatCheck {
 
         for (int i = 0; i < numRolls ; i++) {
             if(skillMod+die.roll()>=difficulty){
+                passCount++;
+            }
+        }
+
+        if(passCount/numRolls>=threshold){
+            result = true;
+        }
+
+        return result;
+    }
+    /**
+     * Performs a skill check for an action performed
+     * @param character an array of characters
+     * @param stat what skill is being checked
+     * @param diceRoll players diceRoll
+     * @param numRolls how many rolls are being performed
+     * @param threshold % of passes needed to pass the check
+     * @param difficulty skill check difficulty decided by GM
+     * @return returns true if the check passed or false is check failed
+     */
+    public boolean manualSkillCheck(Character character, String stat, int diceRoll, int numRolls, double threshold, int difficulty){
+        int passCount = 0;
+        int skillMod = getSkillModifier(character,stat);
+        boolean result = false;
+
+        for (int i = 0; i < numRolls ; i++) {
+            if(skillMod+diceRoll>=difficulty){
                 passCount++;
             }
         }
@@ -112,7 +139,7 @@ public class StatCheck {
     }
 
     /**
-     * Performs a skill check for multiple characters
+     * Performs a skill check for multiple characters automatically without taking inputs for dice rolls
      * @param group an array of characters
      * @param stat what skill is being checked
      * @param numRolls how many rolls are being performed
@@ -120,12 +147,12 @@ public class StatCheck {
      * @param difficulty skill check difficulty decided by GM
      * @return returns true if the check passed or false is check failed
      */
-    public boolean groupSkillCheck(Character[] group, String stat, int numRolls, double threshold, int difficulty){
+    public boolean autoGroupSkillCheck(Character[] group, String stat, int numRolls, double threshold, int difficulty){
         int passCount = 0;
         boolean result = false;
 
         for (int i = 0; i < group.length  ; i++) {
-            if(skillCheck(group[i],stat,numRolls,threshold,difficulty)){
+            if(autoSkillCheck(group[i],stat,numRolls,threshold,difficulty)){
                 passCount++;
             }
         }
@@ -136,4 +163,32 @@ public class StatCheck {
 
         return result;
     }
+
+    /**
+     * Performs a skill check for multiple characters
+     * @param group an array of characters
+     * @param stat what skill is being checked
+     * @param diceRoll players dice roll
+     * @param numRolls how many rolls are being performed
+     * @param threshold % of passes needed to pass the check
+     * @param difficulty skill check difficulty decided by GM
+     * @return returns true if the check passed or false is check failed
+     */
+    public boolean manualGroupSkillCheck(Character[] group, String stat, int[] diceRoll, int numRolls, double threshold, int difficulty){
+        int passCount = 0;
+        boolean result = false;
+
+        for (int i = 0; i < group.length  ; i++) {
+            if(manualSkillCheck(group[i],stat,diceRoll[i],numRolls,threshold,difficulty)){
+                passCount++;
+            }
+        }
+
+        if((passCount/group.length)>=.5) {
+            result = true;
+        }
+
+        return result;
+    }
+
 }

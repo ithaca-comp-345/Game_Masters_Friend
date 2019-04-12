@@ -23,8 +23,8 @@ public class statCheckTest {
 
         StatCheck checker = new StatCheck();
 
-        assertFalse(checker.skillCheck(testChar,"DEX",10,50,35));
-        assertTrue(checker.groupSkillCheck(charArray,"INT",1,1,5));
+        assertFalse(checker.autoSkillCheck(testChar,"DEX",10,50,35));
+        assertTrue(checker.autoGroupSkillCheck(charArray,"INT",1,1,5));
 
     }
 }
