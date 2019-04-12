@@ -81,6 +81,15 @@ public class Campaign{
         }
     }
 
+    public boolean isLocationInList(String locationName){
+        if(locations.containsKey(locationName)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 
    public Location searchLocations(String locationName){
@@ -153,17 +162,6 @@ public class Campaign{
     public String shareInformation(String sessionName){
         return notes.get(sessionName).getNotes();
     }
-
-
-
-
-   // public void createEncounter(){}
-    // public void editCharacter(){};
-    // public void editLocation(){};
-    // public void editNPC();
-    // public void editMap();
-    // public void searchNPC();
-    // public void shareMap();
 
 
 }

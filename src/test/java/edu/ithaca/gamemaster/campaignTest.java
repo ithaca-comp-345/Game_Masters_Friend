@@ -128,14 +128,23 @@ public class campaignTest {
 //        campaign.addToCurrNotes("3");
 //    }
 
-    @Test
-    void searchLocationsTest(){
-        Campaign campaign = new Campaign();
-
-
-
-
-
-    }
+//    @Test
+//    void addLocationTest(){
+//        Campaign campaign =  new Campaign();
+//
+//        campaign.addLocation("location1", "/Users/teamdevadze/IdeaProjects/Game_Masters_Friend/src/main/java/edu/ithaca/gamemaster/map/image.jpg");
+//
+//        assertTrue(campaign.isLocationInList("location1"));
+//        assertFalse(campaign.isLocationInList("location2"));
+//    }
+//
+//    @Test
+//    void searchLocationsTest(){
+//        Campaign campaign = new Campaign();
+//
+//
+//
+//
+//    }
 
 }
