@@ -68,7 +68,7 @@ public class Demo {
         System.out.println("PRESS ENTER");
         enter = input.nextLine();
 
-        System.out.println(tbp.toString()+"\n");
+        System.out.println(campaign.toString()+"\n");
 
         System.out.println("End of demo.");
     }

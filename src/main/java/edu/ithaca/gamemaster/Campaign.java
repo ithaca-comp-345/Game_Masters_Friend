@@ -44,11 +44,11 @@ public class Campaign{
     public String toString() {
         return "Campaign{" +
                 "campaignName: '" + campaignName + '\'' +
-                ", userPlayers: " + userPlayers +
-                ", notes: " + notes +
-                ", sessions: " + sessions +
-                ", characters: " + characters +
-                ", gm: " + gm +
+                ",\n userPlayers: " + userPlayers +
+                ",\n notes: " + notes +
+                ",\n sessions: " + sessions +
+                ",\n characters: " + characters +
+                ",\n gm: " + gm +
                 '}';
     }
 
