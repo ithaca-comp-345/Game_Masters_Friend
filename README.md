@@ -40,3 +40,5 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 *Sprint Goal:* Be able to run a full encounter with all involved actors in a location. Some sort of UI that demostrates everything properly. Simplifying file structure and dependencies so that everything works together smoothly. Have a working simplified UI for at least one aspect of the software. A demo for all things built this sprint should be presented at the end of it.
 
 *Sprint 2 Agenda Doc:* https://docs.google.com/document/d/17vLy-YHPirJD5IWOHHdCGt1X3XXL_pFFryjdxheDRXA/edit?usp=sharing
+
+*Sprint 2 Retrospective* https://docs.google.com/document/d/1fL15zR1YuFln5-0ixHaL3vimcXp_jIMiqc5PG7xRHI4/edit?usp=sharing
