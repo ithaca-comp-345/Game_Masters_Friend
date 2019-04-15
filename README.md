@@ -41,4 +41,4 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 
 *Sprint 2 Agenda Doc:* https://docs.google.com/document/d/17vLy-YHPirJD5IWOHHdCGt1X3XXL_pFFryjdxheDRXA/edit?usp=sharing
 
-*Sprint 2 Retrospective* https://docs.google.com/document/d/1fL15zR1YuFln5-0ixHaL3vimcXp_jIMiqc5PG7xRHI4/edit?usp=sharing
+*Sprint 2 Retrospective* https://docs.google.com/document/d/1r0Kr2HBOivChn-m1kKLWRHMPjSu9vlpaeUJyF-HT04c/edit?usp=sharing
