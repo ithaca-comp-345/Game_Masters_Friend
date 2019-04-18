@@ -1,0 +1,21 @@
+{
+  "hitDiceAmt" : 2,
+  "hitDiceSided" : 6,
+  "hitDiceModifier" : 5,
+  "armor" : 14,
+  "speed" : 30,
+  "strength" : 12,
+  "dexterity" : 15,
+  "constitution" : 11,
+  "intelligence" : 13,
+  "wisdom" : 14,
+  "charisma" : 12,
+  "name" : "Will Robinson",
+  "alignment" : "Chaotic Neutral",
+  "languages" : "[Orcish, Elvish, Binary, Assembly]",
+  "actions" : "",
+  "hitDice" : "2d6+5",
+  "hp" : 15,
+  "languageList" : [ "Orcish", "Elvish", "Binary", "Assembly" ],
+  "actionsList" : [ ]
+}
