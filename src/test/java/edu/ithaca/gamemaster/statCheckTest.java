@@ -15,6 +15,7 @@ public class statCheckTest {
         testChar.setDexterity(1);
         testChar.setIntelligence(30);
 
+        int[] rolls = {20,20,20,20,20};
         Character[] charArray = new Character[5];
         for (int i = 0; i <5 ; i++) {
             charArray[i] = testChar;
@@ -30,6 +31,7 @@ public class statCheckTest {
 
         //manual stat check
         assertFalse(checker.manualSkillCheck(testChar,"DEX",10,10,50,35));
-        //assertTrue(checker.manualGroupSkillCheck(charArray,"INT",));
+        assertTrue(checker.manualGroupSkillCheck(charArray,"INT",rolls,1,5,5));
+
     }
 }
