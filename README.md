@@ -42,3 +42,9 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 *Sprint 2 Agenda Doc:* https://docs.google.com/document/d/17vLy-YHPirJD5IWOHHdCGt1X3XXL_pFFryjdxheDRXA/edit?usp=sharing
 
 *Sprint 2 Retrospective* https://docs.google.com/document/d/1r0Kr2HBOivChn-m1kKLWRHMPjSu9vlpaeUJyF-HT04c/edit?usp=sharing
+
+**Sprint 3:**
+
+*Sprint Goal:* Create working interfaces to help as a companion to app to Dungeon Master to help improve data storage and generation. Unifying the already built systems into one cohesive piece of software.
+
+*Product Goal:* A piece of software that helps maintain the structure and data in a Dungeons and Dragons campaign and works as a companion to dungeon master.
