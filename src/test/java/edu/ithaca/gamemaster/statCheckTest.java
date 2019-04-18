@@ -21,10 +21,15 @@ public class statCheckTest {
         }
 
 
+
         StatCheck checker = new StatCheck();
 
+        //automatic check tests
         assertFalse(checker.autoSkillCheck(testChar,"DEX",10,50,35));
-        assertTrue(checker.autoGroupSkillCheck(charArray,"INT",1,1,5));
+        assertTrue(checker.autoGroupSkillCheck(charArray,"INT",1,5,5));
 
+        //manual stat check
+        assertFalse(checker.manualSkillCheck(testChar,"DEX",10,10,50,35));
+        //assertTrue(checker.manualGroupSkillCheck(charArray,"INT",));
     }
 }
