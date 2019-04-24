@@ -14,12 +14,13 @@ public class Action {
         this.name = nameIn;
     }
 
-    public Action(String nameIn,int toHit, int dieAmt, int dieSides, String dmgType){
+    public Action(String nameIn,int toHit, int dieAmt, int dieSides, String dmgType, String description){
         this.name = nameIn;
         this.toHit = toHit;
         this.dieAmt=dieAmt;
         this.sided=dieSides;
         this.damageType=dmgType;
+        this.description=description;
     }
 
     public void setDescription(String description){
@@ -57,4 +58,15 @@ public class Action {
     public int getHit(){ return toHit;}
     public int getSides(){ return sided;}
     public int getDieAmt(){ return dieAmt;}
+
+    @Override
+    public String toString() {
+        return "Action: " + name +
+                " \n HIT: " + toHit +
+                " DIE TYPE: " + sided +
+                " DICE AMOUNT: " + dieAmt +
+                " \n DMG type: " + damageType +
+                " \n Description: \"" + description + "\"";
+    }
+
 }

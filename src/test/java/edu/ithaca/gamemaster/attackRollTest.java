@@ -17,6 +17,7 @@ public class attackRollTest {
         testCharacter2.randomizeAbilityScores();
         testCharacter.randomizeAbilityScores();
         testCharacter2.setHP(25);
+        testCharacter.setHP(25);
         //setting strength
 
 

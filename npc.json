@@ -4,11 +4,11 @@
   "hitDiceModifier" : 5,
   "armor" : 14,
   "speed" : 30,
-  "strength" : 15,
-  "dexterity" : 13,
-  "constitution" : 8,
-  "intelligence" : 13,
-  "wisdom" : 13,
+  "strength" : 11,
+  "dexterity" : 11,
+  "constitution" : 12,
+  "intelligence" : 12,
+  "wisdom" : 7,
   "charisma" : 13,
   "name" : "Will Robinson",
   "alignment" : "Chaotic Neutral",
@@ -34,11 +34,11 @@
   "languageList" : [ "Orcish", "Elvish", "Binary", "Assembly" ],
   "actionsList" : [ {
     "name" : "Fireball",
-    "description" : null,
+    "description" : "Stupid move",
     "dieAmt" : 1,
     "hit" : 5,
-    "sides" : 8,
     "dmgType" : "Fire",
+    "sides" : 8,
     "ranges" : "nullnull"
   } ]
 }
