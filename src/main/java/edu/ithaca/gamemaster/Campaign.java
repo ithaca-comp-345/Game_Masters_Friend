@@ -16,6 +16,7 @@ public class Campaign{
     private Map<String, Character> characters;
     private GameMaster gm;
     private Map<String, Location> locations;
+    private Map<String, NPC> npcs;
 
 
     public Campaign(){
@@ -61,6 +62,11 @@ public class Campaign{
             throw new IllegalArgumentException("character already exists");
         }
 
+    }
+
+    public void addCharacter(String name, Character character){
+        characters.put(name,character);
+        //needs better testing
     }
 
     public boolean findUserPlayer(String username){
@@ -154,7 +160,27 @@ public class Campaign{
         return notes.get(sessionName).getNotes();
     }
 
+    public void addNPC(String npcName,NPC npc){
+        npcs.put(npcName, npc);
+    }
 
+    public Character getCharacter(String characterName){
+        if(characters.containsKey(characterName)){
+            return characters.get(characterName);
+        }
+        else{
+            throw new IllegalArgumentException("Character doesnt exist");
+        }
+    }
+
+    public NPC getNPC(String npcName){
+        if(npcs.containsKey(npcName)){
+            return npcs.get(npcName);
+        }
+        else{
+            throw new IllegalArgumentException("NPC doesnt exist");
+        }
+    }
 
 
    // public void createEncounter(){}
