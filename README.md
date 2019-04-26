@@ -48,3 +48,6 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 *Sprint Goal:* Create working interfaces to help as a companion to app to Dungeon Master to help improve data storage and generation. Unifying the already built systems into one cohesive piece of software.
 
 *Product Goal:* A piece of software that helps maintain the structure and data in a Dungeons and Dragons campaign and works as a companion to dungeon master.
+
+**User Documents:**
+Form: https://docs.google.com/document/d/14spwYnPizs4V9bVC--vBZHCYZ1_uS9HxWiDL9O9PMp4/edit?usp=sharing
