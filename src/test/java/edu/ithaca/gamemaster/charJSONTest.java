@@ -22,7 +22,7 @@ public class charJSONTest {
         languages.add("Elvish");
         languages.add("Binary");
         languages.add("Assembly");
-        Action fireball = new Action("Fireball",5,1,8,"Fire");
+        Action fireball = new Action("Fireball",5,1,8,"Fire","Stupid move");
         actions.add(fireball);
 
         Character example = new Character("Will Robinson",15,2,6,5,14,30,"Chaotic Neutral",languages,actions);
@@ -53,8 +53,8 @@ public class charJSONTest {
         languages.add("Common Tongue");
 
         ArrayList<Action> actions = new ArrayList<Action>();
-        Action action1 = new Action("One Ring",5,1,6,"Magical");
-        Action action2 = new Action("Sword Thrust",3,1,8,"Piercing");
+        Action action1 = new Action("One Ring",5,1,6,"Magical","Stupid move");
+        Action action2 = new Action("Sword Thrust",3,1,8,"Piercing", "Stupid move");
 
         ArrayList<String> traits = new ArrayList<String>();
 
@@ -81,7 +81,7 @@ public class charJSONTest {
 
     }
 
-    //currently not working
+
 //    @Test
 //    void PlayerfromJSONTest() throws IOException{
 //        Player player = CharacterJSON.JSONtoPlayer("player.json");
@@ -89,9 +89,9 @@ public class charJSONTest {
 //        assertEquals(100,player.getHP());
 //        assertEquals("Townfolk",player.getBackground());
 //    }
-
-
-    //currently not working
+//
+//
+//
 //    @Test
 //    void NPCfromJSONTest() throws IOException{
 //        NPC npc = CharacterJSON.JSONtoNpc("npc.json");

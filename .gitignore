@@ -12,6 +12,7 @@
 .idea/modules.xml
 **.iml
 */target/*
+**.json
 
 # Generated files
 .idea/**/contentModel.xml

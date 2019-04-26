@@ -3,31 +3,27 @@ package edu.ithaca.gamemaster;
 public class Notes {
 
     private String noteName;
-    private String notes;
+    private String text;
 
-    public Notes(String noteName, String notes) {
-        this.noteName = noteName;
-        this.notes = notes+"\n";
-    }
-
-    public String getNoteName() {
-        return noteName;
-    }
-
-    public void setNoteName(String noteName) {
+    public Notes(String noteName) {
         this.noteName = noteName;
     }
 
-    public String getNotes() {
-        return notes;
-    }
+        public String getNotes() {
+            return text;
+        }
 
-    public void setNotes(String notes) {
-        this.notes = notes;
-    }
+        public void setNotes(String notes) {
+            this.text = notes;
+        }
 
-    public void addToNotes(String stringToAdd){
-        this.notes += stringToAdd+"\n";
-    }
+
+//   public void addToNotes(String stringToAdd){
+//        this.notes += stringToAdd+"\n";
+//    }
+//
+//    public void editNotes(){
+//        new NoteEditor(notes).setVisible(true);
+//    }
 
 }

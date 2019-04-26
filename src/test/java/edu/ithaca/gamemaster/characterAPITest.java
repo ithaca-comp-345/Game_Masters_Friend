@@ -15,7 +15,7 @@ public class characterAPITest {
         languages.add("Elvish");
         languages.add("Binary");
         languages.add("Assembly");
-        Action fireball = new Action("Fireball",5,1,8,"Fire");
+        Action fireball = new Action("Fireball",5,1,8,"Fire", "testdesc");
         actions.add(fireball);
 
         Character example = new Character("Will Robinson",15,2,6,5,14,30,"Chaotic Neutral",languages,actions);
