@@ -2,6 +2,7 @@ package edu.ithaca.gamemaster;
 import edu.ithaca.gamemaster.map.Location;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Map;
 
 
@@ -12,7 +13,12 @@ public class GameMasterAPI {
     private Map<String, NPC> npcList;
     private Map<String, Character> characterList;
 
-    GameMasterAPI(){
+
+    public GameMasterAPI(){
+        this.campaignList = new HashMap<>();
+        this.locationsList = new HashMap<>();
+        this.npcList = new HashMap<>();
+        this.characterList = new HashMap<>();
     };
 
     public Campaign createCampaign(String campaignName){
@@ -76,6 +82,15 @@ public class GameMasterAPI {
         }
         else{
             throw new IllegalArgumentException("Campaign doesn't exist");
+        }
+    }
+
+    public Location getLocation(String locationName){
+        if(locationsList.containsKey(locationName)){
+            return locationsList.get(locationName);
+        }
+        else{
+            throw new IllegalArgumentException("Location doesn't exist");
         }
     }
 

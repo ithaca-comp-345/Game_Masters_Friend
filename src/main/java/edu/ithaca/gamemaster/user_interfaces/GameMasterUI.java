@@ -17,17 +17,19 @@ public class GameMasterUI {
 
     public GameMasterUI(GameMasterAPI api){
         this.api=api;
+        this.accounts = new HashMap<>();
     }
 
-    public void logIn(String username, String password){
+    public boolean logIn(String username, String password){
         if(accounts.containsKey(username)){
-            if(password == accounts.get(username).getPsswd()) {
+            if(password.equals(accounts.get(username).getPsswd())) {
                 loggedIn = accounts.get(username);
                 this.logStatus=true;
             }
+            return true;
         }
         else{
-            throw new IllegalArgumentException("Invalid login attempt");
+            return false;
         }
     }
 
@@ -36,14 +38,15 @@ public class GameMasterUI {
         loggedIn=null;
     }
 
-    public void createAccount(String username, String password){
+    public boolean createAccount(String username, String password){
         if(accounts.containsKey(username)){
             throw new IllegalArgumentException("Account already exists");
         }
-        else{
-            Account newAccount = new Account(username,password);
-            accounts.put(username,newAccount);
+        else {
+            Account newAccount = new Account(username, password);
+            accounts.put(username, newAccount);
             System.out.println("New account created");
+            return true;
         }
     }
 
@@ -53,18 +56,19 @@ public class GameMasterUI {
             System.out.println("This is your GameMasters Best Friend");
             System.out.println("Would you like to (1) log in or (2) create a new account");
             String inputStr = input.nextLine();
-            if (inputStr == "1") {
+            System.out.println(inputStr);
+            if (inputStr.equals("1")) {
                 System.out.println("What is your username?");
                 String usr = input.nextLine();
                 System.out.println("Password?");
                 String pass = input.nextLine();
-                logIn(usr, pass);
-                if (logStatus) {
+                boolean login = logIn(usr, pass);
+                if (login) {
                     System.out.println("Welcome " + loggedIn.getUsername());
                 } else {
                     System.out.println("Invalid attempt");
                 }
-            } else if (inputStr == "2") {
+            } else if (inputStr.equals("2")) {
                 System.out.println("What is your username?");
                 String usr = input.nextLine();
                 System.out.println("Password?");
@@ -72,10 +76,13 @@ public class GameMasterUI {
                 createAccount(usr, pass);
                 System.out.println("Please login to your account now");
             }
-            if(logStatus){
-                //TODO
-            }
         }
+    }
+
+    public static void main(String[] args){
+        GameMasterAPI api = new GameMasterAPI();
+        GameMasterUI ui = new GameMasterUI(api);
+        ui.runUI();
     }
 
 }
