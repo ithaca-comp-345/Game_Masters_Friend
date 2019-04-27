@@ -3,6 +3,7 @@ package edu.ithaca.gamemaster.clean_build;
 import edu.ithaca.gamemaster.NPC;
 import edu.ithaca.gamemaster.Player;
 
+import java.nio.file.FileAlreadyExistsException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,5 +22,18 @@ public class Campaign {
         this.players=new HashMap<>();
         this.locations=new HashMap<>();
         this.npcsList=new HashMap<>();
+    }
+
+    public void invitePlayer(User invited) throws FileAlreadyExistsException{
+        if(players.containsKey(invited.getName())){
+            throw new FileAlreadyExistsException("Player has already been invited");
+        }
+        else{
+            players.put(invited.getName(),invited);
+        }
+    }
+
+    public void createPlayerChar(User player){
+        //TODO
     }
 }

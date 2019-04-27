@@ -18,6 +18,7 @@ public class Login {
         else{
             Account newAccount = new Account(username,password);
             accounts.put(username, newAccount);
+            createUser(newAccount, true); //true by default
         }
     }
 
@@ -47,11 +48,25 @@ public class Login {
         }
     }
 
-    public static void loggedIn(Account linkAccount){
-        //TODO
+    public static Map<String, User> getUsers() throws Exception{
+        if(users.isEmpty()){
+            throw new Exception("Users module currently holds no users");
+        }
+        else{
+            return users;
+        }
     }
 
-    public static void createUser(Account acct, boolean isAdmin){
+    public static User getUser(String userName) throws FileNotFoundException{
+        if(!users.containsKey(userName)){
+            throw new FileNotFoundException("User doesn't exist");
+        }
+        else{
+            return users.get(userName);
+        }
+    }
+
+    private static void createUser(Account acct, boolean isAdmin){
         User createdUser = new User(acct.username,isAdmin,acct);
         users.put(createdUser.getName(),createdUser);
     }

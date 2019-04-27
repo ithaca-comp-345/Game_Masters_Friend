@@ -2,12 +2,11 @@ package edu.ithaca.gamemaster.user_interfaces;
 
 
 import edu.ithaca.gamemaster.Account;
-import edu.ithaca.gamemaster.GameMaster;
 import edu.ithaca.gamemaster.GameMasterAPI;
 
 import java.util.*;
 
-public class GameMasterUI {
+public class LegacyGameMasterUI {
     private GameMasterAPI api;
     private Map<String, Account> accounts;
     private Account loggedIn;
@@ -15,7 +14,7 @@ public class GameMasterUI {
 
     Scanner input = new Scanner(System.in);
 
-    public GameMasterUI(GameMasterAPI api){
+    public LegacyGameMasterUI(GameMasterAPI api){
         this.api=api;
         this.accounts = new HashMap<>();
     }
@@ -81,7 +80,7 @@ public class GameMasterUI {
 
     public static void main(String[] args){
         GameMasterAPI api = new GameMasterAPI();
-        GameMasterUI ui = new GameMasterUI(api);
+        LegacyGameMasterUI ui = new LegacyGameMasterUI(api);
         ui.runUI();
     }
 

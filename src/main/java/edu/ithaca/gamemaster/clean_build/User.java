@@ -31,6 +31,11 @@ public class User {
         return createdCampaign;
     }
 
+    public Player createCharacter(String name){
+        return null;
+        //TODO
+    }
+
     public String getName(){
         return name;
     }
