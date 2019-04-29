@@ -1,6 +1,6 @@
 **Dungeons and Dragons Campaign Manager**
 
-**Master:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/master.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/master) **Milo:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/session.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/session) **Tea:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend)**Cristian:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend) **Lee:** [Missing] **Maily:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/character.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/character)
+**Master:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/master.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/master) **Milo:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/session.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/session) **Tea:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend)**Cristian:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend) **Lee:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend) **Maily:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/character.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/character)
 
 *Client Description of Problem:*
 Whenever I run a session, or even plan one, I find I have at least 10 to 20 tabs open at once to a wide range of sources. However I believe it would be much simpler if all this information was condensed into a single place.
@@ -42,3 +42,12 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 *Sprint 2 Agenda Doc:* https://docs.google.com/document/d/17vLy-YHPirJD5IWOHHdCGt1X3XXL_pFFryjdxheDRXA/edit?usp=sharing
 
 *Sprint 2 Retrospective* https://docs.google.com/document/d/1r0Kr2HBOivChn-m1kKLWRHMPjSu9vlpaeUJyF-HT04c/edit?usp=sharing
+
+**Sprint 3:**
+
+*Sprint Goal:* Create working interfaces to help as a companion to app to Dungeon Master to help improve data storage and generation. Unifying the already built systems into one cohesive piece of software.
+
+*Product Goal:* A piece of software that helps maintain the structure and data in a Dungeons and Dragons campaign and works as a companion to dungeon master.
+
+**User Documents:**
+Form: https://docs.google.com/document/d/14spwYnPizs4V9bVC--vBZHCYZ1_uS9HxWiDL9O9PMp4/edit?usp=sharing
