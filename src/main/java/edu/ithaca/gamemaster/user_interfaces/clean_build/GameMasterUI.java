@@ -1,4 +1,6 @@
-package edu.ithaca.gamemaster.clean_build;
+package edu.ithaca.gamemaster.user_interfaces.clean_build;
+
+import edu.ithaca.gamemaster.Account;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -10,16 +12,12 @@ import java.nio.file.FileAlreadyExistsException;
 
 public class GameMasterUI extends JFrame implements ActionListener {
     private JButton loginButton;
-    private JPasswordField passwordLogin;
     private JTextField usernameLogin;
-    private JTextField usernameCreate;
-    private JPasswordField passwordCreate;
     private JButton createAccountButton;
     private JPanel applet;
     private JPanel Logins;
-    private JPanel createAccount;
-    private JLabel createAccountNotify;
     private JLabel loginSuccessful;
+    private JTextField passwordLogin;
 
     public static JFrame frame = new JFrame("Game Masters Companion");
 
@@ -37,14 +35,10 @@ public class GameMasterUI extends JFrame implements ActionListener {
         createAccountButton.addActionListener(this);
 
         usernameLogin.setActionCommand("Enter");
-        usernameCreate.setActionCommand("EnterCreate");
         passwordLogin.setActionCommand("Enter");
-        passwordCreate.setActionCommand("EnterCreate");
 
         usernameLogin.addActionListener(this);
-        usernameCreate.addActionListener(this);
         passwordLogin.addActionListener(this);
-        passwordCreate.addActionListener(this);
 
 
     }
@@ -53,7 +47,11 @@ public class GameMasterUI extends JFrame implements ActionListener {
         createUIComponents();
 
         this.loginModule = new Login();
-
+        try {
+            loginModule.createAccount("testuser", "Asdf1234");
+        } catch (FileAlreadyExistsException e){
+            e.printStackTrace();
+        }
 
 
     }
@@ -64,22 +62,20 @@ public class GameMasterUI extends JFrame implements ActionListener {
         if(action.equals("Login")){
             System.out.println(usernameLogin.getText());
             String username = usernameLogin.getText();
-            System.out.println(passwordLogin.getPassword());
-            char[] password = passwordLogin.getPassword();
-
-            String passwordStr = password.toString();
+            System.out.println(passwordLogin.getText());
+            String passwordStr = passwordLogin.getText();
             passwordLogin.setText("");
             usernameLogin.setText("");
 
             //try catch for login failure
             //login module
             try {
-                loginModule.login(username, passwordStr);
+                Account test =loginModule.login(username, passwordStr);
                 loginSuccessful.setText("Login completed");
                 loggedIn=true;
                 if(loggedIn){
-                    frame.setSize(800,750);
-                    frame.setContentPane(new GameMasterLandingPage().LandingPage);
+                    frame.setSize(950,750);
+                    frame.setContentPane(new GameMasterLandingPage(loginModule).LandingPage);
                     frame.setVisible(true);
                 }
 
@@ -89,30 +85,34 @@ public class GameMasterUI extends JFrame implements ActionListener {
 
                 }
             } catch (FileNotFoundException e) {
-                loginSuccessful.setText("Account doesn't exist or is incorrect");
-            } {
-
+                loginSuccessful.setText("Login failure, exception thrown");
+                e.printStackTrace();
             }
         }
 
         //create account module
         else if(action.equals("CreateAccount")){
-            System.out.println(usernameCreate.getText());
-            String username = usernameCreate.getText();
-            System.out.println(passwordCreate.getPassword());
-            char[] password = passwordCreate.getPassword();
+            System.out.println(usernameLogin.getText());
+            String username = usernameLogin.getText();
+            System.out.println(passwordLogin.getText());
 
-            String passwordStr = password.toString();
+            String passwordStr = passwordLogin.getText();
 
-            passwordCreate.setText("");
-            usernameCreate.setText("");
+            passwordLogin.setText("");
+            usernameLogin.setText("");
             try{
                 loginModule.createAccount(username,passwordStr);
-                createAccountNotify.setText("Created account successfully");
+                loginSuccessful.setText("Created account successfully");
+                try {
+                    System.out.println(loginModule.getAccounts().toString());
+                    System.out.println(loginModule.getAccount(username).getPassword());
+                } catch (Exception e){
+
+                }
 
 
             } catch (FileAlreadyExistsException e) {
-                createAccountNotify.setText("Either account already exists or there was another error");
+                loginSuccessful.setText("Either account already exists or there was another error");
             }
 
         }

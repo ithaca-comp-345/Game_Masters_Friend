@@ -1,4 +1,4 @@
-package edu.ithaca.gamemaster.clean_build;
+package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
 import edu.ithaca.gamemaster.NPC;
 import edu.ithaca.gamemaster.Player;
@@ -35,5 +35,9 @@ public class Campaign {
 
     public void createPlayerChar(User player){
         //TODO
+    }
+
+    public String getCampaignName(){
+        return campaignName;
     }
 }

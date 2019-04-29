@@ -1,9 +1,8 @@
-package edu.ithaca.gamemaster.clean_build;
+package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
 import edu.ithaca.gamemaster.Account;
 import edu.ithaca.gamemaster.Player;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;

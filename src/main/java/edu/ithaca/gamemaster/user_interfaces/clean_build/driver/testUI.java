@@ -1,4 +1,4 @@
-package edu.ithaca.gamemaster.clean_build.driver;
+package edu.ithaca.gamemaster.user_interfaces.clean_build.driver;
 
 import javax.swing.*;
 import java.io.IOException;

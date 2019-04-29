@@ -3,14 +3,14 @@ package edu.ithaca.gamemaster;
 import java.lang.Character;
 
 public class Account {
-    public String username;
+    private String username;
     public PlayerUser userPlayer;
 //    public GMUser gm;
-    public String psswd;
+    private String psswd;
 
 
 
-    public Account(String nameIn,String psswdIn){
+    public Account(String nameIn, String psswdIn){
         if(!isPsswdValid(psswdIn) ){
             throw new IllegalArgumentException("password must contain 6 characters, at least one uppercase letter, at least one lowercase letter, at least one digit");
 
@@ -21,8 +21,6 @@ public class Account {
         else{
             this.username=nameIn;
             this.psswd=psswdIn;
-//            userPlayer=new PlayerUser();
-//            gm=new GMUser();
         }
 
     }
@@ -31,7 +29,7 @@ public class Account {
         return username;
     }
 
-    public String getPsswd(){ return psswd;}
+    public String getPassword(){ return psswd;}
 
     /**
      * check wether password is valid or not

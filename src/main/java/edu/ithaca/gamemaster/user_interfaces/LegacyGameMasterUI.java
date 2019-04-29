@@ -21,7 +21,7 @@ public class LegacyGameMasterUI {
 
     public boolean logIn(String username, String password){
         if(accounts.containsKey(username)){
-            if(password.equals(accounts.get(username).getPsswd())) {
+            if(password.equals(accounts.get(username).getPassword())) {
                 loggedIn = accounts.get(username);
                 this.logStatus=true;
             }

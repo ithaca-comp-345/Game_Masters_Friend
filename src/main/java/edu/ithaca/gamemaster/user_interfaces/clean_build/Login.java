@@ -1,4 +1,4 @@
-package edu.ithaca.gamemaster.clean_build;
+package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
 import edu.ithaca.gamemaster.Account;
 
@@ -36,7 +36,10 @@ public class Login {
             throw new FileNotFoundException("Account doesn't exist");
         }
         else{
-            return accounts.get(username);
+            if(accounts.get(username).getPassword().equals(password)){
+                return accounts.get(username);
+            }
+            throw new FileNotFoundException("Password is incorrect");
         }
     }
     public Map<String, Account> getAccounts() throws Exception{
@@ -76,7 +79,8 @@ public class Login {
     }
 
     private void createUser(Account acct, boolean isAdmin){
-        User createdUser = new User(acct.username,isAdmin,acct);
+        String username = acct.getUsername();
+        User createdUser = new User(username,isAdmin,acct);
         users.put(createdUser.getName(),createdUser);
     }
 
