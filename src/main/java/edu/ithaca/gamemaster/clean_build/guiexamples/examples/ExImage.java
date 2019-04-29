@@ -1,4 +1,4 @@
-package edu.ithaca.gamemaster.clean_build.gui.examples;
+package edu.ithaca.gamemaster.clean_build.guiexamples.examples;
 
 import java.awt.Dimension;
 import javax.swing.ImageIcon;

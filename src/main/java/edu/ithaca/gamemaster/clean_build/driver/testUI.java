@@ -1,18 +1,9 @@
 package edu.ithaca.gamemaster.clean_build.driver;
 
-import edu.ithaca.gamemaster.clean_build.gui.Background;
-import edu.ithaca.gamemaster.clean_build.gui.GameFrame;
-import edu.ithaca.gamemaster.clean_build.gui.Images;
-
-import javax.imageio.ImageIO;
 import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
-public class GameMasterUI {
+public class testUI {
     public static void main(String[] args) throws IOException {
 
         JFrame frame = new JFrame("Game Masters Companion");

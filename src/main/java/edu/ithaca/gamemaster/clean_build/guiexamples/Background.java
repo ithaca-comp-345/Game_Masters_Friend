@@ -1,4 +1,4 @@
-package edu.ithaca.gamemaster.clean_build.gui;
+package edu.ithaca.gamemaster.clean_build.guiexamples;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
