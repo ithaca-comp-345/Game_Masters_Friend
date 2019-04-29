@@ -100,9 +100,10 @@ public class Campaign{
 
 
 
-    public void addNotes(String sessionName){
+    public void addNotes(String sessionName, String stringNote){
         if(!notes.containsKey(sessionName)){
-            Notes note=new Notes(sessionName);
+            Notes note= new Notes(sessionName);
+            note.setNotes(stringNote);
             notes.put(sessionName,note);
         }
         else {
@@ -117,9 +118,9 @@ public class Campaign{
         throw new IllegalArgumentException("notes were not found");
     }
 
-    public void addToCurrNotes(String sessionName){
+    public void editCurrNotes(String sessionName, String note){
         if(notes.containsKey(sessionName)){
-            new NoteEditor(notes.get(sessionName)).setVisible(true);
+            notes.get(sessionName).setNotes(note);
         }
         else{
             throw new IllegalArgumentException("notes were not found");
@@ -154,10 +155,6 @@ public class Campaign{
         else{
             return false;
         }
-    }
-
-    public String shareInformation(String sessionName){
-        return notes.get(sessionName).getNotes();
     }
 
     public void addNPC(String npcName,NPC npc){
