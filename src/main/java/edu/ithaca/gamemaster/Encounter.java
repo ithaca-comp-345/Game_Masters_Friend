@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Encounter {
+public class Encounter extends AttackRoll{
     private ArrayList<NPC> npcList;
     private ArrayList<Player> playerList;
     private ArrayList<Integer> orderOfAttack;
@@ -102,6 +102,17 @@ public class Encounter {
             return false;
         }
     }
+
+    public void chooseNPCtoAttack(NPC npc){
+        if(npcList.contains(npc)){
+            attackPvNPC(playerList.get(orderOfAttack.get(0)),npc);
+            orderOfAttack.remove(0);
+        }
+        else{
+            throw new IllegalArgumentException("There is no such NPC");
+        }
+    }
+
 
 //    public NPC chooseNPCtoAttack(NPC npc){
 //        if(npcList.contains(npc)){
