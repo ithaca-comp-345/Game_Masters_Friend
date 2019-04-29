@@ -179,6 +179,15 @@ public class Campaign{
         }
     }
 
+    public String shareNotes(String sessionName){
+        if(notes.containsKey(sessionName)){
+            return getNotes(sessionName);
+        }
+        else{
+            throw new IllegalArgumentException("Session doesn't exist");
+        }
+    }
+
 
    // public void createEncounter(){}
     // public void editCharacter(){};

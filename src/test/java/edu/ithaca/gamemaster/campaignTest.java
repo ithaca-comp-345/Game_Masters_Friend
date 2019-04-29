@@ -101,18 +101,18 @@ public class campaignTest {
         assertThrows(IllegalArgumentException.class, ()->campaign.deleteCurrNotes("1"));
     }
 
-//    @Test
-//    void shareInformationTest(){
-//        Campaign campaign =  new Campaign();
-//
-//        campaign.addNotes("1");
-//        campaign.addNotes("2");
-//        campaign.addNotes("3");
-//        campaign.addNotes("4");
-//
-//        campaign.addToCurrNotes("1");
-//        campaign.addToCurrNotes("2");
-//        campaign.addToCurrNotes("3");
-//    }
+    @Test
+    void shareNotesTest(){
+        Campaign campaign =  new Campaign();
+
+        campaign.addNotes("1", "string 1");
+        campaign.addNotes("2", "string 2");
+
+        assertEquals("string 1", campaign.shareNotes("1"));
+        assertEquals("string 2", campaign.shareNotes("2"));
+        assertThrows(IllegalArgumentException.class, ()->campaign.shareNotes("3"));
+
+
+    }
 }
 
