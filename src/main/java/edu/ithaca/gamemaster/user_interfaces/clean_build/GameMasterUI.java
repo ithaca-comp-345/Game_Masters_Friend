@@ -14,7 +14,7 @@ public class GameMasterUI extends JFrame implements ActionListener {
     private JButton loginButton;
     private JTextField usernameLogin;
     private JButton createAccountButton;
-    private JPanel applet;
+    public JPanel applet;
     private JPanel Logins;
     private JLabel loginSuccessful;
     private JTextField passwordLogin;
@@ -43,15 +43,10 @@ public class GameMasterUI extends JFrame implements ActionListener {
 
     }
 
-    public GameMasterUI(){
+    public GameMasterUI(Login loginModule){
         createUIComponents();
 
-        this.loginModule = new Login();
-        try {
-            loginModule.createAccount("testuser", "Asdf1234");
-        } catch (FileAlreadyExistsException e){
-            e.printStackTrace();
-        }
+        this.loginModule = loginModule;
 
 
     }
@@ -75,8 +70,9 @@ public class GameMasterUI extends JFrame implements ActionListener {
                 loggedIn=true;
                 if(loggedIn){
                     frame.setSize(1200,750);
-                    frame.setContentPane(new GameMasterLandingPage(loginModule.getUser(username)).LandingPage);
+                    frame.setContentPane(new GameMasterLandingPage(loginModule.getUser(username), frame, loginModule).LandingPage);
                     frame.setVisible(true);
+                    loggedIn=false;
                 }
 
                 try {
@@ -119,12 +115,16 @@ public class GameMasterUI extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) throws IOException {
+        Login loginModule = new Login();
 
-
-
+        try {
+            loginModule.createAccount("testuser", "Asdf1234");
+        } catch (FileAlreadyExistsException e){
+            e.printStackTrace();
+        }
         frame.setSize(500,450);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new GameMasterUI().applet);
+        frame.setContentPane(new GameMasterUI(loginModule).applet);
         frame.setVisible(true);
 
 

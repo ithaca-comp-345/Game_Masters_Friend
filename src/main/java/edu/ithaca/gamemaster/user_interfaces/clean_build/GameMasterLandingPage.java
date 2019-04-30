@@ -1,11 +1,13 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileNotFoundException;
+import java.util.*;
 
-public class GameMasterLandingPage extends JFrame implements ActionListener {
+public class GameMasterLandingPage extends JPanel implements ActionListener {
     public JPanel LandingPage;
     private JButton createANewCharacterButton;
     private JButton createANewCampaignButton;
@@ -17,7 +19,7 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
     private JButton cButton1;
     private JPanel CharacterList;
     private JPanel NPCList;
-    private JButton viewEditButton;
+    private JButton charButton1;
     private JPanel PastSessions;
     private JPanel CompletedCampaigns;
     private JButton vewAllPastSessionsButton;
@@ -101,11 +103,51 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
     private JButton sDelete10;
     private JButton sDelete11;
     private JButton sDelete12;
+    private JLabel character1;
+    private JLabel character2;
+    private JLabel character3;
+    private JLabel character4;
+    private JLabel character5;
+    private JLabel character6;
+    private JLabel character7;
+    private JLabel character8;
+    private JLabel character9;
+    private JLabel character10;
+    private JLabel character11;
+    private JLabel character12;
+    private JButton charButton2;
+    private JButton charButton3;
+    private JButton charButton4;
+    private JButton charButton5;
+    private JButton charButton6;
+    private JButton charButton7;
+    private JButton charButton8;
+    private JButton charButton9;
+    private JButton charButton10;
+    private JButton charButton11;
+    private JButton charButton12;
+    private JButton charDelete1;
+    private JButton charDelete2;
+    private JButton charDelete3;
+    private JButton charDelete4;
+    private JButton charDelete5;
+    private JButton charDelete6;
+    private JButton charDelete7;
+    private JButton charDelete8;
+    private JButton charDelete9;
+    private JButton charDelete10;
+    private JButton charDelete11;
+    private JButton charDelete12;
+    private JButton logoutButton;
     private JTable PastSessionsTable;
 
     private User user;
 
     private int campaignCount;
+
+    private JFrame frame;
+
+    private Login loginModule;
 
     private void createUIComponents() {
         JLabel test = new JLabel();
@@ -145,20 +187,52 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
         ButtonHidden.twoButtonLabelHide(sessionL12,sCampaign12,sButton12,sDelete12);
     }
 
-    public GameMasterLandingPage(User continuity){
+    private void hideCharacter(){
+        ButtonHidden.twoButtonHide(character1,charButton1,charDelete1);
+        ButtonHidden.twoButtonHide(character2,charButton2,charDelete2);
+        ButtonHidden.twoButtonHide(character3,charButton3,charDelete3);
+        ButtonHidden.twoButtonHide(character4,charButton4,charDelete4);
+        ButtonHidden.twoButtonHide(character5,charButton5,charDelete5);
+        ButtonHidden.twoButtonHide(character6,charButton6,charDelete6);
+        ButtonHidden.twoButtonHide(character7,charButton7,charDelete7);
+        ButtonHidden.twoButtonHide(character8,charButton8,charDelete8);
+        ButtonHidden.twoButtonHide(character9,charButton9,charDelete9);
+        ButtonHidden.twoButtonHide(character10,charButton10,charDelete10);
+        ButtonHidden.twoButtonHide(character11,charButton11,charDelete11);
+        ButtonHidden.twoButtonHide(character12,charButton12,charDelete12);
+
+
+    }
+
+    public GameMasterLandingPage(User continuity ,JFrame frame, Login loginModule){
         campaignCount = 0;
 
+        frame = frame;
+
         user = continuity;
+
+        loginModule = loginModule;
+
         createUIComponents();
         hideContent();
         hideSession();
+        hideCharacter();
 
         //create campaign button
         createANewCampaignButton.setActionCommand("CreateCampaign");
         createANewCampaignButton.addActionListener(this);
 
+        //create session button
         startANewSessionButton.setActionCommand("CreateSession");
         startANewSessionButton.addActionListener(this);
+
+        //create character button
+        createANewCharacterButton.setActionCommand("CreateCharacter");
+        createANewCharacterButton.addActionListener(this);
+
+        //logout button
+        logoutButton.setActionCommand("Logout");
+        logoutButton.addActionListener(this);
 
         //delete button action
         cDelete1.setActionCommand("dc1");
@@ -175,6 +249,18 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
         cDelete5.addActionListener(this);
         cDelete6.addActionListener(this);
 
+        //
+
+
+    }
+
+    public void loadCampaigns(){
+        Map<String, Campaign> campaigns = user.getCreatedCampaigns();
+        campaigns = new LinkedHashMap<>();
+        int count = 0;
+        while(!campaigns.isEmpty()){
+            count++;
+        }
 
     }
 
@@ -425,6 +511,15 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
             }
 
             System.out.println(campName + " " + sessName);
+        }
+        if(action.equals("Logout")){
+
+        }
+
+        if(action.equals("CreateCharacter")){
+            JOptionPaneCharacter charOpt = new JOptionPaneCharacter();
+            String characterName = charOpt.characterName;
+            String charUser = charOpt.username;
         }
 
     }

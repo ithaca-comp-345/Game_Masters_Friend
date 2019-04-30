@@ -13,18 +13,18 @@ public class loginTest {
     @Test
     void createAccTest() throws FileAlreadyExistsException, FileNotFoundException {
         Login login = new Login();
-        login.createAccount("milorue", "password123");
-        assertEquals("milorue", login.getAccount("milorue").getUsername());
-        assertEquals("password123", login.getAccount("milorue").getPassword());
+        login.createAccount("miloruee", "Password123");
+        assertEquals("miloruee", login.getAccount("miloruee").getUsername());
+        assertEquals("Password123", login.getAccount("miloruee").getPassword());
     }
 
     @Test
     void loginAccTest() throws FileAlreadyExistsException, FileNotFoundException{
         Login login = new Login();
-        login.createAccount("mrue", "asdf");
-        Account test =login.login("mrue", "asdf");
-        assertEquals("mrue", test.getUsername());
-        assertEquals("asdf", test.getPassword());
+        login.createAccount("milorue", "asdfA1");
+        Account test =login.login("milorue", "asdfA1");
+        assertEquals("milorue", test.getUsername());
+        assertEquals("asdfA1", test.getPassword());
 
     }
 
