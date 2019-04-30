@@ -1,11 +1,8 @@
 package edu.ithaca.gamemaster;
 
-import edu.ithaca.gamemaster.map.Player;
-
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 
 //Need a path to image and a character, image will be resize
@@ -15,7 +12,7 @@ public class Portrait {
 
     JFrame frame;
 
-    public Portrait(String path, Character player) {
+    public Portrait(String path, Player player) {
         //Create and set up the window.
         this.frame = new JFrame(player.getName() + " - D&D ");
         ImageIcon icon = new ImageIcon(path);
