@@ -189,13 +189,12 @@ public class Campaign{
     }
 
 
+
    // public void createEncounter(){}
     // public void editCharacter(){};
     // public void editLocation(){};
     // public void editNPC();
     // public void editMap();
-    // public void searchNPC();
-    // public void shareMap();
 
 
 }
