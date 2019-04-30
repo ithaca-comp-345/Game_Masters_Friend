@@ -75,7 +75,7 @@ public class GameMasterUI extends JFrame implements ActionListener {
                 loggedIn=true;
                 if(loggedIn){
                     frame.setSize(950,750);
-                    frame.setContentPane(new GameMasterLandingPage(loginModule).LandingPage);
+                    frame.setContentPane(new GameMasterLandingPage(loginModule.getUser(username)).LandingPage);
                     frame.setVisible(true);
                 }
 
