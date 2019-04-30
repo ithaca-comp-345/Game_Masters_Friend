@@ -15,8 +15,8 @@ public class NotesUI extends JFrame implements ActionListener{
     public static JFrame noteFrame = new JFrame("Notes");
 
 
-    public NotesUI(){
-        this.note = new Notes("note1");
+    public NotesUI(Notes note){
+        this.note = note;
         note.setNotes("ndnddj");
         createUIComponents();
     }
@@ -40,7 +40,9 @@ public class NotesUI extends JFrame implements ActionListener{
     public static void main(String[] args) throws IOException {
         noteFrame.setSize(500,450);
         noteFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        noteFrame.setContentPane(new NotesUI().panel);
+        Notes note = new Notes("lol1");
+        noteFrame.setContentPane(new NotesUI(note).panel);
         noteFrame.setVisible(true);
+        System.out.println(note.getNotes());
     }
 }
