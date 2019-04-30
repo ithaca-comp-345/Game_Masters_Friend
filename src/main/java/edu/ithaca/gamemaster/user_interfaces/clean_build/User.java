@@ -21,6 +21,7 @@ public class User {
         this.isAdmin=isAdmin;
 
         this.characters = new HashMap<>();
+        this.createdCampaigns = new HashMap<>();
     }
 
     //adds the character to the users list of completed characters
@@ -30,8 +31,9 @@ public class User {
     }
 
     public Campaign createCampaign(String campaignName){
-        if(Pattern.matches("[a-zA-z0-9]+",campaignName)){
+        if(Pattern.matches("[a-zA-z0-9 ]+",campaignName)){
             Campaign createdCampaign = new Campaign(campaignName);
+            createdCampaigns.put(campaignName, createdCampaign);
             return createdCampaign;
         }
         else {
@@ -39,10 +41,13 @@ public class User {
         }
     }
 
-    public Campaign deleteCampaign(String campaignName){
-        Campaign deletedCampaign = createdCampaigns.get(campaignName);
-        createdCampaigns.remove(campaignName);
-        return deletedCampaign;
+    public boolean deleteCampaign(String campaignName) throws FileNotFoundException{
+        if(createdCampaigns.containsKey(campaignName)){
+            createdCampaigns.remove(campaignName);
+            return true;
+        }
+        throw new FileNotFoundException("Campaign doesn't exist to delete");
+
     }
 
     public Player createCharacter(String name){

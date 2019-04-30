@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.ithaca.gamemaster.map.Location;
+import edu.ithaca.gamemaster.user_interfaces.clean_build.Session;
 
 public class Campaign{
 
@@ -78,14 +79,14 @@ public class Campaign{
         }
     }
 
-    public void addSession(String sessionName){
-        if(!sessions.containsKey(sessionName)){
-            sessions.put(sessionName, new Session(sessionName, gm, true));
-        }
-        else{
-            throw new IllegalArgumentException("session already exists");
-        }
-    }
+//    public void addSession(String sessionName){
+//        if(!sessions.containsKey(sessionName)){
+//            sessions.put(sessionName, new Session(sessionName, , true));
+//        }
+//        else{
+//            throw new IllegalArgumentException("session already exists");
+//        }
+//    }
 
 
 

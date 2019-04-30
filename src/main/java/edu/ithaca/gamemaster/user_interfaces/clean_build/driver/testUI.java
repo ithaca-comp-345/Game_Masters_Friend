@@ -1,5 +1,7 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build.driver;
 
+import edu.ithaca.gamemaster.user_interfaces.clean_build.JOptionPaneMultiInput;
+
 import javax.swing.*;
 import java.io.IOException;
 
@@ -9,6 +11,8 @@ public class testUI {
         JFrame frame = new JFrame("Game Masters Companion");
         frame.setSize(800,800);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        JOptionPaneMultiInput dialog = new JOptionPaneMultiInput();
 
 
 
