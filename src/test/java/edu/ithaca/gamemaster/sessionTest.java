@@ -1,5 +1,6 @@
 package edu.ithaca.gamemaster;
 
+import edu.ithaca.gamemaster.Session;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;

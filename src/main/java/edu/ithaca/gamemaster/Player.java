@@ -1,5 +1,7 @@
 package edu.ithaca.gamemaster;
 
+import edu.ithaca.gamemaster.user_interfaces.clean_build.User;
+
 import java.util.ArrayList;
 
 public class Player extends Character {
@@ -85,6 +87,7 @@ public class Player extends Character {
 
     //Control
     private boolean hasAbility = false;
+    private User owner;
 
     public Player(){
         super();
@@ -329,6 +332,25 @@ public class Player extends Character {
             this.chariSave = genSave(cha) + proficiencyBonus;
         }
     }
+
+    //additional methods
+
+    public boolean isHasAbility() {
+        return hasAbility;
+    }
+
+    public void setHasAbility(boolean hasAbility) {
+        this.hasAbility = hasAbility;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
 
     //Set Methods
 
