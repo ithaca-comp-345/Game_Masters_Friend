@@ -81,6 +81,7 @@ public class Portrait {
 
     public  void display(){
         this.frame.pack();
+
         this.frame.setVisible(true);
 
     }
