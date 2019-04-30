@@ -85,4 +85,43 @@ public class encounterTest {
 
     }
 
+    @Test
+    void chooseNPCtoAttack(){
+        Encounter encounter = new Encounter();
+
+        Player player1 =  new Player("Cristian");
+        Player player2 =  new Player("Milo");
+        Player player3 =  new Player("Maily");
+        Player player4 =  new Player("Lee");
+
+        encounter.addPlayer(player1);
+        encounter.addPlayer(player2);
+        encounter.addPlayer(player3);
+        encounter.addPlayer(player4);
+
+        ArrayList<Integer> list = new ArrayList<>();
+        list.add(2);
+        list.add(16);
+        list.add(18);
+        list.add(4);
+
+        NPC npc1 = new NPC();
+        npc1.setName("npc1");
+        NPC npc2 = new NPC();
+        npc1.setName("npc2");
+        encounter.addNPC(npc1);
+        encounter.addNPC(npc2);
+        NPC npc3 = new NPC();
+        npc1.setName("npc2");
+
+        encounter.orderOfAttack(list);
+
+        assertThrows(IllegalArgumentException.class, ()->encounter.chooseNPCtoAttack(npc3));
+
+        assertTrue(encounter.chooseNPCtoAttack(npc1));
+        assertTrue(encounter.chooseNPCtoAttack(npc2));
+        
+
+    }
+
 }

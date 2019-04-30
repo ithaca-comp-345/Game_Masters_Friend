@@ -103,10 +103,11 @@ public class Encounter extends AttackRoll{
         }
     }
 
-    public void chooseNPCtoAttack(NPC npc){
+    public boolean chooseNPCtoAttack(NPC npc){
         if(npcList.contains(npc)){
             attackPvNPC(playerList.get(orderOfAttack.get(0)),npc);
             orderOfAttack.remove(0);
+            return true;
         }
         else{
             throw new IllegalArgumentException("There is no such NPC");
