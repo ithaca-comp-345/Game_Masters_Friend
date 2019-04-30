@@ -6,6 +6,7 @@ import edu.ithaca.gamemaster.Player;
 import java.io.FileNotFoundException;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Pattern;
 
 public class User {
     private String name;
@@ -29,8 +30,19 @@ public class User {
     }
 
     public Campaign createCampaign(String campaignName){
-        Campaign createdCampaign = new Campaign(campaignName);
-        return createdCampaign;
+        if(Pattern.matches("[a-zA-z0-9]+",campaignName)){
+            Campaign createdCampaign = new Campaign(campaignName);
+            return createdCampaign;
+        }
+        else {
+            throw new IllegalArgumentException("Illegal characters");
+        }
+    }
+
+    public Campaign deleteCampaign(String campaignName){
+        Campaign deletedCampaign = createdCampaigns.get(campaignName);
+        createdCampaigns.remove(campaignName);
+        return deletedCampaign;
     }
 
     public Player createCharacter(String name){
