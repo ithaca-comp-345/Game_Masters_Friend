@@ -41,6 +41,17 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
     private JButton cDelete4;
     private JButton cDelete5;
     private JButton cDelete6;
+    private JLabel sessionL3;
+    private JLabel sessionL4;
+    private JLabel sessionL5;
+    private JLabel sessionL6;
+    private JLabel sessionL7;
+    private JLabel sessionL8;
+    private JLabel sessionL9;
+    private JLabel sessionL10;
+    private JLabel sessionL11;
+    private JLabel sessionL12;
+    private JButton sDelete1;
     private JTable PastSessionsTable;
 
     private User user;
@@ -106,32 +117,37 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
             String newCampaign = JOptionPane.showInputDialog("What is the name of your new Campaign?", null);
             if (!newCampaign.equals("")) {
                 if (campaignL1.getText().equals("")) {
-                    System.out.println("New Campaign: " + newCampaign);
+                    user.createCampaign(newCampaign); //need to test campaign name valid
                     campaignL1.setText(newCampaign);
                     campaignCount++;
                     campaignMax.setText("Active Campaigns: "+campaignCount);
                     hideContent();
                 } else if (campaignL2.getText().equals("")) {
+                    user.createCampaign(newCampaign);
                     campaignL2.setText(newCampaign);
                     campaignCount++;
                     campaignMax.setText("Active Campaigns: "+campaignCount);
                     hideContent();
                 } else if (campaignL3.getText().equals("")) {
+                    user.createCampaign(newCampaign);
                     campaignL3.setText(newCampaign);
                     campaignCount++;
                     campaignMax.setText("Active Campaigns: "+campaignCount);
                     hideContent();
                 } else if (campaignL4.getText().equals("")) {
+                    user.createCampaign(newCampaign);
                     campaignL4.setText(newCampaign);
                     campaignCount++;
                     campaignMax.setText("Active Campaigns: "+campaignCount);
                     hideContent();
                 } else if (campaignL5.getText().equals("")) {
+                    user.createCampaign(newCampaign);
                     campaignL5.setText(newCampaign);
                     campaignCount++;
                     campaignMax.setText("Active Campaigns: "+campaignCount);
                     hideContent();
                 } else if (campaignL6.getText().equals("")) {
+                    user.createCampaign(newCampaign);
                     campaignL6.setText(newCampaign);
                     campaignCount++;
                     campaignMax.setText("Active Campaigns: "+campaignCount);
@@ -147,6 +163,7 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL1.getText())) {
+                user.deleteCampaign(confirm);
                 campaignL1.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
@@ -156,6 +173,7 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL2.getText())) {
+                user.deleteCampaign(confirm);
                 campaignL2.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
@@ -165,6 +183,7 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL3.getText())) {
+                user.deleteCampaign(confirm);
                 campaignL3.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
@@ -174,6 +193,7 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL4.getText())) {
+                user.deleteCampaign(confirm);
                 campaignL4.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
@@ -183,6 +203,7 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL5.getText())) {
+                user.deleteCampaign(confirm);
                 campaignL5.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
@@ -192,6 +213,7 @@ public class GameMasterLandingPage extends JFrame implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL6.getText())) {
+                user.deleteCampaign(confirm);
                 campaignL6.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);

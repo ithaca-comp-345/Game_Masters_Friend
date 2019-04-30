@@ -74,7 +74,7 @@ public class GameMasterUI extends JFrame implements ActionListener {
                 loginSuccessful.setText("Login completed");
                 loggedIn=true;
                 if(loggedIn){
-                    frame.setSize(950,750);
+                    frame.setSize(1200,750);
                     frame.setContentPane(new GameMasterLandingPage(loginModule.getUser(username)).LandingPage);
                     frame.setVisible(true);
                 }
