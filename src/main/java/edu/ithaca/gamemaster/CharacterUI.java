@@ -5,12 +5,15 @@ import java.util.*;
 
 public class CharacterUI {
     boolean isManual = false;
-    Scanner input = new Scanner(System.in);
+    public Scanner input = new Scanner(System.in);
     Random r = new Random();
-    String sampleLanguages[] = new String[]{"Common", "Dwarvish ", "Elvish", "Gnomish", "Goblin", "Halfing", "Orc"};
-    String alignments[] = new String[]{"Lawful good", "Lawful neutral ", "Lawful evil", "Neutral good", "True neutral", "Neutral evil", "Chaotic good", "Chaotic neutral", "Chaotic evil"};
-    String intStatNames[] = new String[]{"hit points","hit dice", "dice amount", "dice modifier", "armor", "speed", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"};
-    String actionStatNames[] = new String[]{"damage", "die amount", "die sides"};
+    protected String sampleLanguages[] = new String[]{"Common", "Dwarvish ", "Elvish", "Gnomish", "Goblin", "Halfing", "Orc"};
+    protected String alignments[] = new String[]{"Lawful good", "Lawful neutral ", "Lawful evil", "Neutral good", "True neutral", "Neutral evil", "Chaotic good", "Chaotic neutral", "Chaotic evil"};
+    protected String intStatNames[] = new String[]{"hit points","hit dice", "dice amount", "dice modifier", "armor", "speed", "strength", "dexterity", "constitution", "intelligence", "wisdom", "charisma"};
+    protected String actionStatNames[] = new String[]{"damage", "die amount", "die sides"};
+    protected Character newC = new Character();
+
+    protected Character getNewC() {return newC;}
 
     //create character
     public void createNewCharacter() {
@@ -22,7 +25,8 @@ public class CharacterUI {
             System.out.print("Please give input. \n Enter name: ");
             newName = input.nextLine();
         }
-        Character newC = new Character(newName);
+        newC.setName(newName);
+        //
         newCharacterStats(newC);
     }
 
@@ -142,7 +146,7 @@ public class CharacterUI {
                     }
                     ncAlign = alignments[alignInx];
                     System.out.println("You've chosen  \"" + alignments[alignInx] + "\". Is this correct? y/n ");
-                    ayd = input.nextLine(); //ayd: are you done
+                    ayd = input.nextLine(); //ayd: "are you done"
                     areYouDone = isValidYesNo(ayd);
                 }
                 //;alignment//
@@ -264,9 +268,10 @@ public class CharacterUI {
         }
     }
 
-    public static void main(String[] args) {
-        CharacterUI CUI = new CharacterUI();
-        CUI.createNewCharacter();
-        System.out.println("main done.");
-    }
+//    public static void main(String[] args) {
+//        CharacterUI CUI = new CharacterUI();
+//        CUI.createNewCharacter();
+//        System.out.println("main done.");
+//    }
+
 }
