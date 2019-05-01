@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class NotesAPI {
 
-    protected Campaign campaign;
+    private Campaign campaign;
 
     public NotesAPI(Campaign campaign){
         this.campaign = campaign;
@@ -15,7 +15,7 @@ public class NotesAPI {
     }
 
     public void editNotes(String sessionName,String note){
-        campaign.addToCurrNotes(sessionName);
+
     }
 
     public String getNotes(String sessionName){
@@ -29,5 +29,4 @@ public class NotesAPI {
     public String shareNotes(String sessionName){
         return campaign.shareInformation(sessionName);
     }
-
 }
