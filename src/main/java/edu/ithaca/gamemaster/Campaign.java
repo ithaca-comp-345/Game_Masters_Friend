@@ -6,6 +6,7 @@ import java.util.Map;
 
 import edu.ithaca.gamemaster.map.Location;
 import edu.ithaca.gamemaster.user_interfaces.clean_build.Session;
+import edu.ithaca.gamemaster.user_interfaces.clean_build.User;
 
 public class Campaign{
 
@@ -18,6 +19,7 @@ public class Campaign{
     private GameMaster gm;
     private Map<String, Location> locations;
     private Map<String, NPC> npcs;
+    private Map<String, User> players;
 
 
     public Campaign(){

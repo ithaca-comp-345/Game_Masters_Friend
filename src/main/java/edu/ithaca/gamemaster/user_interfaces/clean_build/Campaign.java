@@ -59,6 +59,20 @@ public class Campaign {
         }
     }
 
+    public Object[] getSessionList(){
+        return sessionList.keySet().toArray();
+    }
+
+    public Object[] getCharacterList(){
+        return characterList.keySet().toArray();
+    }
+
+    public Object[] getNPCList(){
+        return npcsList.keySet().toArray();
+    }
+
+
+
     public void createPlayerChar(User player){
         //TODO
     }
