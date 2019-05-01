@@ -24,6 +24,8 @@ public class GameMasterUI extends JFrame implements ActionListener {
     private Login loginModule;
     public static boolean loggedIn = false;
 
+    public GMController controller;
+
 
 
 
@@ -43,10 +45,11 @@ public class GameMasterUI extends JFrame implements ActionListener {
 
     }
 
-    public GameMasterUI(Login loginModule){
+    public GameMasterUI(GMController controller){
         createUIComponents();
 
-        this.loginModule = loginModule;
+        this.loginModule = controller.loginModule;
+        this.controller=controller;
 
 
     }
@@ -65,12 +68,16 @@ public class GameMasterUI extends JFrame implements ActionListener {
             //try catch for login failure
             //login module
             try {
-                Account test =loginModule.login(username, passwordStr);
+                controller.login(username,passwordStr);
+                System.out.println(controller.loggedInUser.campaignCount);
+                if(controller.loggedInUser.campaignCount>0) {
+                    System.out.println(controller.loggedInUser.getCampaignListClean().get(0).getCampaignName());
+                }
                 loginSuccessful.setText("Login completed");
                 loggedIn=true;
                 if(loggedIn){
                     frame.setSize(1200,750);
-                    frame.setContentPane(new GameMasterLandingPage(loginModule.getUser(username), frame, loginModule).LandingPage);
+                    frame.setContentPane(new GameMasterLandingPage(controller, controller.loggedInUser.getCampaignListClean()).LandingPage);
                     frame.setVisible(true);
                     loggedIn=false;
                 }
@@ -97,7 +104,7 @@ public class GameMasterUI extends JFrame implements ActionListener {
             passwordLogin.setText("");
             usernameLogin.setText("");
             try{
-                loginModule.createAccount(username,passwordStr);
+                controller.createAccount(username,passwordStr);
                 loginSuccessful.setText("Created account successfully");
                 try {
                     System.out.println(loginModule.getAccounts().toString());
@@ -114,19 +121,19 @@ public class GameMasterUI extends JFrame implements ActionListener {
         }
     }
 
-    public static void main(String[] args) throws IOException {
-        Login loginModule = new Login();
-
-        try {
-            loginModule.createAccount("testuser", "Asdf1234");
-        } catch (FileAlreadyExistsException e){
-            e.printStackTrace();
-        }
-        frame.setSize(500,450);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setContentPane(new GameMasterUI(loginModule).applet);
-        frame.setVisible(true);
-
-
-    }
+//    public static void main(String[] args) throws IOException {
+//        Login loginModule = new Login();
+//
+//        try {
+//            loginModule.createAccount("testuser", "Asdf1234");
+//        } catch (FileAlreadyExistsException e){
+//            e.printStackTrace();
+//        }
+//        frame.setSize(500,450);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setContentPane(new GameMasterUI(loginModule).applet);
+//        frame.setVisible(true);
+//
+//
+//    }
 }

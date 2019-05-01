@@ -141,13 +141,20 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JButton logoutButton;
     private JTable PastSessionsTable;
 
-    private User user;
+    GMController controller;
+    ArrayList<Campaign> campaignsList;
 
     private int campaignCount;
 
-    private JFrame frame;
+    ArrayList<Session> campaign1Sessions;
+    ArrayList<Session> campaign2Sessions;
+    ArrayList<Session> campaign3Sessions;
+    ArrayList<Session> campaign4Sessions;
+    ArrayList<Session> campaign5Sessions;
+    ArrayList<Session> campaign6Sessions;
 
-    private Login loginModule;
+
+
 
     private void createUIComponents() {
         JLabel test = new JLabel();
@@ -204,19 +211,18 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
 
     }
 
-    public GameMasterLandingPage(User continuity ,JFrame frame, Login loginModule){
+    public GameMasterLandingPage(GMController controller, ArrayList<Campaign> campaigns){
         campaignCount = 0;
-
-        frame = frame;
-
-        user = continuity;
-
-        loginModule = loginModule;
+        this.controller=controller;
+        this.campaignsList = campaigns;
 
         createUIComponents();
         hideContent();
         hideSession();
         hideCharacter();
+
+        loadCampaigns();
+//        ListSessions();
 
         //create campaign button
         createANewCampaignButton.setActionCommand("CreateCampaign");
@@ -249,18 +255,459 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         cDelete5.addActionListener(this);
         cDelete6.addActionListener(this);
 
-        //
+        //delete session action
+        sDelete1.setActionCommand("ds1");
+        sDelete2.setActionCommand("ds2");
+        sDelete3.setActionCommand("ds3");
+        sDelete4.setActionCommand("ds4");
+        sDelete5.setActionCommand("ds5");
+        sDelete6.setActionCommand("ds6");
+        sDelete7.setActionCommand("ds7");
+        sDelete8.setActionCommand("ds8");
+        sDelete9.setActionCommand("ds9");
+        sDelete10.setActionCommand("ds10");
+        sDelete11.setActionCommand("ds11");
+        sDelete12.setActionCommand("ds12");
 
-
+        sDelete1.addActionListener(this);
+        sDelete2.addActionListener(this);
+        sDelete3.addActionListener(this);
+        sDelete4.addActionListener(this);
+        sDelete5.addActionListener(this);
+        sDelete6.addActionListener(this);
+        sDelete7.addActionListener(this);
+        sDelete8.addActionListener(this);
+        sDelete9.addActionListener(this);
+        sDelete10.addActionListener(this);
+        sDelete11.addActionListener(this);
+        sDelete12.addActionListener(this);
     }
 
     public void loadCampaigns(){
-        Map<String, Campaign> campaigns = user.getCreatedCampaigns();
-        campaigns = new LinkedHashMap<>();
-        int count = 0;
-        while(!campaigns.isEmpty()){
-            count++;
+        campaignMax.setText("Active Campaigns: " + controller.loggedInUser.campaignCount);
+        System.out.println(controller.loggedInUser.campaignCount);
+        if(controller.loggedInUser.campaignCount>0) {
+            if(controller.loggedInUser.campaignCount>0){
+                campaignL1.setText(campaignsList.get(0).getCampaignName());
+                hideContent();
+            }
+            if(controller.loggedInUser.campaignCount>1){
+                campaignL2.setText(campaignsList.get(1).getCampaignName());
+                hideContent();
+            }
+            if(controller.loggedInUser.campaignCount>2){
+                campaignL3.setText(campaignsList.get(2).getCampaignName());
+                hideContent();
+            }
+            if(controller.loggedInUser.campaignCount>3){
+                campaignL4.setText(campaignsList.get(3).getCampaignName());
+                hideContent();
+            }
+            if(controller.loggedInUser.campaignCount>4){
+                campaignL5.setText(campaignsList.get(4).getCampaignName());
+                hideContent();
+            }
+            if(controller.loggedInUser.campaignCount>5){
+                campaignL6.setText(campaignsList.get(5).getCampaignName());
+                hideContent();
+            }
         }
+
+        }
+
+
+    public void ListSessions(){
+        if(controller.loggedInUser.campaignCount==1) {
+            campaign1Sessions = campaignsList.get(0).getSessionListClean();
+        }else if(controller.loggedInUser.campaignCount==2){
+            campaign1Sessions = campaignsList.get(0).getSessionListClean();
+            campaign2Sessions = campaignsList.get(1).getSessionListClean();
+        }else if(controller.loggedInUser.campaignCount==3){
+            campaign1Sessions = campaignsList.get(0).getSessionListClean();
+            campaign2Sessions = campaignsList.get(1).getSessionListClean();
+            campaign3Sessions = campaignsList.get(2).getSessionListClean();
+        }else if(controller.loggedInUser.campaignCount==4){
+            campaign1Sessions = campaignsList.get(0).getSessionListClean();
+            campaign2Sessions = campaignsList.get(1).getSessionListClean();
+            campaign3Sessions = campaignsList.get(2).getSessionListClean();
+            campaign4Sessions = campaignsList.get(3).getSessionListClean();
+        }else if(controller.loggedInUser.campaignCount==5){
+            campaign1Sessions = campaignsList.get(0).getSessionListClean();
+            campaign2Sessions = campaignsList.get(1).getSessionListClean();
+            campaign3Sessions = campaignsList.get(2).getSessionListClean();
+            campaign4Sessions = campaignsList.get(3).getSessionListClean();
+            campaign5Sessions = campaignsList.get(4).getSessionListClean();
+        }else if(controller.loggedInUser.campaignCount==6){
+            campaign1Sessions = campaignsList.get(0).getSessionListClean();
+            campaign2Sessions = campaignsList.get(1).getSessionListClean();
+            campaign3Sessions = campaignsList.get(2).getSessionListClean();
+            campaign4Sessions = campaignsList.get(3).getSessionListClean();
+            campaign5Sessions = campaignsList.get(4).getSessionListClean();
+            campaign6Sessions = campaignsList.get(5).getSessionListClean();
+        }
+        else{
+            campaign1Sessions = new ArrayList<>();
+            campaign2Sessions = new ArrayList<>();
+            campaign3Sessions = new ArrayList<>();
+            campaign4Sessions = new ArrayList<>();
+            campaign5Sessions = new ArrayList<>();
+            campaign6Sessions = new ArrayList<>();
+
+        }
+        if(!campaign1Sessions.isEmpty()){
+            for(int i = 0; i< campaign1Sessions.size(); i++){
+                if(i==0){
+                    sessionL1.setText(campaign1Sessions.get(0).getSessionName());
+                    sCampaign1.setText(campaignsList.get(0).getCampaignName());
+                    sDate1.setText(campaign1Sessions.get(0).getTimeStart());
+                }if(i==1){
+                    sessionL2.setText(campaign1Sessions.get(1).getSessionName());
+                    sCampaign2.setText(campaignsList.get(1).getCampaignName());
+                    sDate2.setText(campaign1Sessions.get(1).getTimeStart());
+                }if(i==2){
+                    sessionL3.setText(campaign1Sessions.get(2).getSessionName());
+                    sCampaign3.setText(campaignsList.get(2).getCampaignName());
+                    sDate3.setText(campaign1Sessions.get(2).getTimeStart());
+                }if(i==3){
+                    sessionL4.setText(campaign1Sessions.get(3).getSessionName());
+                    sCampaign4.setText(campaignsList.get(3).getCampaignName());
+                    sDate4.setText(campaign1Sessions.get(3).getTimeStart());
+                }if(i==4){
+                    sessionL5.setText(campaign1Sessions.get(4).getSessionName());
+                    sCampaign5.setText(campaignsList.get(4).getCampaignName());
+                    sDate5.setText(campaign1Sessions.get(4).getTimeStart());
+                }if(i==5){
+                    sessionL6.setText(campaign1Sessions.get(5).getSessionName());
+                    sCampaign6.setText(campaignsList.get(5).getCampaignName());
+                    sDate6.setText(campaign1Sessions.get(5).getTimeStart());
+                }if(i==6){
+                    sessionL7.setText(campaign1Sessions.get(6).getSessionName());
+                    sCampaign7.setText(campaignsList.get(6).getCampaignName());
+                    sDate7.setText(campaign1Sessions.get(6).getTimeStart());
+                }if(i==7){
+                    sessionL8.setText(campaign1Sessions.get(7).getSessionName());
+                    sCampaign8.setText(campaignsList.get(7).getCampaignName());
+                    sDate8.setText(campaign1Sessions.get(7).getTimeStart());
+                }if(i==8){
+                    sessionL9.setText(campaign1Sessions.get(8).getSessionName());
+                    sCampaign9.setText(campaignsList.get(8).getCampaignName());
+                    sDate9.setText(campaign1Sessions.get(8).getTimeStart());
+                }if(i==9){
+                    sessionL10.setText(campaign1Sessions.get(9).getSessionName());
+                    sCampaign10.setText(campaignsList.get(9).getCampaignName());
+                    sDate10.setText(campaign1Sessions.get(9).getTimeStart());
+                }if(i==10){
+                    sessionL11.setText(campaign1Sessions.get(10).getSessionName());
+                    sCampaign11.setText(campaignsList.get(10).getCampaignName());
+                    sDate11.setText(campaign1Sessions.get(10).getTimeStart());
+                }if(i==11){
+                    sessionL12.setText(campaign1Sessions.get(11).getSessionName());
+                    sCampaign12.setText(campaignsList.get(11).getCampaignName());
+                    sDate12.setText(campaign1Sessions.get(11).getTimeStart());
+                }
+
+
+            }
+        }if(!campaign2Sessions.isEmpty()){
+            for(int i = 0; i< campaign2Sessions.size(); i++){
+                if(i==0){
+                    sessionL1.setText(campaign2Sessions.get(0).getSessionName());
+                    sCampaign1.setText(campaignsList.get(2).getCampaignName());
+                    sDate1.setText(campaign2Sessions.get(0).getTimeStart());
+                }if(i==1){
+                    sessionL2.setText(campaign2Sessions.get(1).getSessionName());
+                    sCampaign2.setText(campaignsList.get(2).getCampaignName());
+                    sDate2.setText(campaign2Sessions.get(1).getTimeStart());
+                }if(i==2){
+                    sessionL3.setText(campaign2Sessions.get(2).getSessionName());
+                    sCampaign3.setText(campaignsList.get(2).getCampaignName());
+                    sDate3.setText(campaign2Sessions.get(2).getTimeStart());
+                }if(i==3){
+                    sessionL4.setText(campaign2Sessions.get(3).getSessionName());
+                    sCampaign4.setText(campaignsList.get(2).getCampaignName());
+                    sDate4.setText(campaign2Sessions.get(3).getTimeStart());
+                }if(i==4){
+                    sessionL5.setText(campaign2Sessions.get(4).getSessionName());
+                    sCampaign5.setText(campaignsList.get(2).getCampaignName());
+                    sDate5.setText(campaign2Sessions.get(4).getTimeStart());
+                }if(i==5){
+                    sessionL6.setText(campaign2Sessions.get(5).getSessionName());
+                    sCampaign6.setText(campaignsList.get(2).getCampaignName());
+                    sDate6.setText(campaign2Sessions.get(5).getTimeStart());
+                }if(i==6){
+                    sessionL7.setText(campaign2Sessions.get(6).getSessionName());
+                    sCampaign7.setText(campaignsList.get(2).getCampaignName());
+                    sDate7.setText(campaign2Sessions.get(6).getTimeStart());
+                }if(i==7){
+                    sessionL8.setText(campaign2Sessions.get(7).getSessionName());
+                    sCampaign8.setText(campaignsList.get(2).getCampaignName());
+                    sDate8.setText(campaign2Sessions.get(7).getTimeStart());
+                }if(i==8){
+                    sessionL9.setText(campaign2Sessions.get(8).getSessionName());
+                    sCampaign9.setText(campaignsList.get(2).getCampaignName());
+                    sDate9.setText(campaign2Sessions.get(8).getTimeStart());
+                }if(i==9){
+                    sessionL10.setText(campaign2Sessions.get(9).getSessionName());
+                    sCampaign10.setText(campaignsList.get(2).getCampaignName());
+                    sDate10.setText(campaign2Sessions.get(9).getTimeStart());
+                }if(i==10){
+                    sessionL11.setText(campaign2Sessions.get(10).getSessionName());
+                    sCampaign11.setText(campaignsList.get(2).getCampaignName());
+                    sDate11.setText(campaign2Sessions.get(10).getTimeStart());
+                }if(i==11){
+                    sessionL12.setText(campaign2Sessions.get(11).getSessionName());
+                    sCampaign12.setText(campaignsList.get(2).getCampaignName());
+                    sDate12.setText(campaign2Sessions.get(11).getTimeStart());
+                }
+
+
+            }
+        }if(!campaign3Sessions.isEmpty()){
+            for(int i = 0; i< campaign3Sessions.size(); i++){
+                if(i==0){
+                    sessionL1.setText(campaign3Sessions.get(0).getSessionName());
+                    sCampaign1.setText(campaignsList.get(3).getCampaignName());
+                    sDate1.setText(campaign3Sessions.get(0).getTimeStart());
+                }if(i==1){
+                    sessionL2.setText(campaign3Sessions.get(1).getSessionName());
+                    sCampaign2.setText(campaignsList.get(3).getCampaignName());
+                    sDate2.setText(campaign3Sessions.get(1).getTimeStart());
+                }if(i==2){
+                    sessionL3.setText(campaign3Sessions.get(2).getSessionName());
+                    sCampaign3.setText(campaignsList.get(3).getCampaignName());
+                    sDate3.setText(campaign3Sessions.get(2).getTimeStart());
+                }if(i==3){
+                    sessionL4.setText(campaign3Sessions.get(3).getSessionName());
+                    sCampaign4.setText(campaignsList.get(3).getCampaignName());
+                    sDate4.setText(campaign3Sessions.get(3).getTimeStart());
+                }if(i==4){
+                    sessionL5.setText(campaign3Sessions.get(4).getSessionName());
+                    sCampaign5.setText(campaignsList.get(3).getCampaignName());
+                    sDate5.setText(campaign3Sessions.get(4).getTimeStart());
+                }if(i==5){
+                    sessionL6.setText(campaign3Sessions.get(5).getSessionName());
+                    sCampaign6.setText(campaignsList.get(3).getCampaignName());
+                    sDate6.setText(campaign3Sessions.get(5).getTimeStart());
+                }if(i==6){
+                    sessionL7.setText(campaign3Sessions.get(6).getSessionName());
+                    sCampaign7.setText(campaignsList.get(3).getCampaignName());
+                    sDate7.setText(campaign3Sessions.get(6).getTimeStart());
+                }if(i==7){
+                    sessionL8.setText(campaign3Sessions.get(7).getSessionName());
+                    sCampaign8.setText(campaignsList.get(3).getCampaignName());
+                    sDate8.setText(campaign3Sessions.get(7).getTimeStart());
+                }if(i==8){
+                    sessionL9.setText(campaign3Sessions.get(8).getSessionName());
+                    sCampaign9.setText(campaignsList.get(3).getCampaignName());
+                    sDate9.setText(campaign3Sessions.get(8).getTimeStart());
+                }if(i==9){
+                    sessionL10.setText(campaign3Sessions.get(9).getSessionName());
+                    sCampaign10.setText(campaignsList.get(3).getCampaignName());
+                    sDate10.setText(campaign3Sessions.get(9).getTimeStart());
+                }if(i==10){
+                    sessionL11.setText(campaign3Sessions.get(10).getSessionName());
+                    sCampaign11.setText(campaignsList.get(3).getCampaignName());
+                    sDate11.setText(campaign3Sessions.get(10).getTimeStart());
+                }if(i==11){
+                    sessionL12.setText(campaign3Sessions.get(11).getSessionName());
+                    sCampaign12.setText(campaignsList.get(3).getCampaignName());
+                    sDate12.setText(campaign3Sessions.get(11).getTimeStart());
+                }
+
+
+            }
+        }if(!campaign4Sessions.isEmpty()) {
+            for (int i = 0; i < campaign4Sessions.size(); i++) {
+                if (i == 0) {
+                    sessionL1.setText(campaign4Sessions.get(0).getSessionName());
+                    sCampaign1.setText(campaignsList.get(4).getCampaignName());
+                    sDate1.setText(campaign4Sessions.get(0).getTimeStart());
+                }
+                if (i == 1) {
+                    sessionL2.setText(campaign4Sessions.get(1).getSessionName());
+                    sCampaign2.setText(campaignsList.get(4).getCampaignName());
+                    sDate2.setText(campaign4Sessions.get(1).getTimeStart());
+                }
+                if (i == 2) {
+                    sessionL3.setText(campaign4Sessions.get(2).getSessionName());
+                    sCampaign3.setText(campaignsList.get(4).getCampaignName());
+                    sDate3.setText(campaign4Sessions.get(2).getTimeStart());
+                }
+                if (i == 3) {
+                    sessionL4.setText(campaign4Sessions.get(3).getSessionName());
+                    sCampaign4.setText(campaignsList.get(4).getCampaignName());
+                    sDate4.setText(campaign4Sessions.get(3).getTimeStart());
+                }
+                if (i == 4) {
+                    sessionL5.setText(campaign4Sessions.get(4).getSessionName());
+                    sCampaign5.setText(campaignsList.get(4).getCampaignName());
+                    sDate5.setText(campaign4Sessions.get(4).getTimeStart());
+                }
+                if (i == 5) {
+                    sessionL6.setText(campaign4Sessions.get(5).getSessionName());
+                    sCampaign6.setText(campaignsList.get(4).getCampaignName());
+                    sDate6.setText(campaign4Sessions.get(5).getTimeStart());
+                }
+                if (i == 6) {
+                    sessionL7.setText(campaign4Sessions.get(6).getSessionName());
+                    sCampaign7.setText(campaignsList.get(4).getCampaignName());
+                    sDate7.setText(campaign4Sessions.get(6).getTimeStart());
+                }
+                if (i == 7) {
+                    sessionL8.setText(campaign4Sessions.get(7).getSessionName());
+                    sCampaign8.setText(campaignsList.get(4).getCampaignName());
+                    sDate8.setText(campaign4Sessions.get(7).getTimeStart());
+                }
+                if (i == 8) {
+                    sessionL9.setText(campaign4Sessions.get(8).getSessionName());
+                    sCampaign9.setText(campaignsList.get(4).getCampaignName());
+                    sDate9.setText(campaign4Sessions.get(8).getTimeStart());
+                }
+                if (i == 9) {
+                    sessionL10.setText(campaign4Sessions.get(9).getSessionName());
+                    sCampaign10.setText(campaignsList.get(4).getCampaignName());
+                    sDate10.setText(campaign4Sessions.get(9).getTimeStart());
+                }
+                if (i == 10) {
+                    sessionL11.setText(campaign4Sessions.get(10).getSessionName());
+                    sCampaign11.setText(campaignsList.get(4).getCampaignName());
+                    sDate11.setText(campaign4Sessions.get(10).getTimeStart());
+                }
+                if (i == 11) {
+                    sessionL12.setText(campaign4Sessions.get(11).getSessionName());
+                    sCampaign12.setText(campaignsList.get(4).getCampaignName());
+                    sDate12.setText(campaign4Sessions.get(11).getTimeStart());
+                }
+            }
+        }if(!campaign5Sessions.isEmpty()) {
+            for (int i = 0; i < campaign5Sessions.size(); i++) {
+                if (i == 0) {
+                    sessionL1.setText(campaign5Sessions.get(0).getSessionName());
+                    sCampaign1.setText(campaignsList.get(5).getCampaignName());
+                    sDate1.setText(campaign5Sessions.get(0).getTimeStart());
+                }
+                if (i == 1) {
+                    sessionL2.setText(campaign5Sessions.get(1).getSessionName());
+                    sCampaign2.setText(campaignsList.get(5).getCampaignName());
+                    sDate2.setText(campaign5Sessions.get(1).getTimeStart());
+                }
+                if (i == 2) {
+                    sessionL3.setText(campaign5Sessions.get(2).getSessionName());
+                    sCampaign3.setText(campaignsList.get(5).getCampaignName());
+                    sDate3.setText(campaign5Sessions.get(2).getTimeStart());
+                }
+                if (i == 3) {
+                    sessionL4.setText(campaign5Sessions.get(3).getSessionName());
+                    sCampaign4.setText(campaignsList.get(5).getCampaignName());
+                    sDate4.setText(campaign5Sessions.get(3).getTimeStart());
+                }
+                if (i == 4) {
+                    sessionL5.setText(campaign5Sessions.get(4).getSessionName());
+                    sCampaign5.setText(campaignsList.get(5).getCampaignName());
+                    sDate5.setText(campaign5Sessions.get(4).getTimeStart());
+                }
+                if (i == 5) {
+                    sessionL6.setText(campaign5Sessions.get(5).getSessionName());
+                    sCampaign6.setText(campaignsList.get(5).getCampaignName());
+                    sDate6.setText(campaign5Sessions.get(5).getTimeStart());
+                }
+                if (i == 6) {
+                    sessionL7.setText(campaign5Sessions.get(6).getSessionName());
+                    sCampaign7.setText(campaignsList.get(5).getCampaignName());
+                    sDate7.setText(campaign5Sessions.get(6).getTimeStart());
+                }
+                if (i == 7) {
+                    sessionL8.setText(campaign5Sessions.get(7).getSessionName());
+                    sCampaign8.setText(campaignsList.get(5).getCampaignName());
+                    sDate8.setText(campaign5Sessions.get(7).getTimeStart());
+                }
+                if (i == 8) {
+                    sessionL9.setText(campaign5Sessions.get(8).getSessionName());
+                    sCampaign9.setText(campaignsList.get(5).getCampaignName());
+                    sDate9.setText(campaign5Sessions.get(8).getTimeStart());
+                }
+                if (i == 9) {
+                    sessionL10.setText(campaign5Sessions.get(9).getSessionName());
+                    sCampaign10.setText(campaignsList.get(5).getCampaignName());
+                    sDate10.setText(campaign5Sessions.get(9).getTimeStart());
+                }
+                if (i == 10) {
+                    sessionL11.setText(campaign5Sessions.get(10).getSessionName());
+                    sCampaign11.setText(campaignsList.get(5).getCampaignName());
+                    sDate11.setText(campaign5Sessions.get(10).getTimeStart());
+                }
+                if (i == 11) {
+                    sessionL12.setText(campaign5Sessions.get(11).getSessionName());
+                    sCampaign12.setText(campaignsList.get(5).getCampaignName());
+                    sDate12.setText(campaign5Sessions.get(11).getTimeStart());
+                }
+            }
+        }if(!campaign6Sessions.isEmpty()) {
+            for (int i = 0; i < campaign6Sessions.size(); i++) {
+                if (i == 0) {
+                    sessionL1.setText(campaign6Sessions.get(0).getSessionName());
+                    sCampaign1.setText(campaignsList.get(6).getCampaignName());
+                    sDate1.setText(campaign6Sessions.get(0).getTimeStart());
+                }
+                if (i == 1) {
+                    sessionL2.setText(campaign6Sessions.get(1).getSessionName());
+                    sCampaign2.setText(campaignsList.get(6).getCampaignName());
+                    sDate2.setText(campaign6Sessions.get(1).getTimeStart());
+                }
+                if (i == 2) {
+                    sessionL3.setText(campaign6Sessions.get(2).getSessionName());
+                    sCampaign3.setText(campaignsList.get(6).getCampaignName());
+                    sDate3.setText(campaign6Sessions.get(2).getTimeStart());
+                }
+                if (i == 3) {
+                    sessionL4.setText(campaign6Sessions.get(3).getSessionName());
+                    sCampaign4.setText(campaignsList.get(6).getCampaignName());
+                    sDate4.setText(campaign6Sessions.get(3).getTimeStart());
+                }
+                if (i == 4) {
+                    sessionL5.setText(campaign6Sessions.get(4).getSessionName());
+                    sCampaign5.setText(campaignsList.get(6).getCampaignName());
+                    sDate5.setText(campaign6Sessions.get(4).getTimeStart());
+                }
+                if (i == 5) {
+                    sessionL6.setText(campaign6Sessions.get(5).getSessionName());
+                    sCampaign6.setText(campaignsList.get(6).getCampaignName());
+                    sDate6.setText(campaign6Sessions.get(5).getTimeStart());
+                }
+                if (i == 6) {
+                    sessionL7.setText(campaign6Sessions.get(6).getSessionName());
+                    sCampaign7.setText(campaignsList.get(6).getCampaignName());
+                    sDate7.setText(campaign6Sessions.get(6).getTimeStart());
+                }
+                if (i == 7) {
+                    sessionL8.setText(campaign6Sessions.get(7).getSessionName());
+                    sCampaign8.setText(campaignsList.get(6).getCampaignName());
+                    sDate8.setText(campaign6Sessions.get(7).getTimeStart());
+                }
+                if (i == 8) {
+                    sessionL9.setText(campaign6Sessions.get(8).getSessionName());
+                    sCampaign9.setText(campaignsList.get(6).getCampaignName());
+                    sDate9.setText(campaign6Sessions.get(8).getTimeStart());
+                }
+                if (i == 9) {
+                    sessionL10.setText(campaign6Sessions.get(9).getSessionName());
+                    sCampaign10.setText(campaignsList.get(6).getCampaignName());
+                    sDate10.setText(campaign6Sessions.get(9).getTimeStart());
+                }
+                if (i == 10) {
+                    sessionL11.setText(campaign6Sessions.get(10).getSessionName());
+                    sCampaign11.setText(campaignsList.get(6).getCampaignName());
+                    sDate11.setText(campaign6Sessions.get(10).getTimeStart());
+                }
+                if (i == 11) {
+                    sessionL12.setText(campaign6Sessions.get(11).getSessionName());
+                    sCampaign12.setText(campaignsList.get(6).getCampaignName());
+                    sDate12.setText(campaign6Sessions.get(11).getTimeStart());
+                }
+            }
+        }
+    }
+    public void loadSessions(){
 
     }
 
@@ -271,70 +718,70 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             String newCampaign = JOptionPane.showInputDialog("What is the name of your new Campaign?", null);
             if (!newCampaign.equals("")) {
                 if (campaignL1.getText().equals("")) {
-                    user.createCampaign(newCampaign); //need to test campaign name valid
+                    controller.createCampaign(newCampaign); //need to test campaign name valid
                     try {
-                        System.out.println(user.getACreatedCampaign(newCampaign));
+                        System.out.println(controller.loggedInUser.getACreatedCampaign(newCampaign));
                     } catch (FileNotFoundException e){
                         e.printStackTrace();
                     }
                     campaignL1.setText(newCampaign);
                     campaignCount++;
-                    campaignMax.setText("Active Campaigns: "+campaignCount);
+                    campaignMax.setText("Active Campaigns: "+controller.loggedInUser.campaignCount);
                     hideContent();
                 } else if (campaignL2.getText().equals("")) {
-                    user.createCampaign(newCampaign);
+                    controller.createCampaign(newCampaign);
                     try {
-                        System.out.println(user.getACreatedCampaign(newCampaign));
+                        System.out.println(controller.loggedInUser.getACreatedCampaign(newCampaign));
                     } catch (FileNotFoundException e){
                         e.printStackTrace();
                     }
                     campaignL2.setText(newCampaign);
                     campaignCount++;
-                    campaignMax.setText("Active Campaigns: "+campaignCount);
+                    campaignMax.setText("Active Campaigns: "+controller.loggedInUser.campaignCount);
                     hideContent();
                 } else if (campaignL3.getText().equals("")) {
-                    user.createCampaign(newCampaign);
+                    controller.createCampaign(newCampaign);
                     try {
-                        System.out.println(user.getACreatedCampaign(newCampaign));
+                        System.out.println(controller.loggedInUser.getACreatedCampaign(newCampaign));
                     } catch (FileNotFoundException e){
                         e.printStackTrace();
                     }
                     campaignL3.setText(newCampaign);
                     campaignCount++;
-                    campaignMax.setText("Active Campaigns: "+campaignCount);
+                    campaignMax.setText("Active Campaigns: "+controller.loggedInUser.campaignCount);
                     hideContent();
                 } else if (campaignL4.getText().equals("")) {
-                    user.createCampaign(newCampaign);
+                    controller.createCampaign(newCampaign);
                     try {
-                        System.out.println(user.getACreatedCampaign(newCampaign));
+                        System.out.println(controller.loggedInUser.getACreatedCampaign(newCampaign));
                     } catch (FileNotFoundException e){
                         e.printStackTrace();
                     }
                     campaignL4.setText(newCampaign);
                     campaignCount++;
-                    campaignMax.setText("Active Campaigns: "+campaignCount);
+                    campaignMax.setText("Active Campaigns: "+controller.loggedInUser.campaignCount);
                     hideContent();
                 } else if (campaignL5.getText().equals("")) {
-                    user.createCampaign(newCampaign);
+                    controller.createCampaign(newCampaign);
                     try {
-                        System.out.println(user.getACreatedCampaign(newCampaign));
+                        System.out.println(controller.loggedInUser.getACreatedCampaign(newCampaign));
                     } catch (FileNotFoundException e){
                         e.printStackTrace();
                     }
                     campaignL5.setText(newCampaign);
                     campaignCount++;
-                    campaignMax.setText("Active Campaigns: "+campaignCount);
+                    campaignMax.setText("Active Campaigns: "+controller.loggedInUser.campaignCount);
                     hideContent();
                 } else if (campaignL6.getText().equals("")) {
-                    user.createCampaign(newCampaign);
+                    controller.createCampaign(newCampaign);
                     try {
-                        System.out.println(user.getACreatedCampaign(newCampaign));
+                        System.out.println(controller.loggedInUser.getACreatedCampaign(newCampaign));
                     } catch (FileNotFoundException e){
                         e.printStackTrace();
                     }
                     campaignL6.setText(newCampaign);
                     campaignCount++;
-                    campaignMax.setText("Active Campaigns: "+campaignCount);
+                    campaignMax.setText("Active Campaigns: "+controller.loggedInUser.campaignCount);
                     hideContent();
                 } else {
                 }
@@ -353,7 +800,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 hideContent();
                 try {
-                    user.deleteCampaign(confirm);
+                    controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
                     e.printStackTrace();
                 }
@@ -368,7 +815,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 hideContent();
                 try {
-                    user.deleteCampaign(confirm);
+                    controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
                     e.printStackTrace();
                 }
@@ -383,7 +830,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 hideContent();
                 try {
-                    user.deleteCampaign(confirm);
+                    controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
                     e.printStackTrace();
                 }
@@ -398,7 +845,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 hideContent();
                 try {
-                    user.deleteCampaign(confirm);
+                    controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
                     e.printStackTrace();
                 }
@@ -412,7 +859,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 try {
-                    user.deleteCampaign(confirm);
+                    controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
                     e.printStackTrace();
                 }
@@ -427,7 +874,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 try {
-                    user.deleteCampaign(confirm);
+                    controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
                     e.printStackTrace();
                 }
@@ -441,7 +888,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             String sessName = twoOpt.sessionName;
             String campName = twoOpt.campaignName;
             try {
-                Session session = user.getACreatedCampaign(campName).createSession(sessName); //needs to check for valid session name and campaign name
+                Session session = controller.loggedInUser.getACreatedCampaign(campName).createSession(sessName); //needs to check for valid session name and campaign name
                 session.start("Default Goal"); //needs to be changed but good for demo; //TODO
                 if(sessionL1.getText().equals("") && sCampaign1.getText().equals("") && sDate1.getText().equals("")){
                     sessionL1.setText(sessName);
@@ -512,8 +959,143 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
 
             System.out.println(campName + " " + sessName);
         }
-        if(action.equals("Logout")){
 
+        if(action.equals("ds1")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign1.getText());
+                camp.deleteSession(sessionL1.getText());
+                sessionL1.setText("");
+                sCampaign1.setText("");
+                sDate1.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds2")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign2.getText());
+                camp.deleteSession(sessionL2.getText());
+                sessionL2.setText("");
+                sCampaign2.setText("");
+                sDate2.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds3")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign3.getText());
+                camp.deleteSession(sessionL3.getText());
+                sessionL3.setText("");
+                sCampaign3.setText("");
+                sDate3.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds4")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign4.getText());
+                camp.deleteSession(sessionL4.getText());
+                sessionL4.setText("");
+                sCampaign4.setText("");
+                sDate4.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds5")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign5.getText());
+                camp.deleteSession(sessionL5.getText());
+                sessionL5.setText("");
+                sCampaign5.setText("");
+                sDate5.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds6")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign6.getText());
+                camp.deleteSession(sessionL6.getText());
+                sessionL6.setText("");
+                sCampaign6.setText("");
+                sDate6.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds7")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign7.getText());
+                camp.deleteSession(sessionL7.getText());
+                sessionL7.setText("");
+                sCampaign7.setText("");
+                sDate7.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds8")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign8.getText());
+                camp.deleteSession(sessionL8.getText());
+                sessionL8.setText("");
+                sCampaign8.setText("");
+                sDate8.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds9")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign9.getText());
+                camp.deleteSession(sessionL9.getText());
+                sessionL9.setText("");
+                sCampaign9.setText("");
+                sDate9.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds10")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign10.getText());
+                camp.deleteSession(sessionL10.getText());
+                sessionL10.setText("");
+                sCampaign10.setText("");
+                sDate10.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds11")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign11.getText());
+                camp.deleteSession(sessionL11.getText());
+                sessionL11.setText("");
+                sCampaign11.setText("");
+                sDate11.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }else if(action.equals("ds12")){
+            try {
+                Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign12.getText());
+                camp.deleteSession(sessionL12.getText());
+                sessionL12.setText("");
+                sCampaign12.setText("");
+                sDate12.setText("");
+                hideSession();
+            }catch(FileNotFoundException e){
+                e.printStackTrace();
+            }
+        }
+
+        if(action.equals("Logout")){
+            //TODO
         }
 
         if(action.equals("CreateCharacter")){

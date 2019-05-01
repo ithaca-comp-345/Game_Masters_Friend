@@ -5,6 +5,7 @@ import edu.ithaca.gamemaster.Player;
 
 import java.io.FileNotFoundException;
 import java.nio.file.FileAlreadyExistsException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -16,6 +17,7 @@ public class Campaign {
     private Map<String, Location> locations;
     private Map<String, NPC> npcsList;
     private Map<String, Session> sessionList;
+    public int sessionCount = 0;
 
     public Campaign(String campaignName){
         this.campaignName = campaignName;
@@ -30,6 +32,7 @@ public class Campaign {
     public Session createSession(String sessionName){
         Session newSession = new Session(sessionName,this);
         sessionList.put(sessionName,newSession);
+        sessionCount++;
         return newSession;
     }
 
@@ -37,6 +40,7 @@ public class Campaign {
         if(sessionList.containsKey(sessionName)) {
             Session deletedSession = sessionList.get(sessionName);
             sessionList.remove(sessionName);
+            sessionCount--;
             return deletedSession;
         }
         throw new FileNotFoundException("Session doesn't exist to delete");
@@ -86,5 +90,14 @@ public class Campaign {
             return players.get(name);
         }
         throw new FileNotFoundException("Player isn't invited to this campaign");
+    }
+
+
+    public ArrayList<Session> getSessionListClean(){
+        ArrayList<Session> sessionsArray = new ArrayList<>();
+        for(Session val : sessionList.values()){
+            sessionsArray.add(val);
+        }
+        return sessionsArray;
     }
 }

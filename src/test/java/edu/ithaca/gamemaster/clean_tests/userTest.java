@@ -10,7 +10,7 @@ public class userTest {
     @Test
     void userCreateCampaignTest(){
         Account test = new Account("Bobbyz", "Bobby12");
-        User user = new User("Bobbyz", true, test);
+        User user = new User("Bobbyz", test);
         assertThrows(IllegalArgumentException.class,()->user.createCampaign("'America"));
         assertThrows(IllegalArgumentException.class,()->user.createCampaign("}America"));
         assertThrows(IllegalArgumentException.class,()->user.createCampaign("#America"));
