@@ -31,7 +31,6 @@ public class Campaign{
         this.sessions = new HashMap<>();
         this.locations = new HashMap<>();
         this.gm = gameMaster;
-
     }
 
     public void setGm(GameMaster gameMaster){

@@ -17,7 +17,7 @@ public class StatCheck {
         int passCount = 0;
         int skillMod = getSkillModifier(character,stat);
         Dice die = new Dice(20);
-        threshold =threshold/100;
+        threshold = threshold/100;
         boolean result = false;
 
         for (int i = 0; i < numRolls ; i++) {
