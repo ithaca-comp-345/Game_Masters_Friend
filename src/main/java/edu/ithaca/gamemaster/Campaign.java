@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.ithaca.gamemaster.map.Location;
+import edu.ithaca.gamemaster.user_interfaces.clean_build.Session;
 
 public class Campaign{
 
@@ -16,6 +17,7 @@ public class Campaign{
     private Map<String, Character> characters;
     private GameMaster gm;
     private Map<String, Location> locations;
+    private Map<String, NPC> npcs;
 
 
     public Campaign(){
@@ -63,6 +65,11 @@ public class Campaign{
 
     }
 
+    public void addCharacter(String name, Character character){
+        characters.put(name,character);
+        //needs better testing
+    }
+
     public boolean findUserPlayer(String username){
         if(!userPlayers.containsKey(username)){
             return false;
@@ -72,14 +79,14 @@ public class Campaign{
         }
     }
 
-    public void addSession(String sessionName){
-        if(!sessions.containsKey(sessionName)){
-            sessions.put(sessionName, new Session(sessionName, gm, true));
-        }
-        else{
-            throw new IllegalArgumentException("session already exists");
-        }
-    }
+//    public void addSession(String sessionName){
+//        if(!sessions.containsKey(sessionName)){
+//            sessions.put(sessionName, new Session(sessionName, , true));
+//        }
+//        else{
+//            throw new IllegalArgumentException("session already exists");
+//        }
+//    }
 
 
 
@@ -154,7 +161,27 @@ public class Campaign{
         return notes.get(sessionName).getNotes();
     }
 
+    public void addNPC(String npcName,NPC npc){
+        npcs.put(npcName, npc);
+    }
 
+    public Character getCharacter(String characterName){
+        if(characters.containsKey(characterName)){
+            return characters.get(characterName);
+        }
+        else{
+            throw new IllegalArgumentException("Character doesnt exist");
+        }
+    }
+
+    public NPC getNPC(String npcName){
+        if(npcs.containsKey(npcName)){
+            return npcs.get(npcName);
+        }
+        else{
+            throw new IllegalArgumentException("NPC doesnt exist");
+        }
+    }
 
 
    // public void createEncounter(){}

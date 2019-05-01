@@ -2,8 +2,6 @@ package edu.ithaca.gamemaster;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.ArrayList;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class accountTest {
@@ -14,7 +12,7 @@ public class accountTest {
 
 
         assertEquals("teatea",acc1.getUsername());
-        assertEquals("Aaaaa1",acc1.getPsswd());
+        assertEquals("Aaaaa1",acc1.getPassword());
 
 
         assertThrows(IllegalArgumentException.class, ()-> new Account("teat", "Password1"));//username length<6

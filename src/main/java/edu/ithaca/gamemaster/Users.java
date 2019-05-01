@@ -34,7 +34,7 @@ public class Users {
     public boolean logIn(String username, String psswd){
         if(users.containsKey(username)){
             Account user=users.get(username);
-            if((user.psswd).equals(psswd)){
+            if((user.getPassword()).equals(psswd)){
                 return true;
             }
             else {
