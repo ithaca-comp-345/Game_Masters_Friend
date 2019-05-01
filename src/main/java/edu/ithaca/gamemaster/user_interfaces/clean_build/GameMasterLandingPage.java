@@ -139,6 +139,55 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JButton charDelete11;
     private JButton charDelete12;
     private JButton logoutButton;
+    private JLabel npc1;
+    private JLabel npc2;
+    private JButton npcButton1;
+    private JButton npcButton2;
+    private JLabel npc3;
+    private JLabel npc4;
+    private JLabel npc5;
+    private JLabel npc6;
+    private JLabel npc7;
+    private JLabel npc8;
+    private JLabel npc9;
+    private JLabel npc10;
+    private JLabel npc11;
+    private JLabel npc12;
+    private JLabel npc13;
+    private JLabel npc14;
+    private JLabel npc15;
+    private JLabel npc16;
+    private JButton npcDelete1;
+    private JButton npcDelete2;
+    private JButton npcDelete3;
+    private JButton npcDelete4;
+    private JButton npcDelete5;
+    private JButton npcDelete6;
+    private JButton npcDelete7;
+    private JButton npcDelete8;
+    private JButton npcDelete9;
+    private JButton npcDelete10;
+    private JButton npcDelete11;
+    private JButton npcDelete12;
+    private JButton npcDelete13;
+    private JButton npcDelete14;
+    private JButton npcDelete15;
+    private JButton npcDelete16;
+    private JButton npcButton3;
+    private JButton npcButton4;
+    private JButton npcButton5;
+    private JButton npcButton6;
+    private JButton npcButton7;
+    private JButton npcButton8;
+    private JButton npcButton9;
+    private JButton npcButton10;
+    private JButton npcButton11;
+    private JButton npcButton12;
+    private JButton npcButton13;
+    private JButton npcButton14;
+    private JButton npcButton15;
+    private JButton npcButton16;
+    private JLabel user;
     private JTable PastSessionsTable;
 
     GMController controller;
@@ -211,6 +260,26 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
 
     }
 
+    private void hideNPC(){
+        ButtonHidden.twoButtonHide(npc1,npcButton1,npcDelete1);
+        ButtonHidden.twoButtonHide(npc2,npcButton2,npcDelete2);
+        ButtonHidden.twoButtonHide(npc3,npcButton3,npcDelete3);
+        ButtonHidden.twoButtonHide(npc4,npcButton4,npcDelete4);
+        ButtonHidden.twoButtonHide(npc5,npcButton5,npcDelete5);
+        ButtonHidden.twoButtonHide(npc6,npcButton6,npcDelete6);
+        ButtonHidden.twoButtonHide(npc7,npcButton7,npcDelete7);
+        ButtonHidden.twoButtonHide(npc8,npcButton8,npcDelete8);
+        ButtonHidden.twoButtonHide(npc9,npcButton9,npcDelete9);
+        ButtonHidden.twoButtonHide(npc10,npcButton10,npcDelete10);
+        ButtonHidden.twoButtonHide(npc11,npcButton11,npcDelete11);
+        ButtonHidden.twoButtonHide(npc12,npcButton12,npcDelete12);
+        ButtonHidden.twoButtonHide(npc13,npcButton13,npcDelete13);
+        ButtonHidden.twoButtonHide(npc14,npcButton14,npcDelete14);
+        ButtonHidden.twoButtonHide(npc15,npcButton15,npcDelete15);
+        ButtonHidden.twoButtonHide(npc16,npcButton16,npcDelete16);
+
+    }
+
     public GameMasterLandingPage(GMController controller, ArrayList<Campaign> campaigns){
         campaignCount = 0;
         this.controller=controller;
@@ -220,8 +289,11 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         hideContent();
         hideSession();
         hideCharacter();
+        hideNPC();
 
         loadCampaigns();
+
+        user.setText("User: "+controller.loggedInUser.getName());
 //        ListSessions();
 
         //create campaign button
@@ -236,9 +308,10 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         createANewCharacterButton.setActionCommand("CreateCharacter");
         createANewCharacterButton.addActionListener(this);
 
-        //logout button
-        logoutButton.setActionCommand("Logout");
-        logoutButton.addActionListener(this);
+        //create npc button
+        createANewNPCButton.setActionCommand("CreateNPC");
+        createANewNPCButton.addActionListener(this);
+
 
         //delete button action
         cDelete1.setActionCommand("dc1");
@@ -281,6 +354,73 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         sDelete10.addActionListener(this);
         sDelete11.addActionListener(this);
         sDelete12.addActionListener(this);
+
+        //character delete actions
+        charDelete1.setActionCommand("c1");
+        charDelete2.setActionCommand("c2");
+        charDelete3.setActionCommand("c3");
+        charDelete4.setActionCommand("c4");
+        charDelete5.setActionCommand("c5");
+        charDelete6.setActionCommand("c6");
+        charDelete7.setActionCommand("c7");
+        charDelete8.setActionCommand("c8");
+        charDelete9.setActionCommand("c9");
+        charDelete10.setActionCommand("c10");
+        charDelete11.setActionCommand("c11");
+        charDelete12.setActionCommand("c12");
+
+        charDelete1.addActionListener(this);
+        charDelete2.addActionListener(this);
+        charDelete3.addActionListener(this);
+        charDelete4.addActionListener(this);
+        charDelete5.addActionListener(this);
+        charDelete6.addActionListener(this);
+        charDelete7.addActionListener(this);
+        charDelete8.addActionListener(this);
+        charDelete9.addActionListener(this);
+        charDelete10.addActionListener(this);
+        charDelete11.addActionListener(this);
+        charDelete12.addActionListener(this);
+
+        npcDelete1.setActionCommand("nd1");
+        npcDelete2.setActionCommand("nd2");
+        npcDelete3.setActionCommand("nd3");
+        npcDelete4.setActionCommand("nd4");
+        npcDelete5.setActionCommand("nd5");
+        npcDelete6.setActionCommand("nd6");
+        npcDelete7.setActionCommand("nd7");
+        npcDelete8.setActionCommand("nd8");
+        npcDelete9.setActionCommand("nd9");
+        npcDelete10.setActionCommand("nd10");
+        npcDelete11.setActionCommand("nd11");
+        npcDelete12.setActionCommand("nd12");
+        npcDelete13.setActionCommand("nd13");
+        npcDelete14.setActionCommand("nd14");
+        npcDelete15.setActionCommand("nd15");
+        npcDelete16.setActionCommand("nd16");
+
+        npcDelete1.addActionListener(this);
+        npcDelete2.addActionListener(this);
+        npcDelete3.addActionListener(this);
+        npcDelete4.addActionListener(this);
+        npcDelete5.addActionListener(this);
+        npcDelete6.addActionListener(this);
+        npcDelete7.addActionListener(this);
+        npcDelete8.addActionListener(this);
+        npcDelete9.addActionListener(this);
+        npcDelete10.addActionListener(this);
+        npcDelete11.addActionListener(this);
+        npcDelete12.addActionListener(this);
+        npcDelete13.addActionListener(this);
+        npcDelete14.addActionListener(this);
+        npcDelete15.addActionListener(this);
+        npcDelete16.addActionListener(this);
+
+
+
+
+
+
     }
 
     public void loadCampaigns(){
@@ -707,9 +847,6 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             }
         }
     }
-    public void loadSessions(){
-
-    }
 
     public void actionPerformed(ActionEvent ae){
 
@@ -1102,6 +1239,238 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             JOptionPaneCharacter charOpt = new JOptionPaneCharacter();
             String characterName = charOpt.characterName;
             String charUser = charOpt.username;
+            if(character1.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character1.setText(characterName);
+                hideCharacter();
+            }else if(character2.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character2.setText(characterName);
+                hideCharacter();
+            }else if(character3.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character3.setText(characterName);
+                hideCharacter();
+            }else if(character4.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character4.setText(characterName);
+                hideCharacter();
+            }else if(character5.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character5.setText(characterName);
+                hideCharacter();
+            }else if(character6.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character6.setText(characterName);
+                hideCharacter();
+            }else if(character7.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character7.setText(characterName);
+                hideCharacter();
+            }else if(character8.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character8.setText(characterName);
+                hideCharacter();
+            }else if(character9.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character9.setText(characterName);
+                hideCharacter();
+            }else if(character10.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character10.setText(characterName);
+                hideCharacter();
+            }else if(character11.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character11.setText(characterName);
+                hideCharacter();
+            }else if(character12.getText().equals("")){
+                controller.loggedInUser.createCharacter(characterName);
+                character12.setText(characterName);
+                hideCharacter();
+            }
+
+        }
+        if(action.equals("c1")){
+            //need to remove character
+            character1.setText("");
+            hideCharacter();
+        }if(action.equals("c2")){
+            //need to remove character
+            character2.setText("");
+            hideCharacter();
+        }if(action.equals("c3")){
+            //need to remove character
+            character3.setText("");
+            hideCharacter();
+        }if(action.equals("c4")){
+            //need to remove character
+            character4.setText("");
+            hideCharacter();
+        }if(action.equals("c5")){
+            //need to remove character
+            character5.setText("");
+            hideCharacter();
+        }if(action.equals("c6")){
+            //need to remove character
+            character6.setText("");
+            hideCharacter();
+        }if(action.equals("c7")){
+            //need to remove character
+            character7.setText("");
+            hideCharacter();
+        }if(action.equals("c8")){
+            //need to remove character
+            character8.setText("");
+            hideCharacter();
+        }if(action.equals("c9")){
+            //need to remove character
+            character9.setText("");
+            hideCharacter();
+        }if(action.equals("c10")){
+            //need to remove character
+            character10.setText("");
+            hideCharacter();
+        }if(action.equals("c11")){
+            //need to remove character
+            character11.setText("");
+            hideCharacter();
+        }if(action.equals("c12")){
+            //need to remove character
+            character12.setText("");
+            hideCharacter();
+        }
+
+        if(action.equals("CreateNPC")){
+            String npcName = JOptionPane.showInputDialog("What is the name of your new NPC?");
+            if(npc1.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc1.setText(npcName);
+                hideNPC();
+            }else if(npc2.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc2.setText(npcName);
+                hideNPC();
+            }else if(npc3.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc3.setText(npcName);
+                hideNPC();
+            }else if(npc4.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc4.setText(npcName);
+                hideNPC();
+            }else if(npc5.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc5.setText(npcName);
+                hideNPC();
+            }else if(npc6.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc6.setText(npcName);
+                hideNPC();
+            }else if(npc7.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc7.setText(npcName);
+                hideNPC();
+            }else if(npc8.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc8.setText(npcName);
+                hideNPC();
+            }else if(npc9.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc9.setText(npcName);
+                hideNPC();
+            }else if(npc10.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc10.setText(npcName);
+                hideNPC();
+            }else if(npc11.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc11.setText(npcName);
+                hideNPC();
+            }else if(npc12.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc12.setText(npcName);
+                hideNPC();
+            }else if(npc13.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc13.setText(npcName);
+                hideNPC();
+            }else if(npc14.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc14.setText(npcName);
+                hideNPC();
+            }else if(npc15.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc15.setText(npcName);
+                hideNPC();
+            }else if(npc16.getText().equals("")){
+                controller.loggedInUser.createNPC(npcName);
+                npc16.setText(npcName);
+                hideNPC();
+            }
+        }if(action.equals("nd1")){
+            //needs to delete npc
+            npc1.setText("");
+            hideNPC();
+        }else if(action.equals("nd2")){
+            //needs to delete npc
+            npc2.setText("");
+            hideNPC();
+        }else if(action.equals("nd3")){
+            //needs to delete npc
+            npc3.setText("");
+            hideNPC();
+        }else if(action.equals("nd4")){
+            //needs to delete npc
+            npc4.setText("");
+            hideNPC();
+        }else if(action.equals("nd5")){
+            //needs to delete npc
+            npc5.setText("");
+            hideNPC();
+        }else if(action.equals("nd6")){
+            //needs to delete npc
+            npc6.setText("");
+            hideNPC();
+        }else if(action.equals("nd7")){
+            //needs to delete npc
+            npc7.setText("");
+            hideNPC();
+        }else if(action.equals("nd8")){
+            //needs to delete npc
+            npc8.setText("");
+            hideNPC();
+        }else if(action.equals("nd9")){
+            //needs to delete npc
+            npc9.setText("");
+            hideNPC();
+        }else if(action.equals("nd10")){
+            //needs to delete npc
+            npc10.setText("");
+            hideNPC();
+        }else if(action.equals("nd11")){
+            //needs to delete npc
+            npc11.setText("");
+            hideNPC();
+        }else if(action.equals("nd12")){
+            //needs to delete npc
+            npc12.setText("");
+            hideNPC();
+        }else if(action.equals("nd13")){
+            //needs to delete npc
+            npc13.setText("");
+            hideNPC();
+        }else if(action.equals("nd14")){
+            //needs to delete npc
+            npc14.setText("");
+            hideNPC();
+        }else if(action.equals("nd15")){
+            //needs to delete npc
+            npc15.setText("");
+            hideNPC();
+        }else if(action.equals("nd16")){
+            //needs to delete npc
+            npc16.setText("");
+            hideNPC();
         }
 
     }

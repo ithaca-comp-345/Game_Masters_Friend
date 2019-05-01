@@ -1,6 +1,7 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
 import edu.ithaca.gamemaster.Account;
+import edu.ithaca.gamemaster.NPC;
 import edu.ithaca.gamemaster.Player;
 
 import java.io.FileNotFoundException;
@@ -15,6 +16,7 @@ public class User {
     private Map<String, Player> characters;
     private Map<String, Campaign> joinedCampaigns;
     private Map<String, Campaign> createdCampaigns;
+    private Map<String, NPC> npcs;
     public int campaignCount = 0;
 
     public User(String name, Account linkedAccount){
@@ -23,6 +25,7 @@ public class User {
 
         this.characters = new HashMap<>();
         this.createdCampaigns = new HashMap<>();
+        this.npcs = new HashMap<>();
     }
 
     //adds the character to the users list of completed characters
@@ -57,6 +60,13 @@ public class User {
         Player newCharacter = new Player(name);
         characters.put(newCharacter.getName(),newCharacter);
         return newCharacter;
+    }
+
+    public NPC createNPC(String name){
+        NPC newNPC = new NPC();
+        newNPC.setName(name);
+        npcs.put(name,newNPC);
+        return newNPC;
     }
 
     //Character methods
