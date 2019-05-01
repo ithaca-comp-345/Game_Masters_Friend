@@ -23,7 +23,7 @@ public class Login {
             try{
                 Account newAccount = new Account(username,password);
                 accounts.put(username, newAccount);
-                createUser(newAccount, true); //true by default
+                createUser(newAccount); //true by default
             } catch(IllegalArgumentException e){
                 throw new FileAlreadyExistsException("Username must contain 6 characters");
             }
@@ -78,10 +78,11 @@ public class Login {
         }
     }
 
-    private void createUser(Account acct, boolean isAdmin){
+    private User createUser(Account acct){
         String username = acct.getUsername();
-        User createdUser = new User(username,isAdmin,acct);
+        User createdUser = new User(username,acct);
         users.put(createdUser.getName(),createdUser);
+        return createdUser;
     }
 
 }

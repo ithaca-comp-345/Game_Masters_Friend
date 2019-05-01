@@ -4,6 +4,7 @@ import edu.ithaca.gamemaster.Account;
 import edu.ithaca.gamemaster.Player;
 
 import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Pattern;
@@ -14,11 +15,11 @@ public class User {
     private Map<String, Player> characters;
     private Map<String, Campaign> joinedCampaigns;
     private Map<String, Campaign> createdCampaigns;
-    private boolean isAdmin = false;
-    public User(String name, boolean isAdmin, Account linkedAccount){
+    public int campaignCount = 0;
+
+    public User(String name, Account linkedAccount){
         this.linkedAccount = linkedAccount;
         this.name=name;
-        this.isAdmin=isAdmin;
 
         this.characters = new HashMap<>();
         this.createdCampaigns = new HashMap<>();
@@ -34,6 +35,7 @@ public class User {
         if(Pattern.matches("[a-zA-z0-9 ]+",campaignName)){
             Campaign createdCampaign = new Campaign(campaignName);
             createdCampaigns.put(campaignName, createdCampaign);
+            campaignCount++;
             return createdCampaign;
         }
         else {
@@ -44,6 +46,7 @@ public class User {
     public boolean deleteCampaign(String campaignName) throws FileNotFoundException{
         if(createdCampaigns.containsKey(campaignName)){
             createdCampaigns.remove(campaignName);
+            campaignCount--;
             return true;
         }
         throw new FileNotFoundException("Campaign doesn't exist to delete");
@@ -137,5 +140,13 @@ public class User {
         else{
             return createdCampaigns.get(campaignName);
         }
+    }
+
+    public ArrayList<Campaign> getCampaignListClean(){
+        ArrayList<Campaign> campaignsArray = new ArrayList<>();
+        for(Campaign val : createdCampaigns.values()){
+            campaignsArray.add(val);
+        }
+        return campaignsArray;
     }
 }
