@@ -63,6 +63,16 @@ public class Campaign {
         }
     }
 
+    public void addNPC(String npcName, NPC npc) throws FileAlreadyExistsException{
+        if(npcsList.containsKey(npcName)){
+            throw new FileAlreadyExistsException("NPC already exist");
+        }
+        else{
+            npcsList.put(npcName, npc);
+        }
+
+    }
+
     public Object[] getSessionList(){
         return sessionList.keySet().toArray();
     }
@@ -74,6 +84,8 @@ public class Campaign {
     public Object[] getNPCList(){
         return npcsList.keySet().toArray();
     }
+
+    public Object[] getPlayerList() {return players.keySet().toArray();}
 
 
 

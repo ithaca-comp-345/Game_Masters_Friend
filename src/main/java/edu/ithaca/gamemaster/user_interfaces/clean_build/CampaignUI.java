@@ -26,15 +26,33 @@ public class CampaignUI extends JFrame implements ActionListener {
 
     public CampaignUI(Campaign campaign){
         this.campaign = campaign;
+        sessionList.setListData(campaign.getSessionList());
+        characterList.setListData(campaign.getCharacterList());
+        npcList.setListData(campaign.getNPCList());
+        playerList.setListData(campaign.getPlayerList());
         createUIComponents();
     }
 
     private void createUIComponents() {
         addSession.setActionCommand("AddSession");
         addSession.addActionListener(this);
+        viewSessionsButton.setActionCommand("ViewSession");
+        viewSessionsButton.addActionListener(this);
 
         invitePlayerButton.setActionCommand("InvitePlayer");
         invitePlayerButton.addActionListener(this);
+        viewPlayersButton.setActionCommand("ViewPlayer");
+        viewPlayersButton.addActionListener(this);
+
+        addCharacterButton.setActionCommand("AddCharacter");
+        addCharacterButton.addActionListener(this);
+        viewCharacterButton.setActionCommand("ViewCharacter");
+        viewCharacterButton.addActionListener(this);
+
+        addNPCButton.setActionCommand("AddNPC");
+        addNPCButton.addActionListener(this);
+        viewNPCButton.setActionCommand("viewNPC");
+        viewNPCButton.addActionListener(this);
 
     }
 
@@ -54,6 +72,8 @@ public class CampaignUI extends JFrame implements ActionListener {
         campaignFrame.setSize(500,450);
         campaignFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         Campaign campaign = new Campaign("campaign1");
+        campaign.createSession("session1");
+        campaign.createSession("session2");
         campaignFrame.setContentPane(new CampaignUI(campaign).panel);
         campaignFrame.setVisible(true);
 
