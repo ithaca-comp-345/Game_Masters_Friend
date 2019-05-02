@@ -418,6 +418,32 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
 
 
 
+        sButton1.setActionCommand("sBTN1");
+        sButton1.addActionListener(this);
+        sButton2.setActionCommand("sBTN2");
+        sButton2.addActionListener(this);
+        sButton3.setActionCommand("sBTN3");
+        sButton3.addActionListener(this);
+        sButton4.setActionCommand("sBTN4");
+        sButton4.addActionListener(this);
+        sButton5.setActionCommand("sBTN5");
+        sButton5.addActionListener(this);
+        sButton6.setActionCommand("sBTN6");
+        sButton6.addActionListener(this);
+        sButton7.setActionCommand("sBTN7");
+        sButton7.addActionListener(this);
+        sButton8.setActionCommand("sBTN8");
+        sButton8.addActionListener(this);
+        sButton9.setActionCommand("sBTN9");
+        sButton9.addActionListener(this);
+        sButton10.setActionCommand("sBTN10");
+        sButton10.addActionListener(this);
+        sButton11.setActionCommand("sBTN11");
+        sButton11.addActionListener(this);
+        sButton12.setActionCommand("sBTN12");
+        sButton12.addActionListener(this);
+
+
 
 
 
@@ -1473,6 +1499,37 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             hideNPC();
         }
 
+        if(action.equals("sBTN1")){
+            sessionButton();
+        }else if (action.equals("sBTN2")){
+            sessionButton();
+        }else if (action.equals("sBTN3")){
+            sessionButton();
+        }else if (action.equals("sBTN4")){
+            sessionButton();
+        }else if (action.equals("sBTN5")){
+            sessionButton();
+        }else if (action.equals("sBTN6")){
+            sessionButton();
+        }else if (action.equals("sBTN7")){
+            sessionButton();
+        }else if (action.equals("sBTN8")){
+            sessionButton();
+        }else if (action.equals("sBTN9")){
+            sessionButton();
+        }else if (action.equals("sBTN10")){
+            sessionButton();
+        }else if (action.equals("sBTN11")){
+            sessionButton();
+        }else if (action.equals("sBTN12")){
+            sessionButton();
+        }
+    }
+
+    public void sessionButton(){
+        SessionUI frame = new SessionUI();
+        frame.setSize(500,450);
+        frame.setVisible(true);
     }
 }
 

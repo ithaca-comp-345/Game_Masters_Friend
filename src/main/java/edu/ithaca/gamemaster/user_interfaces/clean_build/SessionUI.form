@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="edu.ithaca.gamemaster.user_interfaces.clean_build.SessionUI">
+  <grid id="27dc6" binding="panel" layout-manager="GridLayoutManager" row-count="10" column-count="11" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <vspacer id="664e9">
+        <constraints>
+          <grid row="5" column="0" row-span="5" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </vspacer>
+      <component id="3203e" class="javax.swing.JLabel" binding="campaign">
+        <constraints>
+          <grid row="0" column="8" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Campaign: "/>
+        </properties>
+      </component>
+      <component id="9eec4" class="javax.swing.JLabel" binding="players">
+        <constraints>
+          <grid row="5" column="1" row-span="1" col-span="4" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Players: "/>
+        </properties>
+      </component>
+      <component id="54782" class="javax.swing.JLabel" binding="characters">
+        <constraints>
+          <grid row="6" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Characters: "/>
+        </properties>
+      </component>
+      <component id="b3619" class="javax.swing.JLabel" binding="timeStart">
+        <constraints>
+          <grid row="3" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Started At:"/>
+        </properties>
+      </component>
+      <component id="d9ca0" class="javax.swing.JLabel" binding="timeEnd">
+        <constraints>
+          <grid row="4" column="7" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ended At:"/>
+        </properties>
+      </component>
+      <component id="f795b" class="javax.swing.JButton" binding="editPlayers">
+        <constraints>
+          <grid row="5" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="View/Edit"/>
+        </properties>
+      </component>
+      <component id="30127" class="javax.swing.JButton" binding="viewEditButton" default-binding="true">
+        <constraints>
+          <grid row="6" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="View/Edit"/>
+        </properties>
+      </component>
+      <component id="6769a" class="javax.swing.JButton" binding="end">
+        <constraints>
+          <grid row="9" column="8" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="5" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Finish Session"/>
+        </properties>
+      </component>
+      <component id="47020" class="javax.swing.JLabel" binding="gameMaster">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="GM: "/>
+        </properties>
+      </component>
+      <component id="76b47" class="javax.swing.JLabel" binding="goal">
+        <constraints>
+          <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Goal: "/>
+        </properties>
+      </component>
+      <component id="de905" class="javax.swing.JLabel" binding="sessionName">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="7" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Session Name:"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>
