@@ -51,3 +51,5 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 
 **User Documents:**
 Form: https://docs.google.com/document/d/14spwYnPizs4V9bVC--vBZHCYZ1_uS9HxWiDL9O9PMp4/edit?usp=sharing
+
+Walkthrough Doc: https://docs.google.com/document/d/1IIFNKOmZgvzQS3qXmjRYvtixfVV_KfJxjrv9mCtKvCM/edit
