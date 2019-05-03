@@ -1,6 +1,10 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
 
+
+import edu.ithaca.gamemaster.Character;
+import edu.ithaca.gamemaster.Player;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -189,6 +193,9 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JButton npcButton16;
     private JLabel user;
     private JTable PastSessionsTable;
+
+    //frame for edit character
+    public static JFrame frame = new JFrame("Edit");
 
     GMController controller;
     ArrayList<Campaign> campaignsList;
@@ -416,10 +423,10 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         npcDelete15.addActionListener(this);
         npcDelete16.addActionListener(this);
 
+        //view character
+        charButton1.setActionCommand("edit1");
 
-
-
-
+        charButton1.addActionListener(this);
 
     }
 
@@ -1471,6 +1478,18 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             //needs to delete npc
             npc16.setText("");
             hideNPC();
+        }
+
+
+        //added action listener for testing purposes
+
+        if(action.equals("edit1")){
+            System.out.println("Im a live");
+            frame.setSize(1100, 900);
+            //made up Character
+            Character characterToEdit = controller.loggedInUser.getCharacter(character1.getText());
+            frame.setContentPane(new CharacterEditor(characterToEdit).CharacterEditor);
+            frame.setVisible(true);
         }
 
     }

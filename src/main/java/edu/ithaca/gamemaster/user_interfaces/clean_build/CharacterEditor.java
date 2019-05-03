@@ -1,10 +1,13 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
+import edu.ithaca.gamemaster.Character;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class CharacterEditor extends Container {
-    private JPanel CharacterEditor;
+    public JPanel CharacterEditor;
+    public Character player;
     private JTextField characterName;
     private JComboBox strenCombo;
     private JComboBox dextCombo;
@@ -72,15 +75,30 @@ public class CharacterEditor extends Container {
     private JTextField alignmentInput;
     private JTextField expInput;
 
-    public static void main(String[] args){
-        JFrame frame = new JFrame();
-        frame.setSize(1000,900);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    public void characterStats() {
+
+        characterName.setText(this.player.getName());
 
 
-        frame.setContentPane(new CharacterEditor().CharacterEditor);
-        frame.setVisible(true);
     }
+
+    public CharacterEditor(Character player){
+        this.player = player;
+        //setting stats for player
+        characterStats();
+    }
+
+
+
+//    public static void main(String[] args){
+//        JFrame frame = new JFrame();
+//        frame.setSize(1100,900);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setResizable(false);
+//
+//        frame.setContentPane(new CharacterEditor());
+//        frame.setVisible(true);
+//    }
 }
 
 
