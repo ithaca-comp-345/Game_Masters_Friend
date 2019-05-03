@@ -1,6 +1,6 @@
 **Dungeons and Dragons Campaign Manager**
 
-**Master:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/master.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/master) **Milo:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/session.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/session) **Tea:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend)**Cristian:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend) **Lee:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend) **Maily:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/character.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/character)
+**Master:** [![CircleCI](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/master.svg?style=svg)](https://circleci.com/gh/ithaca-comp-345/Game_Masters_Friend/tree/master)
 
 *Client Description of Problem:*
 Whenever I run a session, or even plan one, I find I have at least 10 to 20 tabs open at once to a wide range of sources. However I believe it would be much simpler if all this information was condensed into a single place.
@@ -53,3 +53,6 @@ A comprehensive Dungeons and Dragons Campaign Manager that handles character cre
 Form: https://docs.google.com/document/d/14spwYnPizs4V9bVC--vBZHCYZ1_uS9HxWiDL9O9PMp4/edit?usp=sharing
 
 Walkthrough Doc: https://docs.google.com/document/d/1IIFNKOmZgvzQS3qXmjRYvtixfVV_KfJxjrv9mCtKvCM/edit
+
+**Final Sprint Retrospective:
+https://docs.google.com/document/d/1Vo-AngrwtR5x-tsvh9IFKIGEXPm7GT8hLErXIyIGaZQ/edit?usp=sharing
