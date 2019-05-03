@@ -1489,6 +1489,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             //made up Character
             Character characterToEdit = controller.loggedInUser.getCharacter(character1.getText());
             frame.setContentPane(new CharacterEditor(characterToEdit).CharacterEditor);
+            frame.setResizable(false);
             frame.setVisible(true);
         }
 

@@ -4,8 +4,10 @@ import edu.ithaca.gamemaster.Character;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class CharacterEditor extends Container {
+public class CharacterEditor extends Container implements ActionListener {
     public JPanel CharacterEditor;
     public Character player;
     private JTextField characterName;
@@ -74,31 +76,43 @@ public class CharacterEditor extends Container {
     private JTextField raceInput;
     private JTextField alignmentInput;
     private JTextField expInput;
+    private JButton saveChangesBtn;
 
     public void characterStats() {
 
         characterName.setText(this.player.getName());
-
-
+        strenCombo.setSelectedIndex(this.player.getStrength());
+        dextCombo.setSelectedIndex(this.player.getDexterity());
+        constCombo.setSelectedIndex((this.player.getConstitution()));
+        intelCombo.setSelectedIndex(this.player.getIntelligence());
+        wisdoCombo.setSelectedIndex(this.player.getWisdom());
+        chariCombo.setSelectedIndex((this.player.getCharisma()));
+        //Attributes missing
     }
 
     public CharacterEditor(Character player){
         this.player = player;
         //setting stats for player
+        saveChangesBtn.setActionCommand("save");
+        saveChangesBtn.addActionListener(this);
         characterStats();
+
     }
 
+    public void actionPerformed(ActionEvent ae) {
+        String action = ae.getActionCommand();
 
+        if (action.equals("save")) {
 
-//    public static void main(String[] args){
-//        JFrame frame = new JFrame();
-//        frame.setSize(1100,900);
-//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-//        frame.setResizable(false);
-//
-//        frame.setContentPane(new CharacterEditor());
-//        frame.setVisible(true);
-//    }
+            this.player.setName(characterName.getText());
+            this.player.setStrength(strenCombo.getSelectedIndex());
+            //TODO
+            //add the rest of the changes to the character.
+
+        }
+
+    }
+
 }
 
 
