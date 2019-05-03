@@ -88,6 +88,7 @@ public class Player extends Character {
     //Control
     private boolean hasAbility = false;
     private User owner;
+    private int inspiration;
 
     public Player(){
         super();
@@ -807,5 +808,13 @@ public class Player extends Character {
 
     public int getChariMod() {
         return chariMod;
+    }
+
+    public int getInspiration() {
+        return inspiration;
+    }
+
+    public void setInspiration(int inspiration) {
+        this.inspiration = inspiration;
     }
 }
