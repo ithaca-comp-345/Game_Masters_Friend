@@ -1,15 +1,22 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
 import edu.ithaca.gamemaster.Character;
+import edu.ithaca.gamemaster.Player;
+
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.InvocationTargetException;
 
 public class CharacterEditor extends Container implements ActionListener {
     public JPanel CharacterEditor;
     public Character player;
+    private JPanel panel;
+    private GMController controller;
+    public JLabel characterLabel;
+
     private JTextField characterName;
     private JComboBox strenCombo;
     private JComboBox dextCombo;
@@ -80,6 +87,7 @@ public class CharacterEditor extends Container implements ActionListener {
 
     public void characterStats() {
 
+
         characterName.setText(this.player.getName());
         strenCombo.setSelectedIndex(this.player.getStrength());
         dextCombo.setSelectedIndex(this.player.getDexterity());
@@ -87,18 +95,25 @@ public class CharacterEditor extends Container implements ActionListener {
         intelCombo.setSelectedIndex(this.player.getIntelligence());
         wisdoCombo.setSelectedIndex(this.player.getWisdom());
         chariCombo.setSelectedIndex((this.player.getCharisma()));
+
         //Attributes missing
     }
 
-    public CharacterEditor(Character player){
+
+
+    public CharacterEditor(Player player, JLabel characterLabel, GMController controller){
+
         this.player = player;
+        this.characterLabel = characterLabel;
+        this.controller = controller;
         //setting stats for player
         saveChangesBtn.setActionCommand("save");
         saveChangesBtn.addActionListener(this);
         characterStats();
 
-    }
 
+
+    }
     public void actionPerformed(ActionEvent ae) {
         String action = ae.getActionCommand();
 
@@ -106,9 +121,11 @@ public class CharacterEditor extends Container implements ActionListener {
 
             this.player.setName(characterName.getText());
             this.player.setStrength(strenCombo.getSelectedIndex());
+            this.characterLabel.setText(this.player.getName());
+            controller.loggedInUser.addCharacter(new Player(this.player));
+
             //TODO
             //add the rest of the changes to the character.
-
         }
 
     }

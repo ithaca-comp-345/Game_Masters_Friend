@@ -107,7 +107,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JButton sDelete10;
     private JButton sDelete11;
     private JButton sDelete12;
-    private JLabel character1;
+    public JLabel character1;
     private JLabel character2;
     private JLabel character3;
     private JLabel character4;
@@ -425,8 +425,10 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
 
         //view character
         charButton1.setActionCommand("edit1");
+        charButton2.setActionCommand("edit2");
 
         charButton1.addActionListener(this);
+        charButton2.addActionListener(this);
 
     }
 
@@ -1484,13 +1486,13 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         //added action listener for testing purposes
 
         if(action.equals("edit1")){
-            System.out.println("Im a live");
+
+            Player characterToEdit = controller.loggedInUser.getCharacter(character1.getText());
             frame.setSize(1100, 900);
-            //made up Character
-            Character characterToEdit = controller.loggedInUser.getCharacter(character1.getText());
-            frame.setContentPane(new CharacterEditor(characterToEdit).CharacterEditor);
+            frame.setContentPane(new CharacterEditor(characterToEdit, character1, controller).CharacterEditor);
             frame.setResizable(false);
             frame.setVisible(true);
+
         }
 
     }
