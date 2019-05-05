@@ -3,7 +3,7 @@
   <grid id="27dc6" binding="LandingPage" layout-manager="GridLayoutManager" row-count="6" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
     <margin top="0" left="0" bottom="0" right="0"/>
     <constraints>
-      <xy x="20" y="20" width="1255" height="792"/>
+      <xy x="20" y="20" width="1255" height="1052"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -1679,7 +1679,7 @@
           <text value="Completed Campaigns"/>
         </properties>
       </component>
-      <grid id="2b4ac" binding="PastSessions" layout-manager="GridLayoutManager" row-count="2" column-count="4" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="2b4ac" binding="PastSessions" layout-manager="GridLayoutManager" row-count="9" column-count="5" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
@@ -1687,7 +1687,7 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="70232" class="javax.swing.JLabel">
+          <component id="70232" class="javax.swing.JLabel" binding="pastSessionL1">
             <constraints>
               <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1697,10 +1697,10 @@
           </component>
           <vspacer id="7482c">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
             </constraints>
           </vspacer>
-          <component id="39d14" class="javax.swing.JLabel">
+          <component id="39d14" class="javax.swing.JLabel" binding="pastSCampL1">
             <constraints>
               <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
@@ -1716,24 +1716,448 @@
               <text value="4/12/19"/>
             </properties>
           </component>
-          <component id="5ab83" class="javax.swing.JButton" binding="viewEditButton2" default-binding="true">
+          <component id="91bcf" class="javax.swing.JLabel" binding="pastSessionL2">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="PastSession1"/>
+            </properties>
+          </component>
+          <component id="3aded" class="javax.swing.JLabel" binding="pastSessionL3">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="PastSession1"/>
+            </properties>
+          </component>
+          <component id="eb03f" class="javax.swing.JLabel" binding="pastSessionL4">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="PastSession1"/>
+            </properties>
+          </component>
+          <component id="aa723" class="javax.swing.JLabel" binding="pastSessionL5">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="PastSession1"/>
+            </properties>
+          </component>
+          <component id="e7b7" class="javax.swing.JLabel" binding="pastSessionL6">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="PastSession1"/>
+            </properties>
+          </component>
+          <component id="c0f0b" class="javax.swing.JLabel" binding="pastSessionL7">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="PastSession1"/>
+            </properties>
+          </component>
+          <component id="5fdca" class="javax.swing.JLabel" binding="pastSessionL8">
+            <constraints>
+              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="PastSession1"/>
+            </properties>
+          </component>
+          <component id="a1c1" class="javax.swing.JLabel" binding="pastSCampL2">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="TestCampaign1"/>
+            </properties>
+          </component>
+          <component id="e303b" class="javax.swing.JLabel" binding="pastSCampL3">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="TestCampaign1"/>
+            </properties>
+          </component>
+          <component id="ea8e0" class="javax.swing.JLabel" binding="pastSCampL4">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="TestCampaign1"/>
+            </properties>
+          </component>
+          <component id="783db" class="javax.swing.JLabel" binding="pastSCampL5">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="TestCampaign1"/>
+            </properties>
+          </component>
+          <component id="207cf" class="javax.swing.JLabel" binding="pastSCampL6">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="TestCampaign1"/>
+            </properties>
+          </component>
+          <component id="b0f52" class="javax.swing.JLabel" binding="pastSCampL7">
+            <constraints>
+              <grid row="6" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="TestCampaign1"/>
+            </properties>
+          </component>
+          <component id="fec7c" class="javax.swing.JLabel" binding="pastSCampL8">
+            <constraints>
+              <grid row="7" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="TestCampaign1"/>
+            </properties>
+          </component>
+          <component id="df89b" class="javax.swing.JButton">
+            <constraints>
+              <grid row="0" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="db370" class="javax.swing.JButton">
+            <constraints>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="3f0f0" class="javax.swing.JButton">
             <constraints>
               <grid row="0" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
-              <text value="View/Edit"/>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="d3e3b" class="javax.swing.JButton">
+            <constraints>
+              <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="79308" class="javax.swing.JButton">
+            <constraints>
+              <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="a20b4" class="javax.swing.JButton">
+            <constraints>
+              <grid row="4" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="956d2" class="javax.swing.JButton">
+            <constraints>
+              <grid row="5" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="c3a3b" class="javax.swing.JButton">
+            <constraints>
+              <grid row="6" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="983f" class="javax.swing.JButton">
+            <constraints>
+              <grid row="7" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="3210" class="javax.swing.JButton">
+            <constraints>
+              <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="ed242" class="javax.swing.JButton">
+            <constraints>
+              <grid row="2" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="602ff" class="javax.swing.JButton">
+            <constraints>
+              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="4b234" class="javax.swing.JButton">
+            <constraints>
+              <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="31d80" class="javax.swing.JButton">
+            <constraints>
+              <grid row="5" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="df8e" class="javax.swing.JButton">
+            <constraints>
+              <grid row="6" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="3e871" class="javax.swing.JButton">
+            <constraints>
+              <grid row="7" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
             </properties>
           </component>
         </children>
       </grid>
-      <grid id="dd856" binding="CompletedCampaigns" layout-manager="GridLayoutManager" row-count="1" column-count="1" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+      <grid id="dd856" binding="CompletedCampaigns" layout-manager="GridLayoutManager" row-count="7" column-count="3" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
         <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties/>
         <border type="none"/>
-        <children/>
+        <children>
+          <component id="96e00" class="javax.swing.JLabel" binding="pastCampaignL1">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <vspacer id="ea555">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
+          <component id="901cb" class="javax.swing.JLabel" binding="pastCampaignL2">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="ad248" class="javax.swing.JLabel" binding="pastCampaignL3">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="a51af" class="javax.swing.JButton" binding="pastCDelete1">
+            <constraints>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="b0916" class="javax.swing.JButton" binding="pastCButton1">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="e23ab" class="javax.swing.JButton" binding="pastCButton2">
+            <constraints>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="d0dcd" class="javax.swing.JButton" binding="pastCButton3">
+            <constraints>
+              <grid row="2" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="926b5" class="javax.swing.JButton" binding="pastCButton4">
+            <constraints>
+              <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="62b60" class="javax.swing.JLabel" binding="pastCampaignL4">
+            <constraints>
+              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="fdab" class="javax.swing.JLabel" binding="pastCampaignL5">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="1ce" class="javax.swing.JLabel" binding="pastCampaignL6">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value=""/>
+            </properties>
+          </component>
+          <component id="7481c" class="javax.swing.JButton" binding="pastCDelete2">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="2f8f1" class="javax.swing.JButton" binding="pastCDelete3">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="7d008" class="javax.swing.JButton" binding="pastCDelete4">
+            <constraints>
+              <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="3e974" class="javax.swing.JButton" binding="pastCDelete5">
+            <constraints>
+              <grid row="4" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="85ec6" class="javax.swing.JButton" binding="pastCDelete6">
+            <constraints>
+              <grid row="5" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <background color="-43160"/>
+              <font style="1"/>
+              <foreground color="-16777216"/>
+              <text value="Delete"/>
+            </properties>
+          </component>
+          <component id="6782d" class="javax.swing.JButton" binding="pastCButton5">
+            <constraints>
+              <grid row="4" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+          <component id="9a162" class="javax.swing.JButton" binding="pastCButton6">
+            <constraints>
+              <grid row="5" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Review"/>
+            </properties>
+          </component>
+        </children>
       </grid>
       <component id="3ef20" class="javax.swing.JButton" binding="vewAllPastSessionsButton" default-binding="true">
         <constraints>

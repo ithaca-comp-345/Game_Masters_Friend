@@ -27,7 +27,6 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JPanel PastSessions;
     private JPanel CompletedCampaigns;
     private JButton vewAllPastSessionsButton;
-    private JButton viewEditButton2;
     private JLabel campaignL1;
     private JLabel campaignL2;
     private JLabel sessionL1;
@@ -192,6 +191,40 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JButton npcButton15;
     private JButton npcButton16;
     private JLabel user;
+    private JLabel pastCampaignL1;
+    private JLabel pastCampaignL2;
+    private JLabel pastCampaignL3;
+    private JLabel pastCampaignL4;
+    private JLabel pastCampaignL5;
+    private JLabel pastCampaignL6;
+    private JButton pastCDelete1;
+    private JButton pastCDelete2;
+    private JButton pastCDelete3;
+    private JButton pastCDelete4;
+    private JButton pastCDelete5;
+    private JButton pastCDelete6;
+    private JButton pastCButton1;
+    private JButton pastCButton2;
+    private JButton pastCButton3;
+    private JButton pastCButton4;
+    private JButton pastCButton5;
+    private JButton pastCButton6;
+    private JLabel pastSessionL1;
+    private JLabel pastSessionL2;
+    private JLabel pastSessionL3;
+    private JLabel pastSessionL4;
+    private JLabel pastSessionL5;
+    private JLabel pastSessionL6;
+    private JLabel pastSessionL7;
+    private JLabel pastSessionL8;
+    private JLabel pastSCampL1;
+    private JLabel pastSCampL2;
+    private JLabel pastSCampL3;
+    private JLabel pastSCampL4;
+    private JLabel pastSCampL5;
+    private JLabel pastSCampL6;
+    private JLabel pastSCampL7;
+    private JLabel pastSCampL8;
     private JTable PastSessionsTable;
 
     //frame for edit character
