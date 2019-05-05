@@ -1533,10 +1533,10 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
 
     }
 
-    public void Editor(GMController controller, JFrame frame, JLabel character){
-        Player characterToEdit = controller.loggedInUser.getCharacter(character.getText());
-        frame.setSize(1100, 900);
-        frame.setContentPane(new CharacterEditor(characterToEdit, character, controller,frame).CharacterEditor);
+    public void Editor(GMController controller, JFrame frame, JLabel characterLabel){
+        Player characterToEdit = controller.loggedInUser.getCharacter(characterLabel.getText());
+        frame.setSize(1150, 650);
+        frame.setContentPane(new CharacterEditor(characterToEdit, characterLabel, controller,frame).CharacterEditor);
         frame.setResizable(false);
         frame.setVisible(true);
     }
