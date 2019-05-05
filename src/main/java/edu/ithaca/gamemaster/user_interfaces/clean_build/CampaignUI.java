@@ -2,26 +2,26 @@ package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
 import edu.ithaca.gamemaster.NPC;
 import edu.ithaca.gamemaster.Player;
+import edu.ithaca.gamemaster.Character;
 import edu.ithaca.gamemaster.user_interfaces.SessionUI;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
+import java.nio.file.FileAlreadyExistsException;
 
 public class CampaignUI extends JPanel implements ActionListener {
     private JButton addSession;
     public JPanel panel;
     private JList<Session> sessionList;
-    private JButton invitePlayerButton;
     private JList<User> playerList;
     private JButton addCharacterButton;
     private JList<Player> characterList;
     private JButton addNPCButton;
     private JList<NPC> npcList;
+    private JLabel user;
     DefaultListModel<Session> sessions = new DefaultListModel<>();
     DefaultListModel<NPC> npcs = new DefaultListModel<>();
     DefaultListModel<User> players = new DefaultListModel<>();
@@ -30,15 +30,19 @@ public class CampaignUI extends JPanel implements ActionListener {
 
     private Campaign campaign;
     public GMController controller;
-    public static JFrame campaignFrame = new JFrame("Campaign");
+    public static JFrame campaignFrame;
 
-    public CampaignUI(Campaign campaign){
+    public CampaignUI(Campaign campaign, GMController controller, JFrame frame){
         this.campaign = campaign;
+        this.controller = controller;
+        this.campaignFrame = frame;
 
         sessionList.setModel(sessions);
         npcList.setModel(npcs);
         playerList.setModel(players);
         characterList.setModel(characters);
+
+        user.setText(controller.loggedInUser.getName());
 
         this.controller = new GMController();
 
@@ -69,10 +73,6 @@ public class CampaignUI extends JPanel implements ActionListener {
         addSession.setActionCommand("AddSession");
         addSession.addActionListener(this);
 
-
-        invitePlayerButton.setActionCommand("InvitePlayer");
-        invitePlayerButton.addActionListener(this);
-
         addCharacterButton.setActionCommand("AddCharacter");
         addCharacterButton.addActionListener(this);
 
@@ -84,7 +84,8 @@ public class CampaignUI extends JPanel implements ActionListener {
             public void valueChanged(ListSelectionEvent e) {
                 Session s = sessionList.getSelectedValue();
                 System.out.println();
-                campaignFrame.setContentPane(new SessionUI(s, campaign, campaignFrame).Session);
+                campaignFrame.setSize(1150, 650);
+                campaignFrame.setContentPane(new SessionUI(s, campaign, campaignFrame, controller).Session);
                 campaignFrame.setVisible(true);
             }
         });
@@ -124,19 +125,29 @@ public class CampaignUI extends JPanel implements ActionListener {
             sessions.addElement(campaign.getSessionListClean().get(campaign.getSessionListClean().size()-1));
         }
         if(action.equals("AddNPC")){
-
+            String npcName = JOptionPane.showInputDialog("What is the name of your new NPC?");
+            System.out.println(npcName);
+            NPC newNPC = controller.loggedInUser.createNPC(npcName);
+            try{
+                campaign.addNPC(npcName,newNPC);
+                npcs.addElement(campaign.getNPCList().get(campaign.getNPCList().size()-1));
+            }catch (FileAlreadyExistsException a){
+                a.printStackTrace();
+            }
+        }
+        if(action.equals("AddCharacter")){
+            JOptionPaneCharacter charOpt = new JOptionPaneCharacter();
+            String characterName = charOpt.characterName;
+            String charUser = charOpt.username;
+            try{
+                Player character = controller.loggedInUser.createCharacter(characterName);
+                campaign.addCharacter(characterName, character);
+                characters.addElement(campaign.getCharacterList().get(campaign.getCharacterList().size()-1));
+            }catch (FileAlreadyExistsException a){
+                a.printStackTrace();
+            }
         }
 
-    }
-
-    public static void main(String[] args) throws IOException {
-        campaignFrame.setSize(500,450);
-        campaignFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        Campaign campaign = new Campaign("campaign1");
-        campaign.createSession("session1");
-        campaign.createSession("session2");
-        campaignFrame.setContentPane(new CampaignUI(campaign).panel);
-        campaignFrame.setVisible(true);
     }
 
 

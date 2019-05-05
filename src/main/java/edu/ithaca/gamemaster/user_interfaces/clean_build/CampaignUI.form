@@ -8,15 +8,6 @@
     <properties/>
     <border type="none"/>
     <children>
-      <component id="68f5a" class="javax.swing.JButton" binding="addSession">
-        <constraints>
-          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <enabled value="true"/>
-          <text value="Add Session"/>
-        </properties>
-      </component>
       <component id="42c2e" class="javax.swing.JList" binding="sessionList">
         <constraints>
           <grid row="2" column="1" row-span="1" col-span="2" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -24,14 +15,6 @@
           </grid>
         </constraints>
         <properties/>
-      </component>
-      <component id="f4ca2" class="javax.swing.JButton" binding="invitePlayerButton" default-binding="true">
-        <constraints>
-          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Invite Player"/>
-        </properties>
       </component>
       <component id="2aac3" class="javax.swing.JList" binding="playerList">
         <constraints>
@@ -43,14 +26,6 @@
           <model/>
         </properties>
       </component>
-      <component id="5709e" class="javax.swing.JButton" binding="addCharacterButton" default-binding="true">
-        <constraints>
-          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Add Character"/>
-        </properties>
-      </component>
       <component id="53810" class="javax.swing.JList" binding="characterList">
         <constraints>
           <grid row="4" column="3" row-span="1" col-span="2" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -58,14 +33,6 @@
           </grid>
         </constraints>
         <properties/>
-      </component>
-      <component id="58e4c" class="javax.swing.JButton" binding="addNPCButton" default-binding="true">
-        <constraints>
-          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="Add NPC"/>
-        </properties>
       </component>
       <component id="dc808" class="javax.swing.JList" binding="npcList">
         <constraints>
@@ -95,16 +62,71 @@
           <grid row="0" column="1" row-span="1" col-span="5" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
-      <hspacer id="6d89d">
+      <component id="68f5a" class="javax.swing.JButton" binding="addSession">
         <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
-      </hspacer>
-      <hspacer id="f1deb">
+        <properties>
+          <enabled value="true"/>
+          <text value="Add Session"/>
+        </properties>
+      </component>
+      <component id="2d26d" class="javax.swing.JLabel">
         <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
         </constraints>
-      </hspacer>
+        <properties>
+          <text value="Sessions:"/>
+        </properties>
+      </component>
+      <component id="58e4c" class="javax.swing.JButton" binding="addNPCButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Add NPC"/>
+        </properties>
+      </component>
+      <component id="a7e76" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="NPCs:"/>
+        </properties>
+      </component>
+      <component id="5709e" class="javax.swing.JButton" binding="addCharacterButton" default-binding="true">
+        <constraints>
+          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Add Character"/>
+        </properties>
+      </component>
+      <component id="b4fd5" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="3" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Characters:"/>
+        </properties>
+      </component>
+      <component id="86ca9" class="javax.swing.JLabel">
+        <constraints>
+          <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Players:"/>
+        </properties>
+      </component>
+      <component id="5d113" class="javax.swing.JLabel" binding="user">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="username"/>
+        </properties>
+      </component>
     </children>
   </grid>
 </form>

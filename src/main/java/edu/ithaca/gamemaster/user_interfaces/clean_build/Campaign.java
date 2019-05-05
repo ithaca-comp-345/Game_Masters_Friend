@@ -63,6 +63,16 @@ public class Campaign {
         }
     }
 
+    public void addCharacter(String characterName, Player character) throws FileAlreadyExistsException{
+        if(characterList.containsKey(characterName)){
+            throw new FileAlreadyExistsException("Character already exist");
+        }
+        else {
+            characterList.put(characterName, character);
+        }
+
+    }
+
     public void addNPC(String npcName, NPC npc) throws FileAlreadyExistsException{
         if(npcsList.containsKey(npcName)){
             throw new FileAlreadyExistsException("NPC already exist");

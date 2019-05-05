@@ -229,6 +229,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
 
     //frame for edit character
     public static JFrame frame = new JFrame("Edit");
+    public static JFrame campaignFrame = new JFrame("Campaign");
 
     GMController controller;
     ArrayList<Campaign> campaignsList;
@@ -489,6 +490,9 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         charButton10.addActionListener(this);
         charButton11.addActionListener(this);
         charButton12.addActionListener(this);
+
+        cButton1.setActionCommand("view1");
+        cButton1.addActionListener(this);
 
     }
 
@@ -995,6 +999,9 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             else{
             }
 
+        }
+        if(action.equals("view1")){
+            openCampaign(controller, campaignFrame, campaignL1);
         }
         if(action.equals("dc1")){
             //needs to remove campaign from user
@@ -1571,6 +1578,18 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             Editor(controller, frame, character12);
         }
 
+    }
+
+    public void openCampaign(GMController controller, JFrame frame, JLabel campaignName){
+        try{
+            Campaign campaign = controller.loggedInUser.getACreatedCampaign(campaignName.getText());
+            frame.setSize(1150, 650);
+            frame.setContentPane(new CampaignUI(campaign, controller, frame).panel);
+            frame.setVisible(true);
+
+        }catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
     }
 
     public void Editor(GMController controller, JFrame frame, JLabel characterLabel){
