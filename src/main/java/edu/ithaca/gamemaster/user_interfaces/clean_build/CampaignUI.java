@@ -1,5 +1,7 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
+import edu.ithaca.gamemaster.NPC;
+import edu.ithaca.gamemaster.Player;
 import edu.ithaca.gamemaster.user_interfaces.SessionUI;
 
 import javax.swing.*;
@@ -14,17 +16,17 @@ public class CampaignUI extends JPanel implements ActionListener {
     private JButton addSession;
     public JPanel panel;
     private JList<Session> sessionList;
-    private JButton viewSessionsButton;
     private JButton invitePlayerButton;
-    private JButton viewPlayersButton;
-    private JList playerList;
+    private JList<User> playerList;
     private JButton addCharacterButton;
-    private JButton viewCharacterButton;
-    private JList characterList;
+    private JList<Player> characterList;
     private JButton addNPCButton;
-    private JButton viewNPCButton;
-    private JList npcList;
+    private JList<NPC> npcList;
     DefaultListModel<Session> sessions = new DefaultListModel<>();
+    DefaultListModel<NPC> npcs = new DefaultListModel<>();
+    DefaultListModel<User> players = new DefaultListModel<>();
+    DefaultListModel<Player> characters = new DefaultListModel<>();
+
 
     private Campaign campaign;
     public GMController controller;
@@ -32,22 +34,33 @@ public class CampaignUI extends JPanel implements ActionListener {
 
     public CampaignUI(Campaign campaign){
         this.campaign = campaign;
-      //  sessionList.setListData(campaign.getSessionList());
-        characterList.setListData(campaign.getCharacterList());
-        npcList.setListData(campaign.getNPCList());
-        playerList.setListData(campaign.getPlayerList());
 
         sessionList.setModel(sessions);
+        npcList.setModel(npcs);
+        playerList.setModel(players);
+        characterList.setModel(characters);
+
         this.controller = new GMController();
 
-        Session newSess = new Session("dmm", campaign);
-        int size = campaign.getSessionListClean().size();
         int i = 0;
-        while(i<size){
+        while(i<campaign.getSessionListClean().size()){
             sessions.addElement(campaign.getSessionListClean().get(i));
             i++;
         }
-
+        i = 0;
+        while (i<campaign.getNPCList().size()){
+            npcs.addElement(campaign.getNPCList().get(i));
+            i++;
+        }
+        i=0;
+        while(i<campaign.getPlayerList().size()){
+            players.addElement(campaign.getPlayerList().get(i));
+            i++;
+        }
+        i=0;
+        while(i<campaign.getCharacterList().size()){
+            characters.addElement(campaign.getCharacterList().get(i));
+        }
 
         createUIComponents();
     }
@@ -55,23 +68,16 @@ public class CampaignUI extends JPanel implements ActionListener {
     private void createUIComponents() {
         addSession.setActionCommand("AddSession");
         addSession.addActionListener(this);
-        viewSessionsButton.setActionCommand("ViewSession");
-        viewSessionsButton.addActionListener(this);
+
 
         invitePlayerButton.setActionCommand("InvitePlayer");
         invitePlayerButton.addActionListener(this);
-        viewPlayersButton.setActionCommand("ViewPlayer");
-        viewPlayersButton.addActionListener(this);
 
         addCharacterButton.setActionCommand("AddCharacter");
         addCharacterButton.addActionListener(this);
-        viewCharacterButton.setActionCommand("ViewCharacter");
-        viewCharacterButton.addActionListener(this);
 
         addNPCButton.setActionCommand("AddNPC");
         addNPCButton.addActionListener(this);
-        viewNPCButton.setActionCommand("viewNPC");
-        viewNPCButton.addActionListener(this);
 
         sessionList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
@@ -82,6 +88,28 @@ public class CampaignUI extends JPanel implements ActionListener {
                 campaignFrame.setVisible(true);
             }
         });
+
+        npcList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                NPC npc = npcList.getSelectedValue();
+            }
+        });
+        characterList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                Player character = characterList.getSelectedValue();
+            }
+        });
+
+        playerList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                User player = playerList.getSelectedValue();
+            }
+        });
+
+
 
     }
 
@@ -94,6 +122,9 @@ public class CampaignUI extends JPanel implements ActionListener {
             System.out.println(session);
             campaign.createSession(session);
             sessions.addElement(campaign.getSessionListClean().get(campaign.getSessionListClean().size()-1));
+        }
+        if(action.equals("AddNPC")){
+
         }
 
     }

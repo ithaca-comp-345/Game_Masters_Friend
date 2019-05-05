@@ -73,27 +73,6 @@ public class Campaign {
 
     }
 
-    public  Map<String, Session> sessionMap(){
-        return sessionList;
-    }
-
-
-
-   public Object[] getSessionList(){
-        return sessionList.keySet().toArray();
-    }
-
-    public Object[] getCharacterList(){
-        return characterList.keySet().toArray();
-    }
-
-    public Object[] getNPCList(){
-        return npcsList.keySet().toArray();
-    }
-
-    public Object[] getPlayerList() {return players.keySet().toArray();}
-
-
 
     public void createPlayerChar(User player){
         //TODO
@@ -118,4 +97,26 @@ public class Campaign {
         }
         return sessionsArray;
     }
+
+
+    public ArrayList<NPC> getNPCList(){
+        ArrayList<NPC> npcArr = new ArrayList<>();
+        for(NPC val: npcsList.values()){
+            npcArr.add(val);
+        }
+        return npcArr;
+    }
+
+    public ArrayList<User> getPlayerList(){
+        ArrayList<User> playerArr = new ArrayList<>(players.values());
+        return playerArr;
+    }
+
+    public ArrayList<Player> getCharacterList(){
+        ArrayList<Player> characterArr = new ArrayList<>(characterList.values());
+        return characterArr;
+    }
+
+
+
 }
