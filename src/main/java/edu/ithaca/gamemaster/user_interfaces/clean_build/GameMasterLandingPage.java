@@ -1,6 +1,10 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
 
+
+import edu.ithaca.gamemaster.Character;
+import edu.ithaca.gamemaster.Player;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,7 +27,6 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JPanel PastSessions;
     private JPanel CompletedCampaigns;
     private JButton vewAllPastSessionsButton;
-    private JButton viewEditButton2;
     private JLabel campaignL1;
     private JLabel campaignL2;
     private JLabel sessionL1;
@@ -103,7 +106,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JButton sDelete10;
     private JButton sDelete11;
     private JButton sDelete12;
-    private JLabel character1;
+    public JLabel character1;
     private JLabel character2;
     private JLabel character3;
     private JLabel character4;
@@ -188,7 +191,44 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JButton npcButton15;
     private JButton npcButton16;
     private JLabel user;
+    private JLabel pastCampaignL1;
+    private JLabel pastCampaignL2;
+    private JLabel pastCampaignL3;
+    private JLabel pastCampaignL4;
+    private JLabel pastCampaignL5;
+    private JLabel pastCampaignL6;
+    private JButton pastCDelete1;
+    private JButton pastCDelete2;
+    private JButton pastCDelete3;
+    private JButton pastCDelete4;
+    private JButton pastCDelete5;
+    private JButton pastCDelete6;
+    private JButton pastCButton1;
+    private JButton pastCButton2;
+    private JButton pastCButton3;
+    private JButton pastCButton4;
+    private JButton pastCButton5;
+    private JButton pastCButton6;
+    private JLabel pastSessionL1;
+    private JLabel pastSessionL2;
+    private JLabel pastSessionL3;
+    private JLabel pastSessionL4;
+    private JLabel pastSessionL5;
+    private JLabel pastSessionL6;
+    private JLabel pastSessionL7;
+    private JLabel pastSessionL8;
+    private JLabel pastSCampL1;
+    private JLabel pastSCampL2;
+    private JLabel pastSCampL3;
+    private JLabel pastSCampL4;
+    private JLabel pastSCampL5;
+    private JLabel pastSCampL6;
+    private JLabel pastSCampL7;
+    private JLabel pastSCampL8;
     private JTable PastSessionsTable;
+
+    //frame for edit character
+    public static JFrame frame = new JFrame("Edit");
 
     GMController controller;
     ArrayList<Campaign> campaignsList;
@@ -286,12 +326,19 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         this.campaignsList = campaigns;
 
         createUIComponents();
+
+        //loads existing sessions
+        loadSessions();
+        //loads existing campaigns
+        loadCampaigns();
+
         hideContent();
         hideSession();
         hideCharacter();
         hideNPC();
 
-        loadCampaigns();
+
+
 
         user.setText("User: "+controller.loggedInUser.getName());
 //        ListSessions();
@@ -416,10 +463,32 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         npcDelete15.addActionListener(this);
         npcDelete16.addActionListener(this);
 
+        //view character
+        charButton1.setActionCommand("edit1");
+        charButton2.setActionCommand("edit2");
+        charButton3.setActionCommand("edit3");
+        charButton4.setActionCommand("edit4");
+        charButton5.setActionCommand("edit5");
+        charButton6.setActionCommand("edit6");
+        charButton7.setActionCommand("edit7");
+        charButton8.setActionCommand("edit8");
+        charButton9.setActionCommand("edit9");
+        charButton10.setActionCommand("edit10");
+        charButton11.setActionCommand("edit11");
+        charButton12.setActionCommand("edit12");
 
-
-
-
+        charButton1.addActionListener(this);
+        charButton2.addActionListener(this);
+        charButton3.addActionListener(this);
+        charButton4.addActionListener(this);
+        charButton5.addActionListener(this);
+        charButton6.addActionListener(this);
+        charButton7.addActionListener(this);
+        charButton8.addActionListener(this);
+        charButton9.addActionListener(this);
+        charButton10.addActionListener(this);
+        charButton11.addActionListener(this);
+        charButton12.addActionListener(this);
 
     }
 
@@ -456,7 +525,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         }
 
 
-    public void ListSessions(){
+    public void loadSessions(){
+        //instantiates the lists of sessions for the ui to handle
+        campaign1Sessions = new ArrayList<>();
+        campaign2Sessions = new ArrayList<>();
+        campaign3Sessions = new ArrayList<>();
+        campaign4Sessions = new ArrayList<>();
+        campaign5Sessions = new ArrayList<>();
+        campaign6Sessions = new ArrayList<>();
+
         if(controller.loggedInUser.campaignCount==1) {
             campaign1Sessions = campaignsList.get(0).getSessionListClean();
         }else if(controller.loggedInUser.campaignCount==2){
@@ -485,15 +562,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             campaign5Sessions = campaignsList.get(4).getSessionListClean();
             campaign6Sessions = campaignsList.get(5).getSessionListClean();
         }
-        else{
-            campaign1Sessions = new ArrayList<>();
-            campaign2Sessions = new ArrayList<>();
-            campaign3Sessions = new ArrayList<>();
-            campaign4Sessions = new ArrayList<>();
-            campaign5Sessions = new ArrayList<>();
-            campaign6Sessions = new ArrayList<>();
-
-        }
+        //I realize now this could be turned into a class in and of itself but this is being hacked together to make the deadline (needs to be fixed later prob)
         if(!campaign1Sessions.isEmpty()){
             for(int i = 0; i< campaign1Sessions.size(); i++){
                 if(i==0){
@@ -502,47 +571,47 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                     sDate1.setText(campaign1Sessions.get(0).getTimeStart());
                 }if(i==1){
                     sessionL2.setText(campaign1Sessions.get(1).getSessionName());
-                    sCampaign2.setText(campaignsList.get(1).getCampaignName());
+                    sCampaign2.setText(campaignsList.get(0).getCampaignName());
                     sDate2.setText(campaign1Sessions.get(1).getTimeStart());
                 }if(i==2){
                     sessionL3.setText(campaign1Sessions.get(2).getSessionName());
-                    sCampaign3.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign3.setText(campaignsList.get(0).getCampaignName());
                     sDate3.setText(campaign1Sessions.get(2).getTimeStart());
                 }if(i==3){
                     sessionL4.setText(campaign1Sessions.get(3).getSessionName());
-                    sCampaign4.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign4.setText(campaignsList.get(0).getCampaignName());
                     sDate4.setText(campaign1Sessions.get(3).getTimeStart());
                 }if(i==4){
                     sessionL5.setText(campaign1Sessions.get(4).getSessionName());
-                    sCampaign5.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign5.setText(campaignsList.get(0).getCampaignName());
                     sDate5.setText(campaign1Sessions.get(4).getTimeStart());
                 }if(i==5){
                     sessionL6.setText(campaign1Sessions.get(5).getSessionName());
-                    sCampaign6.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign6.setText(campaignsList.get(0).getCampaignName());
                     sDate6.setText(campaign1Sessions.get(5).getTimeStart());
                 }if(i==6){
                     sessionL7.setText(campaign1Sessions.get(6).getSessionName());
-                    sCampaign7.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign7.setText(campaignsList.get(0).getCampaignName());
                     sDate7.setText(campaign1Sessions.get(6).getTimeStart());
                 }if(i==7){
                     sessionL8.setText(campaign1Sessions.get(7).getSessionName());
-                    sCampaign8.setText(campaignsList.get(7).getCampaignName());
+                    sCampaign8.setText(campaignsList.get(0).getCampaignName());
                     sDate8.setText(campaign1Sessions.get(7).getTimeStart());
                 }if(i==8){
                     sessionL9.setText(campaign1Sessions.get(8).getSessionName());
-                    sCampaign9.setText(campaignsList.get(8).getCampaignName());
+                    sCampaign9.setText(campaignsList.get(0).getCampaignName());
                     sDate9.setText(campaign1Sessions.get(8).getTimeStart());
                 }if(i==9){
                     sessionL10.setText(campaign1Sessions.get(9).getSessionName());
-                    sCampaign10.setText(campaignsList.get(9).getCampaignName());
+                    sCampaign10.setText(campaignsList.get(0).getCampaignName());
                     sDate10.setText(campaign1Sessions.get(9).getTimeStart());
                 }if(i==10){
                     sessionL11.setText(campaign1Sessions.get(10).getSessionName());
-                    sCampaign11.setText(campaignsList.get(10).getCampaignName());
+                    sCampaign11.setText(campaignsList.get(0).getCampaignName());
                     sDate11.setText(campaign1Sessions.get(10).getTimeStart());
                 }if(i==11){
                     sessionL12.setText(campaign1Sessions.get(11).getSessionName());
-                    sCampaign12.setText(campaignsList.get(11).getCampaignName());
+                    sCampaign12.setText(campaignsList.get(0).getCampaignName());
                     sDate12.setText(campaign1Sessions.get(11).getTimeStart());
                 }
 
@@ -552,51 +621,51 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             for(int i = 0; i< campaign2Sessions.size(); i++){
                 if(i==0){
                     sessionL1.setText(campaign2Sessions.get(0).getSessionName());
-                    sCampaign1.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign1.setText(campaignsList.get(1).getCampaignName());
                     sDate1.setText(campaign2Sessions.get(0).getTimeStart());
                 }if(i==1){
                     sessionL2.setText(campaign2Sessions.get(1).getSessionName());
-                    sCampaign2.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign2.setText(campaignsList.get(1).getCampaignName());
                     sDate2.setText(campaign2Sessions.get(1).getTimeStart());
                 }if(i==2){
                     sessionL3.setText(campaign2Sessions.get(2).getSessionName());
-                    sCampaign3.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign3.setText(campaignsList.get(1).getCampaignName());
                     sDate3.setText(campaign2Sessions.get(2).getTimeStart());
                 }if(i==3){
                     sessionL4.setText(campaign2Sessions.get(3).getSessionName());
-                    sCampaign4.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign4.setText(campaignsList.get(1).getCampaignName());
                     sDate4.setText(campaign2Sessions.get(3).getTimeStart());
                 }if(i==4){
                     sessionL5.setText(campaign2Sessions.get(4).getSessionName());
-                    sCampaign5.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign5.setText(campaignsList.get(1).getCampaignName());
                     sDate5.setText(campaign2Sessions.get(4).getTimeStart());
                 }if(i==5){
                     sessionL6.setText(campaign2Sessions.get(5).getSessionName());
-                    sCampaign6.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign6.setText(campaignsList.get(1).getCampaignName());
                     sDate6.setText(campaign2Sessions.get(5).getTimeStart());
                 }if(i==6){
                     sessionL7.setText(campaign2Sessions.get(6).getSessionName());
-                    sCampaign7.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign7.setText(campaignsList.get(1).getCampaignName());
                     sDate7.setText(campaign2Sessions.get(6).getTimeStart());
                 }if(i==7){
                     sessionL8.setText(campaign2Sessions.get(7).getSessionName());
-                    sCampaign8.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign8.setText(campaignsList.get(1).getCampaignName());
                     sDate8.setText(campaign2Sessions.get(7).getTimeStart());
                 }if(i==8){
                     sessionL9.setText(campaign2Sessions.get(8).getSessionName());
-                    sCampaign9.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign9.setText(campaignsList.get(1).getCampaignName());
                     sDate9.setText(campaign2Sessions.get(8).getTimeStart());
                 }if(i==9){
                     sessionL10.setText(campaign2Sessions.get(9).getSessionName());
-                    sCampaign10.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign10.setText(campaignsList.get(1).getCampaignName());
                     sDate10.setText(campaign2Sessions.get(9).getTimeStart());
                 }if(i==10){
                     sessionL11.setText(campaign2Sessions.get(10).getSessionName());
-                    sCampaign11.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign11.setText(campaignsList.get(1).getCampaignName());
                     sDate11.setText(campaign2Sessions.get(10).getTimeStart());
                 }if(i==11){
                     sessionL12.setText(campaign2Sessions.get(11).getSessionName());
-                    sCampaign12.setText(campaignsList.get(2).getCampaignName());
+                    sCampaign12.setText(campaignsList.get(1).getCampaignName());
                     sDate12.setText(campaign2Sessions.get(11).getTimeStart());
                 }
 
@@ -606,51 +675,51 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             for(int i = 0; i< campaign3Sessions.size(); i++){
                 if(i==0){
                     sessionL1.setText(campaign3Sessions.get(0).getSessionName());
-                    sCampaign1.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign1.setText(campaignsList.get(2).getCampaignName());
                     sDate1.setText(campaign3Sessions.get(0).getTimeStart());
                 }if(i==1){
                     sessionL2.setText(campaign3Sessions.get(1).getSessionName());
-                    sCampaign2.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign2.setText(campaignsList.get(2).getCampaignName());
                     sDate2.setText(campaign3Sessions.get(1).getTimeStart());
                 }if(i==2){
                     sessionL3.setText(campaign3Sessions.get(2).getSessionName());
-                    sCampaign3.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign3.setText(campaignsList.get(2).getCampaignName());
                     sDate3.setText(campaign3Sessions.get(2).getTimeStart());
                 }if(i==3){
                     sessionL4.setText(campaign3Sessions.get(3).getSessionName());
-                    sCampaign4.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign4.setText(campaignsList.get(2).getCampaignName());
                     sDate4.setText(campaign3Sessions.get(3).getTimeStart());
                 }if(i==4){
                     sessionL5.setText(campaign3Sessions.get(4).getSessionName());
-                    sCampaign5.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign5.setText(campaignsList.get(2).getCampaignName());
                     sDate5.setText(campaign3Sessions.get(4).getTimeStart());
                 }if(i==5){
                     sessionL6.setText(campaign3Sessions.get(5).getSessionName());
-                    sCampaign6.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign6.setText(campaignsList.get(2).getCampaignName());
                     sDate6.setText(campaign3Sessions.get(5).getTimeStart());
                 }if(i==6){
                     sessionL7.setText(campaign3Sessions.get(6).getSessionName());
-                    sCampaign7.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign7.setText(campaignsList.get(2).getCampaignName());
                     sDate7.setText(campaign3Sessions.get(6).getTimeStart());
                 }if(i==7){
                     sessionL8.setText(campaign3Sessions.get(7).getSessionName());
-                    sCampaign8.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign8.setText(campaignsList.get(2).getCampaignName());
                     sDate8.setText(campaign3Sessions.get(7).getTimeStart());
                 }if(i==8){
                     sessionL9.setText(campaign3Sessions.get(8).getSessionName());
-                    sCampaign9.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign9.setText(campaignsList.get(2).getCampaignName());
                     sDate9.setText(campaign3Sessions.get(8).getTimeStart());
                 }if(i==9){
                     sessionL10.setText(campaign3Sessions.get(9).getSessionName());
-                    sCampaign10.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign10.setText(campaignsList.get(2).getCampaignName());
                     sDate10.setText(campaign3Sessions.get(9).getTimeStart());
                 }if(i==10){
                     sessionL11.setText(campaign3Sessions.get(10).getSessionName());
-                    sCampaign11.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign11.setText(campaignsList.get(2).getCampaignName());
                     sDate11.setText(campaign3Sessions.get(10).getTimeStart());
                 }if(i==11){
                     sessionL12.setText(campaign3Sessions.get(11).getSessionName());
-                    sCampaign12.setText(campaignsList.get(3).getCampaignName());
+                    sCampaign12.setText(campaignsList.get(2).getCampaignName());
                     sDate12.setText(campaign3Sessions.get(11).getTimeStart());
                 }
 
@@ -660,62 +729,62 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             for (int i = 0; i < campaign4Sessions.size(); i++) {
                 if (i == 0) {
                     sessionL1.setText(campaign4Sessions.get(0).getSessionName());
-                    sCampaign1.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign1.setText(campaignsList.get(3).getCampaignName());
                     sDate1.setText(campaign4Sessions.get(0).getTimeStart());
                 }
                 if (i == 1) {
                     sessionL2.setText(campaign4Sessions.get(1).getSessionName());
-                    sCampaign2.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign2.setText(campaignsList.get(3).getCampaignName());
                     sDate2.setText(campaign4Sessions.get(1).getTimeStart());
                 }
                 if (i == 2) {
                     sessionL3.setText(campaign4Sessions.get(2).getSessionName());
-                    sCampaign3.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign3.setText(campaignsList.get(3).getCampaignName());
                     sDate3.setText(campaign4Sessions.get(2).getTimeStart());
                 }
                 if (i == 3) {
                     sessionL4.setText(campaign4Sessions.get(3).getSessionName());
-                    sCampaign4.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign4.setText(campaignsList.get(3).getCampaignName());
                     sDate4.setText(campaign4Sessions.get(3).getTimeStart());
                 }
                 if (i == 4) {
                     sessionL5.setText(campaign4Sessions.get(4).getSessionName());
-                    sCampaign5.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign5.setText(campaignsList.get(3).getCampaignName());
                     sDate5.setText(campaign4Sessions.get(4).getTimeStart());
                 }
                 if (i == 5) {
                     sessionL6.setText(campaign4Sessions.get(5).getSessionName());
-                    sCampaign6.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign6.setText(campaignsList.get(3).getCampaignName());
                     sDate6.setText(campaign4Sessions.get(5).getTimeStart());
                 }
                 if (i == 6) {
                     sessionL7.setText(campaign4Sessions.get(6).getSessionName());
-                    sCampaign7.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign7.setText(campaignsList.get(3).getCampaignName());
                     sDate7.setText(campaign4Sessions.get(6).getTimeStart());
                 }
                 if (i == 7) {
                     sessionL8.setText(campaign4Sessions.get(7).getSessionName());
-                    sCampaign8.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign8.setText(campaignsList.get(3).getCampaignName());
                     sDate8.setText(campaign4Sessions.get(7).getTimeStart());
                 }
                 if (i == 8) {
                     sessionL9.setText(campaign4Sessions.get(8).getSessionName());
-                    sCampaign9.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign9.setText(campaignsList.get(3).getCampaignName());
                     sDate9.setText(campaign4Sessions.get(8).getTimeStart());
                 }
                 if (i == 9) {
                     sessionL10.setText(campaign4Sessions.get(9).getSessionName());
-                    sCampaign10.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign10.setText(campaignsList.get(3).getCampaignName());
                     sDate10.setText(campaign4Sessions.get(9).getTimeStart());
                 }
                 if (i == 10) {
                     sessionL11.setText(campaign4Sessions.get(10).getSessionName());
-                    sCampaign11.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign11.setText(campaignsList.get(3).getCampaignName());
                     sDate11.setText(campaign4Sessions.get(10).getTimeStart());
                 }
                 if (i == 11) {
                     sessionL12.setText(campaign4Sessions.get(11).getSessionName());
-                    sCampaign12.setText(campaignsList.get(4).getCampaignName());
+                    sCampaign12.setText(campaignsList.get(3).getCampaignName());
                     sDate12.setText(campaign4Sessions.get(11).getTimeStart());
                 }
             }
@@ -723,62 +792,62 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             for (int i = 0; i < campaign5Sessions.size(); i++) {
                 if (i == 0) {
                     sessionL1.setText(campaign5Sessions.get(0).getSessionName());
-                    sCampaign1.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign1.setText(campaignsList.get(4).getCampaignName());
                     sDate1.setText(campaign5Sessions.get(0).getTimeStart());
                 }
                 if (i == 1) {
                     sessionL2.setText(campaign5Sessions.get(1).getSessionName());
-                    sCampaign2.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign2.setText(campaignsList.get(4).getCampaignName());
                     sDate2.setText(campaign5Sessions.get(1).getTimeStart());
                 }
                 if (i == 2) {
                     sessionL3.setText(campaign5Sessions.get(2).getSessionName());
-                    sCampaign3.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign3.setText(campaignsList.get(4).getCampaignName());
                     sDate3.setText(campaign5Sessions.get(2).getTimeStart());
                 }
                 if (i == 3) {
                     sessionL4.setText(campaign5Sessions.get(3).getSessionName());
-                    sCampaign4.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign4.setText(campaignsList.get(4).getCampaignName());
                     sDate4.setText(campaign5Sessions.get(3).getTimeStart());
                 }
                 if (i == 4) {
                     sessionL5.setText(campaign5Sessions.get(4).getSessionName());
-                    sCampaign5.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign5.setText(campaignsList.get(4).getCampaignName());
                     sDate5.setText(campaign5Sessions.get(4).getTimeStart());
                 }
                 if (i == 5) {
                     sessionL6.setText(campaign5Sessions.get(5).getSessionName());
-                    sCampaign6.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign6.setText(campaignsList.get(4).getCampaignName());
                     sDate6.setText(campaign5Sessions.get(5).getTimeStart());
                 }
                 if (i == 6) {
                     sessionL7.setText(campaign5Sessions.get(6).getSessionName());
-                    sCampaign7.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign7.setText(campaignsList.get(4).getCampaignName());
                     sDate7.setText(campaign5Sessions.get(6).getTimeStart());
                 }
                 if (i == 7) {
                     sessionL8.setText(campaign5Sessions.get(7).getSessionName());
-                    sCampaign8.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign8.setText(campaignsList.get(4).getCampaignName());
                     sDate8.setText(campaign5Sessions.get(7).getTimeStart());
                 }
                 if (i == 8) {
                     sessionL9.setText(campaign5Sessions.get(8).getSessionName());
-                    sCampaign9.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign9.setText(campaignsList.get(4).getCampaignName());
                     sDate9.setText(campaign5Sessions.get(8).getTimeStart());
                 }
                 if (i == 9) {
                     sessionL10.setText(campaign5Sessions.get(9).getSessionName());
-                    sCampaign10.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign10.setText(campaignsList.get(4).getCampaignName());
                     sDate10.setText(campaign5Sessions.get(9).getTimeStart());
                 }
                 if (i == 10) {
                     sessionL11.setText(campaign5Sessions.get(10).getSessionName());
-                    sCampaign11.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign11.setText(campaignsList.get(4).getCampaignName());
                     sDate11.setText(campaign5Sessions.get(10).getTimeStart());
                 }
                 if (i == 11) {
                     sessionL12.setText(campaign5Sessions.get(11).getSessionName());
-                    sCampaign12.setText(campaignsList.get(5).getCampaignName());
+                    sCampaign12.setText(campaignsList.get(4).getCampaignName());
                     sDate12.setText(campaign5Sessions.get(11).getTimeStart());
                 }
             }
@@ -786,62 +855,62 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             for (int i = 0; i < campaign6Sessions.size(); i++) {
                 if (i == 0) {
                     sessionL1.setText(campaign6Sessions.get(0).getSessionName());
-                    sCampaign1.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign1.setText(campaignsList.get(5).getCampaignName());
                     sDate1.setText(campaign6Sessions.get(0).getTimeStart());
                 }
                 if (i == 1) {
                     sessionL2.setText(campaign6Sessions.get(1).getSessionName());
-                    sCampaign2.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign2.setText(campaignsList.get(5).getCampaignName());
                     sDate2.setText(campaign6Sessions.get(1).getTimeStart());
                 }
                 if (i == 2) {
                     sessionL3.setText(campaign6Sessions.get(2).getSessionName());
-                    sCampaign3.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign3.setText(campaignsList.get(5).getCampaignName());
                     sDate3.setText(campaign6Sessions.get(2).getTimeStart());
                 }
                 if (i == 3) {
                     sessionL4.setText(campaign6Sessions.get(3).getSessionName());
-                    sCampaign4.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign4.setText(campaignsList.get(5).getCampaignName());
                     sDate4.setText(campaign6Sessions.get(3).getTimeStart());
                 }
                 if (i == 4) {
                     sessionL5.setText(campaign6Sessions.get(4).getSessionName());
-                    sCampaign5.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign5.setText(campaignsList.get(5).getCampaignName());
                     sDate5.setText(campaign6Sessions.get(4).getTimeStart());
                 }
                 if (i == 5) {
                     sessionL6.setText(campaign6Sessions.get(5).getSessionName());
-                    sCampaign6.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign6.setText(campaignsList.get(5).getCampaignName());
                     sDate6.setText(campaign6Sessions.get(5).getTimeStart());
                 }
                 if (i == 6) {
                     sessionL7.setText(campaign6Sessions.get(6).getSessionName());
-                    sCampaign7.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign7.setText(campaignsList.get(5).getCampaignName());
                     sDate7.setText(campaign6Sessions.get(6).getTimeStart());
                 }
                 if (i == 7) {
                     sessionL8.setText(campaign6Sessions.get(7).getSessionName());
-                    sCampaign8.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign8.setText(campaignsList.get(5).getCampaignName());
                     sDate8.setText(campaign6Sessions.get(7).getTimeStart());
                 }
                 if (i == 8) {
                     sessionL9.setText(campaign6Sessions.get(8).getSessionName());
-                    sCampaign9.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign9.setText(campaignsList.get(5).getCampaignName());
                     sDate9.setText(campaign6Sessions.get(8).getTimeStart());
                 }
                 if (i == 9) {
                     sessionL10.setText(campaign6Sessions.get(9).getSessionName());
-                    sCampaign10.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign10.setText(campaignsList.get(5).getCampaignName());
                     sDate10.setText(campaign6Sessions.get(9).getTimeStart());
                 }
                 if (i == 10) {
                     sessionL11.setText(campaign6Sessions.get(10).getSessionName());
-                    sCampaign11.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign11.setText(campaignsList.get(5).getCampaignName());
                     sDate11.setText(campaign6Sessions.get(10).getTimeStart());
                 }
                 if (i == 11) {
                     sessionL12.setText(campaign6Sessions.get(11).getSessionName());
-                    sCampaign12.setText(campaignsList.get(6).getCampaignName());
+                    sCampaign12.setText(campaignsList.get(5).getCampaignName());
                     sDate12.setText(campaign6Sessions.get(11).getTimeStart());
                 }
             }
@@ -1025,8 +1094,8 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             String sessName = twoOpt.sessionName;
             String campName = twoOpt.campaignName;
             try {
-                Session session = controller.loggedInUser.getACreatedCampaign(campName).createSession(sessName); //needs to check for valid session name and campaign name
-                session.start("Default Goal"); //needs to be changed but good for demo; //TODO
+                Session session = controller.loggedInUser.getACreatedCampaign(campName).createSession(sessName); //creates and checks for valid session and campaign name
+                session.start("Default Goal"); //goal is always default to start
                 if(sessionL1.getText().equals("") && sCampaign1.getText().equals("") && sDate1.getText().equals("")){
                     sessionL1.setText(sessName);
                     sCampaign1.setText(session.getParentCampaign().getCampaignName());
@@ -1473,6 +1542,43 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             hideNPC();
         }
 
+
+        //added action listener for testing purposes
+
+        if(action.equals("edit1")){
+            Editor(controller, frame, character1);
+        }else if(action.equals("edit2")){
+            Editor(controller, frame, character2);
+        }else if(action.equals("edit3")){
+            Editor(controller, frame, character3);
+        }else if(action.equals("edit4")){
+            Editor(controller, frame, character4);
+        }else if(action.equals("edit5")){
+            Editor(controller, frame, character5);
+        }else if(action.equals("edit6")){
+            Editor(controller, frame, character6);
+        }else if(action.equals("edit7")){
+            Editor(controller, frame, character7);
+        }else if(action.equals("edit8")){
+            Editor(controller, frame, character8);
+        }else if(action.equals("edit9")){
+            Editor(controller, frame, character9);
+        }else if(action.equals("edit10")){
+            Editor(controller, frame, character10);
+        }else if(action.equals("edit11")){
+            Editor(controller, frame, character11);
+        }else if(action.equals("edit12")){
+            Editor(controller, frame, character12);
+        }
+
+    }
+
+    public void Editor(GMController controller, JFrame frame, JLabel characterLabel){
+        Player characterToEdit = controller.loggedInUser.getCharacter(characterLabel.getText());
+        frame.setSize(1150, 650);
+        frame.setContentPane(new CharacterEditor(characterToEdit, characterLabel, controller,frame).CharacterEditor);
+        frame.setResizable(false);
+        frame.setVisible(true);
     }
 }
 

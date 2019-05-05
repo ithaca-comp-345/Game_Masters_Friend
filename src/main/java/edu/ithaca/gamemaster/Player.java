@@ -384,7 +384,7 @@ public class Player extends Character {
         this.charClass = charClass;
     }
 
-    private void setExperience(int newEXP){ this.experience=newEXP;}
+    public void setExperience(int newEXP){ this.experience=newEXP;}
 
     private void setStrenSave(int save){
         this.strenSave=save;
