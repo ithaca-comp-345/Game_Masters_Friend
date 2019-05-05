@@ -19,14 +19,12 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JButton startANewSessionButton;
     private JPanel ActiveCampaigns;
     private JPanel ActiveSessions;
-    private JButton viewAllPastCampaignsButton;
     private JButton cButton1;
     private JPanel CharacterList;
     private JPanel NPCList;
     private JButton charButton1;
     private JPanel PastSessions;
     private JPanel CompletedCampaigns;
-    private JButton vewAllPastSessionsButton;
     private JLabel campaignL1;
     private JLabel campaignL2;
     private JLabel sessionL1;
@@ -225,6 +223,22 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
     private JLabel pastSCampL6;
     private JLabel pastSCampL7;
     private JLabel pastSCampL8;
+    private JButton reviewSButton1;
+    private JButton reviewSButton2;
+    private JButton reviewSButton3;
+    private JButton reviewSButton4;
+    private JButton reviewSButton5;
+    private JButton reviewSButton6;
+    private JButton reviewSButton7;
+    private JButton reviewSButton8;
+    private JButton pastSDelete1;
+    private JButton pastSDelete2;
+    private JButton pastSDelete3;
+    private JButton pastSDelete4;
+    private JButton pastSDelete5;
+    private JButton pastSDelete6;
+    private JButton pastSDelete7;
+    private JButton pastSDelete8;
     private JTable PastSessionsTable;
 
     //frame for edit character
@@ -320,6 +334,24 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
 
     }
 
+    private void hidePast(){
+        ButtonHidden.twoButtonHide(pastCampaignL1,pastCButton1,pastCDelete1);
+        ButtonHidden.twoButtonHide(pastCampaignL2,pastCButton2,pastCDelete2);
+        ButtonHidden.twoButtonHide(pastCampaignL3,pastCButton3,pastCDelete3);
+        ButtonHidden.twoButtonHide(pastCampaignL4,pastCButton4,pastCDelete4);
+        ButtonHidden.twoButtonHide(pastCampaignL5,pastCButton5,pastCDelete5);
+        ButtonHidden.twoButtonHide(pastCampaignL6,pastCButton6,pastCDelete6);
+
+        ButtonHidden.twoButtonLabelHide(pastSessionL1,pastSCampL1,reviewSButton1,pastSDelete1);
+        ButtonHidden.twoButtonLabelHide(pastSessionL2,pastSCampL2,reviewSButton2,pastSDelete2);
+        ButtonHidden.twoButtonLabelHide(pastSessionL3,pastSCampL3,reviewSButton3,pastSDelete3);
+        ButtonHidden.twoButtonLabelHide(pastSessionL4,pastSCampL4,reviewSButton4,pastSDelete4);
+        ButtonHidden.twoButtonLabelHide(pastSessionL5,pastSCampL5,reviewSButton5,pastSDelete5);
+        ButtonHidden.twoButtonLabelHide(pastSessionL6,pastSCampL6,reviewSButton6,pastSDelete6);
+        ButtonHidden.twoButtonLabelHide(pastSessionL7,pastSCampL7,reviewSButton7,pastSDelete7);
+        ButtonHidden.twoButtonLabelHide(pastSessionL8,pastSCampL8,reviewSButton8,pastSDelete8);
+    }
+
     public GameMasterLandingPage(GMController controller, ArrayList<Campaign> campaigns){
         campaignCount = 0;
         this.controller=controller;
@@ -336,6 +368,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         hideSession();
         hideCharacter();
         hideNPC();
+        hidePast();
 
 
 
@@ -1000,11 +1033,12 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL1.getText())) {
-
+                pastCampaignL1.setText(campaignL1.getText());
                 campaignL1.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 hideContent();
+                hidePast();
                 try {
                     controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
@@ -1015,11 +1049,12 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL2.getText())) {
-
+                pastCampaignL2.setText(campaignL2.getText());
                 campaignL2.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 hideContent();
+                hidePast();
                 try {
                     controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
@@ -1030,11 +1065,12 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL3.getText())) {
-
+                pastCampaignL3.setText(campaignL3.getText());
                 campaignL3.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 hideContent();
+                hidePast();
                 try {
                     controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
@@ -1045,11 +1081,12 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL4.getText())) {
-
+                pastCampaignL4.setText(campaignL4.getText());
                 campaignL4.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
                 hideContent();
+                hidePast();
                 try {
                     controller.loggedInUser.deleteCampaign(confirm);
                 } catch(FileNotFoundException e){
@@ -1060,7 +1097,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL5.getText())) {
-
+                pastCampaignL5.setText(campaignL5.getText());
                 campaignL5.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
@@ -1071,11 +1108,13 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                 }
             }
             hideContent();
+            hidePast();
 
         }if(action.equals("dc6")){
             //needs to remove campaign from user
             String confirm = JOptionPane.showInputDialog("Deleting this campaign will delete all campaign-owned artifacts... Are you sure, type the name of the campaign to continue");
             if(confirm.equals(campaignL6.getText())) {
+                pastCampaignL6.setText(campaignL6.getText());
                 campaignL6.setText("");
                 campaignCount--;
                 campaignMax.setText("Active Campaigns: " + campaignCount);
@@ -1086,6 +1125,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
                 }
             }
             hideContent();
+            hidePast();
 
         }
 
@@ -1170,10 +1210,19 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign1.getText());
                 camp.deleteSession(sessionL1.getText());
+
+                //updates past
+                pastSessionL1.setText(sessionL1.getText());
+                pastSCampL1.setText(sCampaign1.getText());
+
+                //updates active
                 sessionL1.setText("");
                 sCampaign1.setText("");
                 sDate1.setText("");
+
+                //updates view format
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1181,10 +1230,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign2.getText());
                 camp.deleteSession(sessionL2.getText());
+
+                pastSessionL2.setText(sessionL2.getText());
+                pastSCampL2.setText(sCampaign2.getText());
+
                 sessionL2.setText("");
                 sCampaign2.setText("");
                 sDate2.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1192,10 +1246,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign3.getText());
                 camp.deleteSession(sessionL3.getText());
+
+                pastSessionL3.setText(sessionL3.getText());
+                pastSCampL3.setText(sCampaign3.getText());
+
                 sessionL3.setText("");
                 sCampaign3.setText("");
                 sDate3.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1203,10 +1262,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign4.getText());
                 camp.deleteSession(sessionL4.getText());
+
+                pastSessionL4.setText(sessionL4.getText());
+                pastSCampL4.setText(sCampaign4.getText());
+
                 sessionL4.setText("");
                 sCampaign4.setText("");
                 sDate4.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1214,10 +1278,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign5.getText());
                 camp.deleteSession(sessionL5.getText());
+
+                pastSessionL5.setText(sessionL5.getText());
+                pastSCampL5.setText(sCampaign5.getText());
+
                 sessionL5.setText("");
                 sCampaign5.setText("");
                 sDate5.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1225,10 +1294,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign6.getText());
                 camp.deleteSession(sessionL6.getText());
+
+                pastSessionL6.setText(sessionL6.getText());
+                pastSCampL6.setText(sCampaign6.getText());
+
                 sessionL6.setText("");
                 sCampaign6.setText("");
                 sDate6.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1236,10 +1310,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign7.getText());
                 camp.deleteSession(sessionL7.getText());
+
+                pastSessionL7.setText(sessionL7.getText());
+                pastSCampL7.setText(sCampaign7.getText());
+
                 sessionL7.setText("");
                 sCampaign7.setText("");
                 sDate7.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1247,10 +1326,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign8.getText());
                 camp.deleteSession(sessionL8.getText());
+
+                pastSessionL8.setText(sessionL8.getText());
+                pastSCampL8.setText(sCampaign8.getText());
+
                 sessionL8.setText("");
                 sCampaign8.setText("");
                 sDate8.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1258,10 +1342,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign9.getText());
                 camp.deleteSession(sessionL9.getText());
+
+                pastSessionL8.setText(sessionL8.getText());
+                pastSCampL8.setText(sCampaign8.getText());
+
                 sessionL9.setText("");
                 sCampaign9.setText("");
                 sDate9.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1269,10 +1358,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign10.getText());
                 camp.deleteSession(sessionL10.getText());
+
+                pastSessionL8.setText(sessionL8.getText());
+                pastSCampL8.setText(sCampaign8.getText());
+
                 sessionL10.setText("");
                 sCampaign10.setText("");
                 sDate10.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1280,10 +1374,15 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign11.getText());
                 camp.deleteSession(sessionL11.getText());
+
+                pastSessionL8.setText(sessionL8.getText());
+                pastSCampL8.setText(sCampaign8.getText());
+
                 sessionL11.setText("");
                 sCampaign11.setText("");
                 sDate11.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
@@ -1291,17 +1390,18 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
             try {
                 Campaign camp = controller.loggedInUser.getACreatedCampaign(sCampaign12.getText());
                 camp.deleteSession(sessionL12.getText());
+
+                pastSessionL8.setText(sessionL8.getText());
+                pastSCampL8.setText(sCampaign8.getText());
+
                 sessionL12.setText("");
                 sCampaign12.setText("");
                 sDate12.setText("");
                 hideSession();
+                hidePast();
             }catch(FileNotFoundException e){
                 e.printStackTrace();
             }
-        }
-
-        if(action.equals("Logout")){
-            //TODO
         }
 
         if(action.equals("CreateCharacter")){
