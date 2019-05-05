@@ -30,6 +30,13 @@ public class User {
 
     //adds the character to the users list of completed characters
     public Player addCharacter(Player playerToAdd){
+
+        if(getCharacter(playerToAdd.getName()) != null){
+            characters.remove(playerToAdd.getName());
+            characters.put(playerToAdd.getName(), playerToAdd);
+            return playerToAdd;
+
+        }
         characters.put(playerToAdd.getName(),playerToAdd);
         return playerToAdd;
     }

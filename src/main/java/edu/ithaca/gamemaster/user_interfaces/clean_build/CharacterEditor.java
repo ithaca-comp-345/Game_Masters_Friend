@@ -8,14 +8,15 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
 import java.lang.reflect.InvocationTargetException;
 
 public class CharacterEditor extends Container implements ActionListener {
     public JPanel CharacterEditor;
     public Character player;
-    private JPanel panel;
     private GMController controller;
     public JLabel characterLabel;
+    private JFrame frame;
 
     private JTextField characterName;
     private JComboBox strenCombo;
@@ -101,11 +102,12 @@ public class CharacterEditor extends Container implements ActionListener {
 
 
 
-    public CharacterEditor(Player player, JLabel characterLabel, GMController controller){
+    public CharacterEditor(Player player, JLabel characterLabel, GMController controller,JFrame frame){
 
         this.player = player;
         this.characterLabel = characterLabel;
         this.controller = controller;
+        this.frame = frame;
         //setting stats for player
         saveChangesBtn.setActionCommand("save");
         saveChangesBtn.addActionListener(this);
@@ -119,13 +121,26 @@ public class CharacterEditor extends Container implements ActionListener {
 
         if (action.equals("save")) {
 
-            this.player.setName(characterName.getText());
-            this.player.setStrength(strenCombo.getSelectedIndex());
-            this.characterLabel.setText(this.player.getName());
-            controller.loggedInUser.addCharacter(new Player(this.player));
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+            int dialogResult = JOptionPane.showConfirmDialog(null, "Would You Like to Save your Previous Note First?", "Save?", dialogButton);
+            if (dialogResult == JOptionPane.YES_OPTION) {
 
-            //TODO
-            //add the rest of the changes to the character.
+                //Updating player's information
+                this.player.setName(characterName.getText());
+                this.player.setStrength(strenCombo.getSelectedIndex());
+                this.player.setDexterity(dextCombo.getSelectedIndex());
+                this.player.setConstitution(constCombo.getSelectedIndex());
+                this.player.setIntelligence(intelCombo.getSelectedIndex());
+                this.player.setWisdom(wisdoCombo.getSelectedIndex());
+                this.player.setCharisma(chariCombo.getSelectedIndex());
+                //updating landingPage
+                this.characterLabel.setText(this.player.getName());
+                controller.loggedInUser.addCharacter(new Player(this.player));
+                //Closing Editor Frame
+                this.frame.setVisible(false);
+
+            }
+
         }
 
     }

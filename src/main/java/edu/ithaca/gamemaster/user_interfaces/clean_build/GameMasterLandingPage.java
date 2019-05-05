@@ -426,9 +426,29 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         //view character
         charButton1.setActionCommand("edit1");
         charButton2.setActionCommand("edit2");
+        charButton3.setActionCommand("edit3");
+        charButton4.setActionCommand("edit4");
+        charButton5.setActionCommand("edit5");
+        charButton6.setActionCommand("edit6");
+        charButton7.setActionCommand("edit7");
+        charButton8.setActionCommand("edit8");
+        charButton9.setActionCommand("edit9");
+        charButton10.setActionCommand("edit10");
+        charButton11.setActionCommand("edit11");
+        charButton12.setActionCommand("edit12");
 
         charButton1.addActionListener(this);
         charButton2.addActionListener(this);
+        charButton3.addActionListener(this);
+        charButton4.addActionListener(this);
+        charButton5.addActionListener(this);
+        charButton6.addActionListener(this);
+        charButton7.addActionListener(this);
+        charButton8.addActionListener(this);
+        charButton9.addActionListener(this);
+        charButton10.addActionListener(this);
+        charButton11.addActionListener(this);
+        charButton12.addActionListener(this);
 
     }
 
@@ -1486,15 +1506,39 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         //added action listener for testing purposes
 
         if(action.equals("edit1")){
-
-            Player characterToEdit = controller.loggedInUser.getCharacter(character1.getText());
-            frame.setSize(1100, 900);
-            frame.setContentPane(new CharacterEditor(characterToEdit, character1, controller).CharacterEditor);
-            frame.setResizable(false);
-            frame.setVisible(true);
-
+            Editor(controller, frame, character1);
+        }else if(action.equals("edit2")){
+            Editor(controller, frame, character2);
+        }else if(action.equals("edit3")){
+            Editor(controller, frame, character3);
+        }else if(action.equals("edit4")){
+            Editor(controller, frame, character4);
+        }else if(action.equals("edit5")){
+            Editor(controller, frame, character5);
+        }else if(action.equals("edit6")){
+            Editor(controller, frame, character6);
+        }else if(action.equals("edit7")){
+            Editor(controller, frame, character7);
+        }else if(action.equals("edit8")){
+            Editor(controller, frame, character8);
+        }else if(action.equals("edit9")){
+            Editor(controller, frame, character9);
+        }else if(action.equals("edit10")){
+            Editor(controller, frame, character10);
+        }else if(action.equals("edit11")){
+            Editor(controller, frame, character11);
+        }else if(action.equals("edit12")){
+            Editor(controller, frame, character12);
         }
 
+    }
+
+    public void Editor(GMController controller, JFrame frame, JLabel character){
+        Player characterToEdit = controller.loggedInUser.getCharacter(character.getText());
+        frame.setSize(1100, 900);
+        frame.setContentPane(new CharacterEditor(characterToEdit, character, controller,frame).CharacterEditor);
+        frame.setResizable(false);
+        frame.setVisible(true);
     }
 }
 
