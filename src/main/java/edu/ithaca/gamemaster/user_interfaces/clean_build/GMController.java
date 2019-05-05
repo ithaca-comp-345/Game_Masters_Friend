@@ -42,6 +42,7 @@ public class GMController {
         frame.setVisible(true);
 
 
+
     }
 
     public User login(String username, String password)throws FileNotFoundException{
