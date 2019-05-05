@@ -1,6 +1,7 @@
 package edu.ithaca.gamemaster;
 
 import edu.ithaca.gamemaster.map.Location;
+import edu.ithaca.gamemaster.user_interfaces.Notes;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -10,7 +11,7 @@ public class CampaignAPI {
     private Campaign campaign;
     private GameMaster gm;
     private Map<String,PlayerUser> userPlayers;
-    private Map<String,Notes> notes;
+    private Map<String, Notes> notes;
     private Map<String, Session> sessions;
     private Map<String, Character> characters;
     private Map<String, Location> locations;

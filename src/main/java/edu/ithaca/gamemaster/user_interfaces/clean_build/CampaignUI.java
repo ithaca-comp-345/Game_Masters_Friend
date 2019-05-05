@@ -1,14 +1,19 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
+import edu.ithaca.gamemaster.user_interfaces.SessionUI;
+
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class CampaignUI extends JFrame implements ActionListener {
+public class CampaignUI extends JPanel implements ActionListener {
     private JButton addSession;
-    private JPanel panel;
-    private JList<Object> sessionList;
+    public JPanel panel;
+    private JList<Session> sessionList;
     private JButton viewSessionsButton;
     private JButton invitePlayerButton;
     private JButton viewPlayersButton;
@@ -19,17 +24,31 @@ public class CampaignUI extends JFrame implements ActionListener {
     private JButton addNPCButton;
     private JButton viewNPCButton;
     private JList npcList;
+    DefaultListModel<Session> sessions = new DefaultListModel<>();
 
     private Campaign campaign;
-
+    public GMController controller;
     public static JFrame campaignFrame = new JFrame("Campaign");
 
     public CampaignUI(Campaign campaign){
         this.campaign = campaign;
-        sessionList.setListData(campaign.getSessionList());
+      //  sessionList.setListData(campaign.getSessionList());
         characterList.setListData(campaign.getCharacterList());
         npcList.setListData(campaign.getNPCList());
         playerList.setListData(campaign.getPlayerList());
+
+        sessionList.setModel(sessions);
+        this.controller = new GMController();
+
+        Session newSess = new Session("dmm", campaign);
+        int size = campaign.getSessionListClean().size();
+        int i = 0;
+        while(i<size){
+            sessions.addElement(campaign.getSessionListClean().get(i));
+            i++;
+        }
+
+
         createUIComponents();
     }
 
@@ -54,6 +73,16 @@ public class CampaignUI extends JFrame implements ActionListener {
         viewNPCButton.setActionCommand("viewNPC");
         viewNPCButton.addActionListener(this);
 
+        sessionList.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                Session s = sessionList.getSelectedValue();
+                System.out.println();
+                campaignFrame.setContentPane(new SessionUI(s, campaign, campaignFrame).Session);
+                campaignFrame.setVisible(true);
+            }
+        });
+
     }
 
 
@@ -64,8 +93,9 @@ public class CampaignUI extends JFrame implements ActionListener {
             String session= JOptionPane.showInputDialog("Session name: ", null);
             System.out.println(session);
             campaign.createSession(session);
-            sessionList.setListData(campaign.getSessionList());
+            sessions.addElement(campaign.getSessionListClean().get(campaign.getSessionListClean().size()-1));
         }
+
     }
 
     public static void main(String[] args) throws IOException {
@@ -76,8 +106,6 @@ public class CampaignUI extends JFrame implements ActionListener {
         campaign.createSession("session2");
         campaignFrame.setContentPane(new CampaignUI(campaign).panel);
         campaignFrame.setVisible(true);
-
-
     }
 
 

@@ -73,7 +73,13 @@ public class Campaign {
 
     }
 
-    public Object[] getSessionList(){
+    public  Map<String, Session> sessionMap(){
+        return sessionList;
+    }
+
+
+
+   public Object[] getSessionList(){
         return sessionList.keySet().toArray();
     }
 

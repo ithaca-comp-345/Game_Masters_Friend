@@ -25,28 +25,12 @@
         </constraints>
         <properties/>
       </component>
-      <component id="9f2a0" class="javax.swing.JButton" binding="viewSessionsButton" default-binding="true">
-        <constraints>
-          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="View Sessions"/>
-        </properties>
-      </component>
       <component id="f4ca2" class="javax.swing.JButton" binding="invitePlayerButton" default-binding="true">
         <constraints>
           <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
         <properties>
           <text value="Invite Player"/>
-        </properties>
-      </component>
-      <component id="29ca0" class="javax.swing.JButton" binding="viewPlayersButton" default-binding="true">
-        <constraints>
-          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="View Players"/>
         </properties>
       </component>
       <component id="2aac3" class="javax.swing.JList" binding="playerList">
@@ -67,14 +51,6 @@
           <text value="Add Character"/>
         </properties>
       </component>
-      <component id="bb5e5" class="javax.swing.JButton" binding="viewCharacterButton" default-binding="true">
-        <constraints>
-          <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="View Character"/>
-        </properties>
-      </component>
       <component id="53810" class="javax.swing.JList" binding="characterList">
         <constraints>
           <grid row="4" column="3" row-span="1" col-span="2" vsize-policy="6" hsize-policy="2" anchor="0" fill="3" indent="0" use-parent-layout="false">
@@ -89,14 +65,6 @@
         </constraints>
         <properties>
           <text value="Add NPC"/>
-        </properties>
-      </component>
-      <component id="50120" class="javax.swing.JButton" binding="viewNPCButton" default-binding="true">
-        <constraints>
-          <grid row="3" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-        </constraints>
-        <properties>
-          <text value="View NPC"/>
         </properties>
       </component>
       <component id="dc808" class="javax.swing.JList" binding="npcList">
@@ -125,6 +93,16 @@
       <hspacer id="f5324">
         <constraints>
           <grid row="0" column="1" row-span="1" col-span="5" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="6d89d">
+        <constraints>
+          <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+      </hspacer>
+      <hspacer id="f1deb">
+        <constraints>
+          <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="1" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
         </constraints>
       </hspacer>
     </children>

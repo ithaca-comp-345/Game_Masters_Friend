@@ -1,5 +1,7 @@
 package edu.ithaca.gamemaster.user_interfaces.clean_build;
 
+import edu.ithaca.gamemaster.user_interfaces.Notes;
+
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -15,10 +17,12 @@ public class Session {
     private String goal;
     private boolean isActive = false;
     private boolean goalAchieved;
+    public Notes notes;
 
     public Session(String name, Campaign parent){
         this.sessionName=name;
         this.parentCampaign=parent;
+        this.notes = new Notes(name);
     }
 
     public boolean start(String goal){
@@ -36,6 +40,14 @@ public class Session {
         return false;
     }
 
+    public String getNotes(){
+        return notes.getNotes();
+    }
+
+    public void editNotes(String s){
+        notes.setNotes(s);
+    }
+
     public boolean stop(){
         this.timeEnd=currTime();
         return true;
@@ -48,6 +60,12 @@ public class Session {
         String dateStr = format.format(date);
         return dateStr;
     }
+
+    @Override
+    public String toString(){
+        return sessionName;
+    }
+
 
     public String getSessionName(){return sessionName;}
     public Campaign getParentCampaign(){return parentCampaign;}

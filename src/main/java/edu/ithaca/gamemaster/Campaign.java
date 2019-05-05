@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.ithaca.gamemaster.map.Location;
+import edu.ithaca.gamemaster.user_interfaces.Notes;
 import edu.ithaca.gamemaster.user_interfaces.clean_build.Session;
 import edu.ithaca.gamemaster.user_interfaces.clean_build.User;
 
@@ -13,7 +14,7 @@ public class Campaign{
     public String campaignName;
     //public Location location;
     private Map<String,PlayerUser> userPlayers;
-    private Map<String,Notes> notes;
+    private Map<String, Notes> notes;
     private Map<String, Session> sessions;
     private Map<String, Character> characters;
     private GameMaster gm;

@@ -1,4 +1,4 @@
-package edu.ithaca.gamemaster;
+package edu.ithaca.gamemaster.user_interfaces;
 
 public class Notes {
 
@@ -16,14 +16,5 @@ public class Notes {
         public void setNotes(String notes) {
             this.text = notes;
         }
-
-
-//   public void addToNotes(String stringToAdd){
-//        this.notes += stringToAdd+"\n";
-//    }
-//
-//    public void editNotes(){
-//        new NoteEditor(notes).setVisible(true);
-//    }
 
 }
