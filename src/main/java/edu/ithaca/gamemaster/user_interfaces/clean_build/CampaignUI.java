@@ -22,6 +22,7 @@ public class CampaignUI extends JPanel implements ActionListener {
     private JButton addNPCButton;
     private JList<NPC> npcList;
     private JLabel user;
+
     DefaultListModel<Session> sessions = new DefaultListModel<>();
     DefaultListModel<NPC> npcs = new DefaultListModel<>();
     DefaultListModel<User> players = new DefaultListModel<>();
@@ -138,6 +139,7 @@ public class CampaignUI extends JPanel implements ActionListener {
                 npcs.addElement(campaign.getNPCList().get(campaign.getNPCList().size()-1));
             }catch (FileAlreadyExistsException a){
                 a.printStackTrace();
+                JOptionPane.showMessageDialog(null, "NPC already exists");
             }
         }
         if(action.equals("AddCharacter")){
@@ -150,6 +152,7 @@ public class CampaignUI extends JPanel implements ActionListener {
                 characters.addElement(campaign.getCharacterList().get(campaign.getCharacterList().size()-1));
             }catch (FileAlreadyExistsException a){
                 a.printStackTrace();
+                JOptionPane.showMessageDialog(null, "Character already exists");
             }
         }
 
