@@ -101,10 +101,10 @@ public class Campaign {
 
 
     public ArrayList<Session> getSessionListClean(){
-        ArrayList<Session> sessionsArray = new ArrayList<>();
-        for(Session val : sessionList.values()){
-            sessionsArray.add(val);
-        }
+        ArrayList<Session> sessionsArray = new ArrayList<>(sessionList.values());
+//        for(Session val : sessionList.values()){
+//            sessionsArray.add(val);
+//        }
         return sessionsArray;
     }
 

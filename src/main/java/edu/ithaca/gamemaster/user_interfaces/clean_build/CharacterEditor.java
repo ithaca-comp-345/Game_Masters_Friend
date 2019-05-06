@@ -116,6 +116,20 @@ public class CharacterEditor extends Container implements ActionListener {
         characterStats();
 
     }
+
+    public CharacterEditor(Player player, String characterName, GMController controller, User loggedUser,JFrame frame){
+
+        this.player = loggedUser.getCharacter(characterName);
+        this.characterLabel = new JLabel();
+        this.characterLabel.setText(characterName);
+        this.controller = controller;
+        this.frame = frame;
+        //setting stats for player
+        saveChangesBtn.setActionCommand("save");
+        saveChangesBtn.addActionListener(this);
+        characterStats();
+
+    }
     public void actionPerformed(ActionEvent ae) {
         String action = ae.getActionCommand();
 

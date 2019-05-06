@@ -76,6 +76,10 @@ public class User {
         return newNPC;
     }
 
+    public void addNPC(String name, NPC npc){
+        npcs.put(name, npc);
+    }
+
     //Character methods
 
     public Player editCharacterName(String characterName, String newName){

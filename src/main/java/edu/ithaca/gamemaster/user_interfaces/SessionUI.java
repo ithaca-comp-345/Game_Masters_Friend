@@ -21,14 +21,16 @@ public class SessionUI extends JPanel implements ActionListener {
     Session session;
     Campaign campaign;
     GMController controller;
+    User loggedUser;
 
     public static JFrame sessionFrame;
 
-    public SessionUI(Session sess, Campaign campaign, JFrame campaignFrame, GMController controller){
+    public SessionUI(Session sess, Campaign campaign, JFrame campaignFrame, GMController controller, User loggedUser){
         this.campaign= campaign;
         this.session = sess;
         this.sessionFrame = campaignFrame;
         this.controller = controller;
+        this.loggedUser = loggedUser;
         createUIComponents();
     }
 
@@ -58,7 +60,7 @@ public class SessionUI extends JPanel implements ActionListener {
             System.out.println(session.getNotes());
         }
         if(action.equals("close")){
-            sessionFrame.setContentPane(new CampaignUI(campaign, controller, sessionFrame).panel);
+            sessionFrame.setContentPane(new CampaignUI(campaign, controller, sessionFrame, loggedUser).panel);
             sessionFrame.setVisible(true);
 
         }

@@ -31,18 +31,22 @@ public class CampaignUI extends JPanel implements ActionListener {
     private Campaign campaign;
     public GMController controller;
     public static JFrame campaignFrame;
+    private User loggedUser;
 
-    public CampaignUI(Campaign campaign, GMController controller, JFrame frame){
+    JFrame characterFrame = new JFrame("Edit");
+
+    public CampaignUI(Campaign campaign, GMController controller, JFrame frame, User loggedUser){
         this.campaign = campaign;
         this.controller = controller;
         this.campaignFrame = frame;
+        this.loggedUser = loggedUser;
 
         sessionList.setModel(sessions);
         npcList.setModel(npcs);
         playerList.setModel(players);
         characterList.setModel(characters);
 
-        user.setText(controller.loggedInUser.getName());
+        user.setText(loggedUser.getName());
 
         this.controller = new GMController();
 
@@ -85,7 +89,7 @@ public class CampaignUI extends JPanel implements ActionListener {
                 Session s = sessionList.getSelectedValue();
                 System.out.println();
                 campaignFrame.setSize(1150, 650);
-                campaignFrame.setContentPane(new SessionUI(s, campaign, campaignFrame, controller).Session);
+                campaignFrame.setContentPane(new SessionUI(s, campaign, campaignFrame, controller, loggedUser).Session);
                 campaignFrame.setVisible(true);
             }
         });
@@ -100,6 +104,7 @@ public class CampaignUI extends JPanel implements ActionListener {
             @Override
             public void valueChanged(ListSelectionEvent e) {
                 Player character = characterList.getSelectedValue();
+                Editor(controller, loggedUser, campaignFrame, character.getName());
             }
         });
 
@@ -127,8 +132,8 @@ public class CampaignUI extends JPanel implements ActionListener {
         if(action.equals("AddNPC")){
             String npcName = JOptionPane.showInputDialog("What is the name of your new NPC?");
             System.out.println(npcName);
-            NPC newNPC = controller.loggedInUser.createNPC(npcName);
             try{
+                NPC newNPC = loggedUser.createNPC(npcName);
                 campaign.addNPC(npcName,newNPC);
                 npcs.addElement(campaign.getNPCList().get(campaign.getNPCList().size()-1));
             }catch (FileAlreadyExistsException a){
@@ -140,7 +145,7 @@ public class CampaignUI extends JPanel implements ActionListener {
             String characterName = charOpt.characterName;
             String charUser = charOpt.username;
             try{
-                Player character = controller.loggedInUser.createCharacter(characterName);
+                Player character = loggedUser.createCharacter(characterName);
                 campaign.addCharacter(characterName, character);
                 characters.addElement(campaign.getCharacterList().get(campaign.getCharacterList().size()-1));
             }catch (FileAlreadyExistsException a){
@@ -150,9 +155,11 @@ public class CampaignUI extends JPanel implements ActionListener {
 
     }
 
-
-
-
-
-
+    public void Editor(GMController controller, User loggedUser,JFrame frame, String characterName){
+        Player characterToEdit = loggedUser.getCharacter(characterName);
+        frame.setSize(1150, 650);
+        frame.setContentPane(new CharacterEditor(characterToEdit, characterName, controller, loggedUser,frame).CharacterEditor);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
 }

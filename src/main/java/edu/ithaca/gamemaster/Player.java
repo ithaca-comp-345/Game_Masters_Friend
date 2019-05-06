@@ -817,4 +817,9 @@ public class Player extends Character {
     public void setInspiration(int inspiration) {
         this.inspiration = inspiration;
     }
+
+    @Override
+    public String toString(){
+        return super.getName();
+    }
 }

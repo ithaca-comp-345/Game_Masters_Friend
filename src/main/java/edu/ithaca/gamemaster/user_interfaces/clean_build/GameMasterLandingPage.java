@@ -1611,7 +1611,7 @@ public class GameMasterLandingPage extends JPanel implements ActionListener {
         try{
             Campaign campaign = controller.loggedInUser.getACreatedCampaign(campaignName.getText());
             frame.setSize(1150, 650);
-            frame.setContentPane(new CampaignUI(campaign, controller, frame).panel);
+            frame.setContentPane(new CampaignUI(campaign, controller, frame, controller.loggedInUser).panel);
             frame.setVisible(true);
 
         }catch(FileNotFoundException e){
