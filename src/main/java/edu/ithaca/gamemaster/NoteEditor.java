@@ -1,12 +1,12 @@
 package edu.ithaca.gamemaster;
 
 
+import edu.ithaca.gamemaster.user_interfaces.Notes;
+
 import javax.swing.*;
-import javax.swing.Action;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 
 public class NoteEditor extends JFrame {
     public JButton button;

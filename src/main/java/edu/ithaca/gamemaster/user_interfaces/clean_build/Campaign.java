@@ -63,6 +63,27 @@ public class Campaign {
         }
     }
 
+    public void addCharacter(String characterName, Player character) throws FileAlreadyExistsException{
+        if(characterList.containsKey(characterName)){
+            throw new FileAlreadyExistsException("Character already exist");
+        }
+        else {
+            characterList.put(characterName, character);
+        }
+
+    }
+
+    public void addNPC(String npcName, NPC npc) throws FileAlreadyExistsException{
+        if(npcsList.containsKey(npcName)){
+            throw new FileAlreadyExistsException("NPC already exist");
+        }
+        else{
+            npcsList.put(npcName, npc);
+        }
+
+    }
+
+
     public void createPlayerChar(User player){
         //TODO
     }
@@ -80,10 +101,32 @@ public class Campaign {
 
 
     public ArrayList<Session> getSessionListClean(){
-        ArrayList<Session> sessionsArray = new ArrayList<>();
-        for(Session val : sessionList.values()){
-            sessionsArray.add(val);
-        }
+        ArrayList<Session> sessionsArray = new ArrayList<>(sessionList.values());
+//        for(Session val : sessionList.values()){
+//            sessionsArray.add(val);
+//        }
         return sessionsArray;
     }
+
+
+    public ArrayList<NPC> getNPCList(){
+        ArrayList<NPC> npcArr = new ArrayList<>();
+        for(NPC val: npcsList.values()){
+            npcArr.add(val);
+        }
+        return npcArr;
+    }
+
+    public ArrayList<User> getPlayerList(){
+        ArrayList<User> playerArr = new ArrayList<>(players.values());
+        return playerArr;
+    }
+
+    public ArrayList<Player> getCharacterList(){
+        ArrayList<Player> characterArr = new ArrayList<>(characterList.values());
+        return characterArr;
+    }
+
+
+
 }

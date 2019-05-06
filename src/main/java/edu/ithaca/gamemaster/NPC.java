@@ -73,6 +73,11 @@ public class NPC extends Character {
         this.condImmune=condImmune;
     }
 
+    @Override
+    public String toString(){
+        return super.getName();
+    }
+
     //Generators
     public void generateNPC(){
         //TODO

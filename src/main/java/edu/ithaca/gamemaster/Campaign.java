@@ -5,19 +5,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 import edu.ithaca.gamemaster.map.Location;
+import edu.ithaca.gamemaster.user_interfaces.Notes;
 import edu.ithaca.gamemaster.user_interfaces.clean_build.Session;
+import edu.ithaca.gamemaster.user_interfaces.clean_build.User;
 
 public class Campaign{
 
     public String campaignName;
     //public Location location;
     private Map<String,PlayerUser> userPlayers;
-    private Map<String,Notes> notes;
+    private Map<String, Notes> notes;
     private Map<String, Session> sessions;
     private Map<String, Character> characters;
     private GameMaster gm;
     private Map<String, Location> locations;
     private Map<String, NPC> npcs;
+    private Map<String, User> players;
 
 
     public Campaign(){
@@ -101,9 +104,10 @@ public class Campaign{
 
 
 
-    public void addNotes(String sessionName){
+    public void addNotes(String sessionName, String stringNote){
         if(!notes.containsKey(sessionName)){
-            Notes note=new Notes(sessionName);
+            Notes note= new Notes(sessionName);
+            note.setNotes(stringNote);
             notes.put(sessionName,note);
         }
         else {
@@ -118,9 +122,9 @@ public class Campaign{
         throw new IllegalArgumentException("notes were not found");
     }
 
-    public void addToCurrNotes(String sessionName){
+    public void editCurrNotes(String sessionName, String note){
         if(notes.containsKey(sessionName)){
-            new NoteEditor(notes.get(sessionName)).setVisible(true);
+            notes.get(sessionName).setNotes(note);
         }
         else{
             throw new IllegalArgumentException("notes were not found");
@@ -157,10 +161,6 @@ public class Campaign{
         }
     }
 
-    public String shareInformation(String sessionName){
-        return notes.get(sessionName).getNotes();
-    }
-
     public void addNPC(String npcName,NPC npc){
         npcs.put(npcName, npc);
     }
@@ -183,14 +183,22 @@ public class Campaign{
         }
     }
 
+    public String shareNotes(String sessionName){
+        if(notes.containsKey(sessionName)){
+            return getNotes(sessionName);
+        }
+        else{
+            throw new IllegalArgumentException("Session doesn't exist");
+        }
+    }
+
+
 
    // public void createEncounter(){}
     // public void editCharacter(){};
     // public void editLocation(){};
     // public void editNPC();
     // public void editMap();
-    // public void searchNPC();
-    // public void shareMap();
 
 
 }
